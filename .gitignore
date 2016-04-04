@@ -1,12 +1,13 @@
 *
 !.gitignore 
+!.gitconfig
+
 !.bash_aliases
 !.bash_profile
 !.bashrc
-!.gitconfig
-!.gitignore
-!.minttyrc
 !.profile
+!.minttyrc
+
 !.tmux.conf
 !.vimrc
 !README.md
