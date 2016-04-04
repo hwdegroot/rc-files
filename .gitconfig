@@ -1,0 +1,65 @@
+[user]
+	name = Rik de Groot
+	email = rik.de.groot@mendix.com
+[core]
+	autocrlf = false
+	editor = vim
+	fileMode = false
+	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+[branch]
+	autosetuprebase = always
+[pull]
+	rebase = preserve
+[rerere]
+	enabled = true
+[push]
+	default = simple
+[color "branch"]
+    # https://nathanhoad.net/how-to-colours-in-git
+    current = yellow bold
+    local = yellow dim
+    remote = green dim bold
+[color "status"]
+  added = green
+  changed = red bold
+  untracked = magenta bold
+[color]
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = true
+  pager = true
+[diff]
+	tool = p4mergetool
+	algorithm = patience
+[difftool "winmerge"]
+	path = '/cygdrive/c/Program Files (x86)/Winmerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
+[merge]
+  ff = false
+	tool = p4mergetool
+[mergetool "winmerge"]
+	path = '/cygdrive/c/Program Files (x86)/Winmerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+[credential]
+	helper = wincred
+[color]
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+	ui = auto
+  pager = true
+[alias]
+	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[mergetool "p4mergetool"]
+	cmd = C:\\Program Files\\Perforce\\p4merge.exe \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+	trustExitCode = false
+[mergetool]
+	keepBackup = false
+[difftool "p4mergetool"]
+	cmd = "C:\\Program Files\\Perforce\\p4merge.exe" \"$LOCAL\" \"$REMOTE\"

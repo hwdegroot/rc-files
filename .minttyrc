@@ -1,0 +1,9 @@
+BoldAsFont=no
+Font=Inconsolata for Powerline
+FontHeight=11
+FontSmoothing=full
+BoldAsColour=no
+Columns=200
+Rows=54
+Locale=en_US
+Charset=UTF-8
