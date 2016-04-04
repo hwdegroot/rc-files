@@ -8,6 +8,7 @@
 !.profile
 !.minttyrc
 
+!tmux-mytheme.default.sh
 !.tmux.conf
 !.vimrc
 !README.md
