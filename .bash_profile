@@ -60,7 +60,6 @@ if [[ -d /cygdrive/c/source/platform ]]; then
   cd $PLATFORM
 fi
 
-export GOBIN=/cygdrive/c/Go/bin
 if [[ ! $TERM =~ screen ]]; then
     exec tmux -2
 fi

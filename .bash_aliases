@@ -23,7 +23,7 @@ alias vup="vagrant up"
 alias tmux="tmux -2"
 alias winhome="cd /cygdrive/c/Users/rgr"
 
-#alias vs="/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe &"
+# Visual Studio shortcut
 function vs() { 
   eval "/cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 14.0/Common7/IDE/devenv.exe $* & disown" 
 }
