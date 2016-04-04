@@ -1,24 +1,24 @@
 [user]
-	name = Rik de Groot
-	email = rik.de.groot@mendix.com
+  name = Rik de Groot
+  email = rik.de.groot@mendix.com
 [core]
-	autocrlf = false
-	editor = vim
-	fileMode = false
-	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+  autocrlf = false
+  editor = vim
+  fileMode = false
+  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [branch]
-	autosetuprebase = always
+  autosetuprebase = always
 [pull]
-	rebase = preserve
+  rebase = preserve
 [rerere]
-	enabled = true
+  enabled = true
 [push]
-	default = simple
+  default = simple
 [color "branch"]
-    # https://nathanhoad.net/how-to-colours-in-git
-    current = yellow bold
-    local = yellow dim
-    remote = green dim bold
+  # https://nathanhoad.net/how-to-colours-in-git
+  current = yellow bold
+  local = yellow dim
+  remote = green dim bold
 [color "status"]
   added = green
   changed = red bold
@@ -30,36 +30,31 @@
   ui = true
   pager = true
 [diff]
-	tool = p4mergetool
-	algorithm = patience
-[difftool "winmerge"]
-	path = '/cygdrive/c/Program Files (x86)/Winmerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
+  tool = p4mergetool
+  algorithm = patience
 [merge]
   ff = false
-	tool = p4mergetool
-[mergetool "winmerge"]
-	path = '/cygdrive/c/Program Files (x86)/Winmerge/WinMergeU.exe' \"$LOCAL\" \"$REMOTE\"
-	trustExitCode = true
+  tool = p4mergetool
 [credential]
-	helper = wincred
+  helper = wincred
 [color]
   diff = auto
   status = auto
   branch = auto
   interactive = auto
-	ui = auto
+  ui = auto
   pager = true
 [alias]
-	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+  permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [mergetool "p4mergetool"]
-	cmd = C:\\Program Files\\Perforce\\p4merge.exe \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
-	trustExitCode = false
+  cmd = C:\\Program Files\\Perforce\\p4merge.exe \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+  trustExitCode = false
 [mergetool]
-	keepBackup = false
+  keepBackup = false
 [difftool "p4mergetool"]
-	cmd = "C:\\Program Files\\Perforce\\p4merge.exe" \"$LOCAL\" \"$REMOTE\"
+  cmd = "C:\\Program Files\\Perforce\\p4merge.exe" \"$LOCAL\" \"$REMOTE\"
