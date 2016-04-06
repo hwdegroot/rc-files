@@ -54,12 +54,6 @@ export VAGRANT_DETECTED_OS=cygwin
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-# Make C:\source\platform\ startup dir
-if [[ -d /cygdrive/c/source/platform ]]; then
-  export PLATFORM=/cygdrive/c/source/platform
-  cd $PLATFORM
-fi
-
 if [[ ! $TERM =~ screen ]]; then
     exec tmux -2
 fi

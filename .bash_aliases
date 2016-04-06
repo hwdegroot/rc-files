@@ -10,7 +10,7 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
 fi
 
 if [[ -f ~/tools/.toolsrc ]]; then
-    [[ -z "$PLATFORM" ]] && export PLATFORM=/cygdrive/c/source/platform/
+    [[ -z "$PLATFORM" && -d "/cygdrive/c/source/platform/" ]] && export PLATFORM=/cygdrive/c/source/platform/
     export VSTOOLS=~/tools
     source ~/tools/.toolsrc
     alias git-filemode=~/tools/git-filemode.sh
