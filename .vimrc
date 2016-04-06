@@ -65,8 +65,8 @@ let python_highlight_all = 1
 set showmatch
 
 " Use n/N silent for previous and next buffer (switch tabs as you will)
-nnoremap <silent> - :bprev<cr>
-nnoremap <silent> + :bnext<cr>
+nnoremap <silent> [ :bprev<cr>
+nnoremap <silent> ] :bnext<cr>
 
 " Jedi autocompletion stuff for vim
 " https://github.com/davidhalter/jedi-vim
