@@ -105,5 +105,3 @@ fi
 if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
-
-LS_COLORS=$LS_COLORS:'di=1;94:' ; export LS_COLORS
