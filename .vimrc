@@ -17,8 +17,13 @@ Plugin 'VundleVim/Vundle.vim'
 " Plugin from a git* repo
 "Plugin 'Valloric/YouCompleteMe'
 
+" Puppet syntax highlighting
+Plugin 'puppetlabs/puppet-syntax-vim'
+
+" Python autocompletion
 Plugin 'davidhalter/jedi-vim'
 
+"Vim powerline
 Plugin 'Lokaltog/vim-powerline'
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,9 +59,10 @@ set backspace=2
 autocmd Filetype gitcommit setlocal textwidth=72
 
 " Change end-of-line, space and tab characters.
-set list lcs=eol:$,trail:·,tab:»·
-hi NonText ctermfg=7 guifg=lightgray
-hi SpecialKey ctermfg=7 guifg=red
+set list
+set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
+hi NonText ctermfg=238 ctermbg=None guifg=#000000 guibg=None
+hi SpecialKey ctermfg=130 ctermbg=None guifg=#af5f00 guibg=None
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
@@ -67,6 +73,7 @@ set showmatch
 " Use n/N silent for previous and next buffer (switch tabs as you will)
 nnoremap <silent> [ :bprev<cr>
 nnoremap <silent> ] :bnext<cr>
+vnoremap y "+y
 
 " Jedi autocompletion stuff for vim
 " https://github.com/davidhalter/jedi-vim
