@@ -54,6 +54,6 @@ export VAGRANT_DETECTED_OS=cygwin
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-if [[ ! $TERM =~ screen ]]; then
+if [[ ! $TERM =~ screen && -z "$TMUX" ]]; then
     exec tmux -2
 fi
