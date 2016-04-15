@@ -30,13 +30,13 @@
   ui = true
   pager = true
 [diff]
-  tool = p4mergetool
+  tool = p4mergedifftool
   algorithm = patience
 [merge]
   ff = false
   tool = p4mergetool
 [credential]
-  helper = wincred
+	helper = store
 [color]
   diff = auto
   status = auto
@@ -52,9 +52,9 @@
   newNormal = green bold
   newHighlight = green bold 22
 [mergetool "p4mergetool"]
-  cmd = C:\\Program Files\\Perforce\\p4merge.exe \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+  cmd = p4merge \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
   trustExitCode = false
 [mergetool]
   keepBackup = false
-[difftool "p4mergetool"]
-  cmd = "C:\\Program Files\\Perforce\\p4merge.exe" \"$LOCAL\" \"$REMOTE\"
+[difftool "p4mergedifftool"]
+  cmd = p4merge \"$LOCAL\" \"$REMOTE\"

@@ -70,10 +70,12 @@ let python_highlight_all = 1
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
-" Use n/N silent for previous and next buffer (switch tabs as you will)
-nnoremap <silent> [ :bprev<cr>
-nnoremap <silent> ] :bnext<cr>
+" Use silent for previous and next buffer (switch tabs as you will)
+nnoremap <silent> <F11> :bprev<cr>
+nnoremap <silent> <F12> :bnext<cr>
+
 vnoremap y "+y
+map <C-s> :w<CR>
 
 " Jedi autocompletion stuff for vim
 " https://github.com/davidhalter/jedi-vim

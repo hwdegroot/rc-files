@@ -57,3 +57,19 @@ export EDITOR="$VISUAL"
 if [[ ! $TERM =~ screen && -z "$TMUX" ]]; then
     exec tmux -2
 fi
+
+export WORKON_HOME=$HOME/.virtualenvs
+source /cygdrive/c/cygwin64/bin/virtualenvwrapper.sh
+
+# virtualenv aliases
+# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
+alias v='workon'
+alias v.deactivate='deactivate'
+alias v.mk='mkvirtualenv --no-site-packages'
+alias v.mk_withsitepackages='mkvirtualenv'
+alias v.rm='rmvirtualenv'
+alias v.switch='workon'
+alias v.add2virtualenv='add2virtualenv'
+alias v.cdsitepackages='cdsitepackages'
+alias v.cd='cdvirtualenv'
+alias v.lssitepackages='lssitepackages'
