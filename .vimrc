@@ -71,12 +71,24 @@ let python_highlight_all = 1
 set showmatch
 
 " Use silent for previous and next buffer (switch tabs as you will)
-nnoremap <silent> <F11> :bprev<cr>
-nnoremap <silent> <F12> :bnext<cr>
-
-vnoremap y "+y
-map <C-s> :w<CR>
+map <Esc>[1;5A <C-Up>
+map <Esc>[1;5B <C-Down>
+map <Esc>[1;5C <C-Right>
+map <Esc>[1;5D <C-Left>
+map <Esc>[1;2A <S-Up>
+map <Esc>[1;2B <S-Down>
+map <Esc>[0;2C <S-Right>
+map <Esc>[1;2D <S-Left>
+map <Esc>[1;3A <Alt-Up>
+map <Esc>[1;3B <Alt-Down>
+map <Esc>[1;3C <Alt-Right>
+map <Esc>[1;3D <Alt-Left>
+nnoremap <silent> <C-Up> dd<Up>P
+nnoremap <silent> <C-Down> dd<Down>P
+nnoremap <silent> <C-Left> :bprev<cr>
+nnoremap <silent> <C-Right> :bnext<cr>
 
 " Jedi autocompletion stuff for vim
 " https://github.com/davidhalter/jedi-vim
 let g:jedi#use_splits_not_buffers = "right"
+

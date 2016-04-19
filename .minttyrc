@@ -3,11 +3,10 @@ Font=Inconsolata for Powerline
 FontHeight=11
 FontSmoothing=full
 BoldAsColour=no
-Columns=200
-Rows=54
+Columns=237
+Rows=78
 Locale=en_US
 Charset=UTF-8
-
 ForegroundColour=208,208,208
 BackgroundColour=21,21,21
 CursorColour=253,157,79
