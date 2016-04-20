@@ -83,6 +83,7 @@ map <Esc>[1;3A <Alt-Up>
 map <Esc>[1;3B <Alt-Down>
 map <Esc>[1;3C <Alt-Right>
 map <Esc>[1;3D <Alt-Left>
+vnoremap y "*y
 nnoremap <silent> <C-Up> dd<Up>P
 nnoremap <silent> <C-Down> dd<Down>P
 nnoremap <silent> <C-Left> :bprev<cr>
