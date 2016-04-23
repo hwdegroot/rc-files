@@ -67,6 +67,10 @@ hi SpecialKey ctermfg=130 ctermbg=None guifg=#af5f00 guibg=None
 " enable all Python syntax highlighting features
 let python_highlight_all = 1
 
+" Jedi autocompletion stuff for vim
+" https://github.com/davidhalter/jedi-vim
+let g:jedi#use_splits_not_buffers = "right"
+
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
@@ -86,10 +90,18 @@ map <Esc>[1;3D <Alt-Left>
 vnoremap y "*y
 nnoremap <silent> <C-Up> dd<Up>P
 nnoremap <silent> <C-Down> dd<Down>P
-nnoremap <silent> <C-Left> :bprev<cr>
-nnoremap <silent> <C-Right> :bnext<cr>
+nnoremap <silent> <C-Left> :bprev!<cr>
+nnoremap <silent> <C-Right> :bnext!<cr>
 
-" Jedi autocompletion stuff for vim
-" https://github.com/davidhalter/jedi-vim
-let g:jedi#use_splits_not_buffers = "right"
+" block cursor
+highlight Cursor guifg=white guibg=black
+highlight iCursor guifg=white guibg=steelblue
+set guicursor=n-v-c:block-Cursor
+set guicursor+=i:ver100-iCursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:blinkwait10
+"let &t_ti.="\e[1 q"
+"let &t_SI.="\e[5 q"
+"let &t_EI.="\e[1 q"
+"let &t_te.="\e[0 q"
 

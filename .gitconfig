@@ -1,60 +1,71 @@
 [user]
-  name = Rik de Groot
-  email = rik.de.groot@mendix.com
+	name = Rik de Groot
+	email = rik.de.groot@mendix.com
 [core]
-  autocrlf = false
-  editor = vim
-  fileMode = false
-  pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
+	autocrlf = False
+	editor = vim
+	fileMode = false
+	pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [branch]
-  autosetuprebase = always
+	autosetuprebase = always
 [pull]
-  rebase = preserve
+	rebase = preserve
 [rerere]
-  enabled = true
+	enabled = true
 [push]
-  default = simple
+	default = simple
 [color "branch"]
-  # https://nathanhoad.net/how-to-colours-in-git
-  current = yellow bold
-  local = yellow dim
-  remote = green dim bold
+	current = yellow bold
+	local = yellow dim
+	remote = green dim bold
 [color "status"]
-  added = green
-  changed = red bold
-  untracked = magenta bold
+	added = green
+	changed = red bold
+	untracked = magenta bold
 [color]
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = true
-  pager = true
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
 [diff]
-  tool = p4mergedifftool
-  algorithm = patience
+	tool = p4mergedifftool
+	algorithm = patience
+	guitool = p4merge
 [merge]
-  ff = false
-  tool = p4mergetool
+	ff = false
+	tool = TortoiseMerge
 [credential]
 	helper = store
 [color]
-  diff = auto
-  status = auto
-  branch = auto
-  interactive = auto
-  ui = auto
-  pager = true
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = auto
+	pager = true
 [alias]
-  permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+	permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
 [color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [mergetool "p4mergetool"]
-  cmd = p4merge \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
-  trustExitCode = false
+	cmd = p4merge \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+	trustExitCode = false
 [mergetool]
-  keepBackup = false
+	keepBackup = false
 [difftool "p4mergedifftool"]
-  cmd = p4merge \"$LOCAL\" \"$REMOTE\"
+	cmd = p4merge \"$LOCAL\" \"$REMOTE\"
+[difftool "p4mergetool"]
+	path = C:/Program Files/Perforce/p4merge.exe
+[difftool "p4merge"]
+	path = C:/Program Files/Perforce/p4merge.exe
+	cmd = \"C:/Program Files/Perforce/p4merge.exe\" \"$LOCAL\" \"$REMOTE\"
+[mergetool "p4merge"]
+	path = C:/Program Files/Perforce/p4merge.exe
+	cmd = \"C:/Program Files/Perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[mergetool "TortoiseMerge"]
+	path = C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe
+	cmd = \"C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe\" /base:\"$BASE\" /mine:\"$LOCAL\" /theirs:\"$REMOTE\" /merged:\"$MERGED\"
