@@ -18,4 +18,5 @@
 .virtualenvs
 .viminfo
 .local
-.vim/bundle/vim-powerline
+.vim/bundle/*
+!.vim/bundle/Vundle.vim/*
