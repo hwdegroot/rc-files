@@ -1,7 +1,3 @@
-*
-!.tmux-powerline/segments/user.sh
-!.tmux-powerline/themes/default.sh
-
 !.gitignore 
 !.gitconfig
 
@@ -14,3 +10,12 @@
 !.tmux.conf
 !.vimrc
 !README.md
+.bash_history
+.ssh/*
+!.ssh/config 
+!.ssh/known_hosts
+.cache
+.virtualenvs
+.viminfo
+.local
+.vim/bundle/vim-powerline

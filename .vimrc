@@ -14,8 +14,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Plugin from a git* repo
-"Plugin 'Valloric/YouCompleteMe'
+" Plugin vim puppet
+Plugin 'rodjek/vim-puppet.git'
 
 " Puppet syntax highlighting
 Plugin 'puppetlabs/puppet-syntax-vim'
@@ -61,8 +61,8 @@ autocmd Filetype gitcommit setlocal textwidth=72
 " Change end-of-line, space and tab characters.
 set list
 set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
-hi NonText ctermfg=238 ctermbg=None guifg=#000000 guibg=None
-hi SpecialKey ctermfg=130 ctermbg=None guifg=#af5f00 guibg=None
+hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
+hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 
 " enable all Python syntax highlighting features
 let python_highlight_all = 1

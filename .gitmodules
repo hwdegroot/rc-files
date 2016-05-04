@@ -1,0 +1,12 @@
+[submodule ".vim/bundle/Vundle.vim"]
+	path = .vim/bundle/Vundle.vim
+	url = git@github.com:VundleVim/Vundle.vim.git
+[submodule ".tmux-powerline"]
+	path = .tmux-powerline
+	url = git@github.com:erikw/tmux-powerline.git
+[submodule "gittools"]
+	path = gittools
+	url = git@github.com:hwdegroot/gittools.git
+[submodule "fonts"]
+	path = fonts
+	url = git@github.com:powerline/fonts.git
