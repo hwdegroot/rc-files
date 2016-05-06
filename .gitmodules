@@ -9,7 +9,6 @@
 [submodule "gittools"]
 	path = gittools
 	url = git@github.com:hwdegroot/gittools.git
-	ignore = dirty
 [submodule "fonts"]
 	path = fonts
 	url = git@github.com:powerline/fonts.git
