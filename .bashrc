@@ -102,3 +102,6 @@ if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
 
+if [[ ! $TERM =~ screen && -z $TMUX ]]; then
+    exec tmux -2
+fi
