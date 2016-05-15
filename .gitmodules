@@ -2,10 +2,6 @@
 	path = .vim/bundle/Vundle.vim
 	url = git@github.com:VundleVim/Vundle.vim.git
 	ignore = dirty
-[submodule ".tmux-powerline"]
-	path = .tmux-powerline
-	url = git@github.com:erikw/tmux-powerline.git
-	ignore = dirty
 [submodule "gittools"]
 	path = gittools
 	url = git@github.com:hwdegroot/gittools.git
@@ -13,3 +9,6 @@
 	path = fonts
 	url = git@github.com:powerline/fonts.git
 	ignore = dirty
+[submodule ".tmux-powerline"]
+	path = .tmux-powerline
+	url = git@github.com:hwdegroot/tmux-powerline.git
