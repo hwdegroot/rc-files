@@ -51,7 +51,7 @@ set softtabstop=2
 " make tab insert indents instead of tabs at the beginning of a line
 set smarttab
 
-" " always uses spaces instead of tab characters
+" always uses spaces instead of tab characters
 set expandtab
 
 " Git highlighting in vim
