@@ -102,6 +102,12 @@ if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
 
+# start TMUX if it isn ot already started and terminal supports it.
 if [[ ! $TERM =~ screen && -z $TMUX ]]; then
     exec tmux -2
+fi
+
+# source rvm file
+if [[ -f /etc/profile.d/rvm.sh ]]; then
+  source /etc/profile.d/rvm.sh
 fi
