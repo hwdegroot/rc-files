@@ -14,6 +14,9 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Vagrant highlightinh
+Plugin 'hashivim/vim-vagrant'
+
 " Plugin vim puppet
 Plugin 'rodjek/vim-puppet.git'
 

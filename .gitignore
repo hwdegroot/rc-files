@@ -8,6 +8,8 @@
 !.profile
 !.minttyrc
 
+!.vim/*
+.vim/bundle/
 !.tmux.conf
 !.vimrc
 !README.md
