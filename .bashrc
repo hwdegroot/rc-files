@@ -81,7 +81,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
-[[ -d "/cygdrive/c/source/platform" ]] && alias pd='cd /cygdrive/c/source/platform'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
