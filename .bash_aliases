@@ -9,4 +9,5 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
     source ~/gittools/.gittoolsrc
 fi
 
+alias my-ip="wget http://ipinfo.io/ip -qO -"
 alias tmux="tmux -2"
