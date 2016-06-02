@@ -23,3 +23,5 @@ local/
 bin/
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*
+!.autocompletion
+
