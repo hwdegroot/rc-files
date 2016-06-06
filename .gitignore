@@ -20,5 +20,6 @@
 !local/
 !bin/
 !.config/*
+!bash-git-prompt/
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*

@@ -15,3 +15,6 @@
   url = git@github.com:hwdegroot/tmux-powerline.git
   ignore = dirty
 
+[submodule "bash-git-prompt"]
+	path = bash-git-prompt
+	url = git@github.com:hwdegroot/bash-git-prompt.git

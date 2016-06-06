@@ -155,5 +155,7 @@ bar {
         status_command i3status
 }
 
+# Spawn a terminal in the same directory
+bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
 exec --no-startup-id nm-applet
-bindsym $mod+l exec "i3lock -c 000000 -i /home/rikdegroot/Pictures/LockScreen.jpg -p default -d -n"
+bindsym $mod+l exec "i3lock -c 000000 -i /home/rikdegroot/Pictures/LockScreen.png -p default -d -n"

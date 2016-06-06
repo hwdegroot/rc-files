@@ -115,3 +115,6 @@ fi
 if [[ ! -z "$(which xinput)" ]]; then
   xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -77, -77
 fi
+
+. ~/.config/bash-git-prompt/config
+. ~/bash-git-prompt/gitprompt.sh
