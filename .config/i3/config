@@ -156,6 +156,12 @@ bar {
 }
 
 # Spawn a terminal in the same directory
-bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
-exec --no-startup-id nm-applet
 bindsym $mod+l exec "i3lock -c 000000 -i /home/rikdegroot/Pictures/LockScreen.png -p default -d -n"
+
+# Start shell in pwd
+bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
+
+# startup network-manager applet
+exec --no-startup-id nm-appleti
+
+exec --no-start-id scudcloud --minimized true
