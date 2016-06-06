@@ -91,7 +91,7 @@ noremap <silent> <C-Up> dd<Up>P
 noremap <silent> <C-Down> dd<Down>P
 noremap <silent> <C-Left> :bprev!<cr>
 noremap <silent> <C-Right> :bnext!<cr>
-" vnoremap y "*y
+vmap y "*y
 
 
 " block cursor
