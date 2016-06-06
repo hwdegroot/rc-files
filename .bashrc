@@ -103,11 +103,15 @@ if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
 fi
 
 # start TMUX if it isn ot already started and terminal supports it.
-if [[ ! $TERM =~ screen && -z $TMUX ]]; then
-    exec tmux -2
-fi
+# if [[ ! $TERM =~ screen && -z $TMUX ]]; then
+#     exec tmux -2
+# fi
 
 # source rvm file
 if [[ -f /etc/profile.d/rvm.sh ]]; then
   source /etc/profile.d/rvm.sh
+fi
+
+if [[ ! -z "$(which xinput)" ]]; then
+  xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -77, -77
 fi

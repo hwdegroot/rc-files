@@ -17,7 +17,8 @@
 .virtualenvs/
 .viminfo
 .local/
-local/
-bin/
+!local/
+!bin/
+!.config
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*
