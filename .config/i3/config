@@ -167,5 +167,8 @@ bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
+#exec /usr/bin/bluetooth-applet
 
-exec --no-start-id "scudcloud --minimized true"
+#exec /usr/bin/scudcloud --minimized true
+
+exec --no-startup-id "/usr/bin/feh --bg-scale /home/rikdegroot/Pictures/Wallpaper.jpg"
