@@ -19,6 +19,6 @@
 .local/
 !local/
 !bin/
-!.config
+!.config/*
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*
