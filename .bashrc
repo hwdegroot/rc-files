@@ -112,7 +112,7 @@ if [[ -f /etc/profile.d/rvm.sh ]]; then
   source /etc/profile.d/rvm.sh
 fi
 
-if [[ ! -z "$(which xinput)" ]]; then
+if [[ ! -z "$(which xinput)" ]] && [[ -z "$SSH_TTY" ]]; then
   xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -77, -77
 fi
 
