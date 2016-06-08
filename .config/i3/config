@@ -169,6 +169,6 @@ bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
 exec --no-startup-id nm-applet
 #exec /usr/bin/bluetooth-applet
 
-#exec /usr/bin/scudcloud --minimized true
+exec "slack --startup"
 
 exec --no-startup-id "/usr/bin/feh --bg-scale /home/rikdegroot/Pictures/Wallpaper.jpg"
