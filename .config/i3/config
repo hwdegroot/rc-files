@@ -161,9 +161,10 @@ bindsym $mod+l exec "i3lock -c 000000 -i /home/rikdegroot/Pictures/LockScreen.pn
 # Start shell in pwd
 bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
 
-# Reboot machine
-#bindsym $md+Alt+r exec "i3-nagbar -t warning -m 'Reboot?' -b 'Yes, shutdown -r -t 0' 'i3-msg exit'"
-#bindsym $mod+Alt+s exec "i3-nagbar -t warning -m 'Shutdown?' -b 'Yes, shutdown -r -t 0' 'i3-msg exit'"
+# Sound mixer
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 3+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 3- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
