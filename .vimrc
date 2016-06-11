@@ -92,3 +92,8 @@ noremap <silent> <C-Down> dd<Down>P
 noremap <silent> <C-Left> :bprev!<CR>
 noremap <silent> <C-Right> :bnext!<CR>
 
+" Vimmdiff mappings 
+map <silent> <C-r>r :diffg RE
+map <silent> <C-b>b :diffg BA
+map <silent> <C-l>L :diffg LO
+
