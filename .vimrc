@@ -32,6 +32,9 @@ Plugin 'tpope/vim-fireplace'
 " Erlang autocompletion
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
+" clojure highlighting
+Plugin 'guns/vim-clojure-highlight'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 

@@ -116,5 +116,7 @@ if [[ ! -z "$(which xinput)" ]] && [[ -z "$SSH_TTY" ]]; then
   xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -77, -77
 fi
 
+PATH=$HOME/.local/bin:$HOME/bin:$PATH
+
 . ~/.config/bash-git-prompt/config
 . ~/bash-git-prompt/gitprompt.sh
