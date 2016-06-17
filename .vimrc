@@ -23,8 +23,15 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 " Python autocompletion
 Plugin 'davidhalter/jedi-vim'
 
-"Vim powerline
+" Vim powerline
 Plugin 'hwdegroot/vim-powerline'
+
+" clojure autocomplete
+Plugin 'tpope/vim-fireplace'
+
+" Erlang autocompletion
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
