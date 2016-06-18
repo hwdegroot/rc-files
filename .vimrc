@@ -33,6 +33,7 @@ Plugin 'tpope/vim-fireplace'
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
 " clojure highlighting
+Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
 
 call vundle#end()            " required
@@ -83,9 +84,11 @@ let g:jedi#use_splits_not_buffers = "right"
 " clojure edit mode
 let g:paredit_mode = 1
 
+" clojure static
+let g:clojure_align_multiline_strings = 0
 " Evaluate Clojure buffers on load
 autocmd BufRead,BufNewFile,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
-autocmd Syntax clojure EnableSyntaxExtension
+" autocmd Syntax clojure EnableSyntaxExtension
 
 " Set groovy highlighting for all grovy extension and for jenkinsfile
 au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
@@ -94,12 +97,30 @@ au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
 
 
 " Rainbow parenthesis: git@github.com:kien/rainbow_parentheses.vim.git
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-autocmd VimEnter *       RainbowParenthesesToggle
-autocmd Syntax   clojure RainbowParenthesesLoadRound
-autocmd Syntax   clojure RainbowParenthesesLoadSquare
-autocmd Syntax   clojure RainbowParenthesesLoadBraces
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
