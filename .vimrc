@@ -38,7 +38,6 @@ Plugin 'guns/vim-clojure-highlight'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
 
 set number
 set nocp
@@ -80,6 +79,27 @@ let python_highlight_all = 1
 " Jedi autocompletion stuff for vim
 " https://github.com/davidhalter/jedi-vim
 let g:jedi#use_splits_not_buffers = "right"
+
+" clojure edit mode
+let g:paredit_mode = 1
+
+" Evaluate Clojure buffers on load
+autocmd BufRead,BufNewFile,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
+autocmd Syntax clojure EnableSyntaxExtension
+
+" Set groovy highlighting for all grovy extension and for jenkinsfile
+au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+" Set ruby syntax for Vagrantfile
+au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
+
+
+" Rainbow parenthesis: git@github.com:kien/rainbow_parentheses.vim.git
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+autocmd VimEnter *       RainbowParenthesesToggle
+autocmd Syntax   clojure RainbowParenthesesLoadRound
+autocmd Syntax   clojure RainbowParenthesesLoadSquare
+autocmd Syntax   clojure RainbowParenthesesLoadBraces
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
