@@ -28,14 +28,16 @@ Plugin 'davidhalter/jedi-vim'
 
 "Vim powerline
 Plugin 'Lokaltog/vim-powerline'
+
+" Clojure plugins inc fireplace
+Plugin 'tpope/vim-fireplace'
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
-
 set number
 set nocp
-
 "Use monokai colorscheme for vim
 "see: https://github.com/sickill/vim-monokai
 syntax enable
@@ -57,25 +59,18 @@ set smarttab
 " " always uses spaces instead of tab characters
 set expandtab
 
-" Git highlighting in vim
-set backspace=2
-autocmd Filetype gitcommit setlocal textwidth=72
-
 " Change end-of-line, space and tab characters.
 set list
 set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
-
-" Jedi autocompletion stuff for vim
-" https://github.com/davidhalter/jedi-vim
-let g:jedi#use_splits_not_buffers = "right"
-
 " show the matching part of the pair for [] {} and ()
 set showmatch
+
+"================================================================="
+"                    MAPPING CONFIGURATION
+"================================================================="
 
 " Use silent for previous and next buffer (switch tabs as you will)
 map <Esc>[1;5A <C-Up>
@@ -96,15 +91,51 @@ nnoremap <silent> <C-Down> dd<Down>P
 nnoremap <silent> <C-Left> :bprev!<cr>
 nnoremap <silent> <C-Right> :bnext!<cr>
 
-" block cursor
-highlight Cursor guifg=white guibg=black
-highlight iCursor guifg=white guibg=steelblue
-set guicursor=n-v-c:block-Cursor
-set guicursor+=i:ver100-iCursor
-set guicursor+=n-v-c:blinkon0
-set guicursor+=i:blinkwait10
-"let &t_ti.="\e[1 q"
-"let &t_SI.="\e[5 q"
-"let &t_EI.="\e[1 q"
-"let &t_te.="\e[0 q"
+"================================================================="
+"                    PLUGIN CONFIGURATION
+"================================================================="
+" Git highlighting in vim
+set backspace=2
+autocmd Filetype gitcommit setlocal textwidth=72
+
+autocmd BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+" Evaluate Clojure buffers on load
+autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
+
+" clojure
+let g:clojure_align_multiline_strings = 1
+
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+" Jedi autocompletion stuff for vim
+" https://github.com/davidhalter/jedi-vim
+let g:jedi#use_splits_not_buffers = "right"
+
+" Rainbow parenthesis
+let g:rbpt_colorpairs = [
+  \ ['brown',       'RoyalBlue3'],
+  \ ['Darkblue',    'SeaGreen3'],
+  \ ['darkgray',    'DarkOrchid3'],
+  \ ['darkgreen',   'firebrick3'],
+  \ ['darkcyan',    'RoyalBlue3'],
+  \ ['darkred',     'SeaGreen3'],
+  \ ['darkmagenta', 'DarkOrchid3'],
+  \ ['brown',       'firebrick3'],
+  \ ['gray',        'RoyalBlue3'],
+  \ ['black',       'SeaGreen3'],
+  \ ['darkmagenta', 'DarkOrchid3'],
+  \ ['Darkblue',    'firebrick3'],
+  \ ['darkgreen',   'RoyalBlue3'],
+  \ ['darkcyan',    'SeaGreen3'],
+  \ ['darkred',     'DarkOrchid3'],
+  \ ['red',         'firebrick3'],
+  \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
