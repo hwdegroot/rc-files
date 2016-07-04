@@ -8,7 +8,7 @@
 !.profile
 !.minttyrc
 
-!.tmux.conf
+
 !.vimrc
 !README.md
 .bash_history
@@ -20,6 +20,7 @@
 !local/
 !bin/
 !.config/*
+!.install/
 !bash-git-prompt/
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*

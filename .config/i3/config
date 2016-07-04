@@ -157,7 +157,7 @@ bar {
 }
 
 # Spawn a terminal in the same directory
-bindsym $mod+l exec "i3lock -c 000000 -i /home/rikdegroot/Pictures/LockScreen.png -p default -d -n"
+bindsym $mod+l exec "i3lock -c 000000 -i $HOME/.config/i3/Pictures/Lockscreen.png -p default -d -n"
 
 # Start shell in pwd
 bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
@@ -173,4 +173,4 @@ exec --no-startup-id nm-applet
 
 exec "slack --startup"
 
-exec --no-startup-id "/usr/bin/feh --bg-scale /home/rikdegroot/Pictures/Wallpaper.jpg"
+exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"

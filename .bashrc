@@ -118,5 +118,5 @@ fi
 
 PATH=$HOME/.local/bin:$HOME/bin:$PATH
 
-. ~/.config/bash-git-prompt/config
-. ~/bash-git-prompt/gitprompt.sh
+source ~/.config/bash-git-prompt/config
+source ~/bash-git-prompt/gitprompt.sh
