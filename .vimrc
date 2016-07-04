@@ -59,6 +59,11 @@ set smarttab
 " " always uses spaces instead of tab characters
 set expandtab
 
+" Search options
+set hlsearch
+set incsearch
+nnoremap <F3> :set hlsearch!<CR>
+
 " Change end-of-line, space and tab characters.
 set list
 set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
