@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt-get -y install vim sudo curl wget slack
+apt-get -y install vim sudo curl wget slack strace
 
 
 echo "Install git tooling"
