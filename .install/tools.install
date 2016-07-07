@@ -5,15 +5,10 @@ apt-get -y install vim sudo curl wget slack strace
 
 echo "Install git tooling"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get -y install nodejs
+sudo apt-get -y install nodejs npm
 sudo apt-get -y install build-essential
 
 npm install -g diff-so-fancy
-
-echo "Get rid of sudo password for user."
-#echo "%sudo ALL=NOPASSWD: ALL" >> /etc/sudoers
-#echo "$(id -u -n) ALL=(ALL: ALL) NOPASSWD: ALL" >> /etc/sudoers
-
 
 echo "installing temp shizzle" 
 apt-get -y install lm-sensors
