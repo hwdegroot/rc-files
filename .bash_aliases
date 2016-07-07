@@ -10,5 +10,4 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
 fi
 
 alias my-ip="wget http://ipinfo.io/ip -qO -"
-alias tmux="tmux -2"
 eval $(thefuck --alias)
