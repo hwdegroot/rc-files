@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-apt-get -y install python python-pip python-psutil
-sudo -H pip install thefuck
-pip install virutalenv
-pip install virtualenvwrapper
-
