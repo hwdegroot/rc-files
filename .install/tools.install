@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
-apt-get -y install curl vim sudo curl wget slack strace python python-pip
+echo "Install remoting tools"
+apt-get -y install curl vim wget
+
+echo "Effectiveness tools"
+apt-get -y install slack strace 
+
+echo "Install python stuff"
+apt-get -y install python python-pip python-psutil
 
 echo "Installing node/npm"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
@@ -12,6 +19,9 @@ npm install -g diff-so-fancy
 
 echo "FUCK!!"
 pip install thefuck
+
+echo "Install openvpn"
+apt-get -y install openvpn
 
 echo "installing temp shizzle" 
 apt-get -y install lm-sensors
