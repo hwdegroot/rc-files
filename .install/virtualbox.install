@@ -5,8 +5,10 @@ sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib
 
 cat <<-EOF >> /etc/apt/sources.list
   # contrib repo for virtualbox
-  deb http://httpredir.debian.org/debian/ jessie main contrib
+  deb http://download.virtualbox.org/virtualbox/debian jessie contrib
 EOF
+wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
 apt-get update
-apt-get -y install linux-headers-$(uname -r|sed 's,[^-]*-[^-]*-,,') dkms virtualbox
+apt-get -y install dkms virtualbox-5.0
