@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
 curl -C - -L -O https://az764295.vo.msecnd.net/stable/fe7f407b95b7f78405846188259504b34ef72761/vscode-amd64.deb
-
 dpkg -i vscode-amd64.deb
+ln -s /usr/share/code/bin/code ~rik/.local/bin/vscode
+chown rik:rik ~rik/.local/bin/vscode
+

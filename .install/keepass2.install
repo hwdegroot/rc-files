@@ -3,6 +3,5 @@
 curl -C - -L -O https://www.dropbox.com/download?dl=packages/debian/dropbox_2015.10.28_amd64.deb
 dpkg -i dropbox_2015.10.28_amd64.deb
 
-apt-add-repository ppa:jtaylor/keepass
-apt-get update
 apt-get -y install keepass2
+
