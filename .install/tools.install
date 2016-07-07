@@ -2,13 +2,16 @@
 
 apt-get -y install curl vim sudo curl wget slack strace python python-pip
 
-
-echo "Install git tooling"
+echo "Installing node/npm"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get -y install nodejs
 apt-get -y install build-essential
 
+echo "Install git tooling"
 npm install -g diff-so-fancy
+
+echo "FUCK!!"
+pip install thefuck
 
 echo "installing temp shizzle" 
 apt-get -y install lm-sensors
