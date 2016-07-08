@@ -1,0 +1,38 @@
+XTerm*locale: true
+XTerm.clipboard.autocopy:true
+XTerm*loginShell:false
+XTerm*transparent:true
+XTerm*shading:25
+XTerm*background:Black
+XTerm*foreground:White
+XTerm*scrollBar:false
+XTerm*scrollBar_right:true
+XTerm*scrollBar_floating:false
+XTerm*scrollstyle:plain
+XTerm*secondaryScroll:true
+
+! # how many lines you want it to save per session
+XTerm*saveLines:32767
+XTerm*troughColor:#000000
+XTerm*scrollColor:#222222
+XTerm*faceName: DejaVu Sans Mono
+XTerm*faceSize: 9
+
+! # with this set to true, when an app sends a bell to the
+! # terminal, awesome hilights the appropriate tag(s) ;)
+XTerm*urgentOnBell: true
+
+! #for weechat alt-key characters
+UXTerm*metaSendsEscape: true
+
+XTerm*VT100.translations: #override <Btn1Up>: select-end(PRIMARY, CLIPBOARD, CUT_BUFFER0)
+
+! # these three lines enable clicking on links to open them ;)
+! ## if you want to enable tab support, append ,tabbed to the next line
+! ## then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
+XTerm*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine
+XTerm*matcher.button: 1
+
+! # dont forget to change this to your favorite browser
+XTerm*urlLauncher: chromium
+
