@@ -17,10 +17,9 @@
 .virtualenvs/
 .viminfo
 .local/
-!local/
-!bin/
+!.?local/*
+!bin/*
 !.config/*
-!.install/
-!bash-git-prompt/
+!.install/*
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*

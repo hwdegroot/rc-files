@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+echo "Install openvpn"
+apt-get install openvpn
+
+echo "Installing openvpn stuff"
+apt-get install nm-applet network-manager-openvpn-gnome
+
+echo "Install remmina"
+apt-get install remmina
+
