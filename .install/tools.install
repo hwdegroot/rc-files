@@ -28,3 +28,6 @@ echo "installing temp shizzle"
 apt-get -y install lm-sensors
 sensors-detect
 
+echo "Applying Xresources"
+xrdb -merge "~/.Xresources"
+

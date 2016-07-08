@@ -40,14 +40,16 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 
-set number
-set nocp
-
 "Use monokai colorscheme for vim
 "see: https://github.com/sickill/vim-monokai
 syntax enable
 colorscheme monokai
 
+" set linenumbers
+set number
+
+" Do not use vi mode
+set nocompatible
 " size of a hard tabstop
 set tabstop=2
 
@@ -59,10 +61,10 @@ set shiftwidth=2
 set softtabstop=2
 
 " make tab insert indents instead of tabs at the beginning of a line
-set smarttab
+" set smarttab
 
 " always uses spaces instead of tab characters
-set expandtab
+" set expandtab
 
 " Git highlighting in vim
 set backspace=2
