@@ -1,0 +1,6 @@
+if ($status eq 'Discharging') {
+	$full_text .= " $percent% Bat";
+} elsif ($status eq 'Charging') {
+	$full_text .= "⚡ $percent% Chr";
+}
+
