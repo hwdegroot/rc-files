@@ -4,3 +4,4 @@ unzip clojure-1.8.0.zip
 mv clojure-1.8.0 /usr/lib
 chmod go+rw /usr/lib/clojure-1.8.0/clojure-1.8.0.jar
 
+~rik/.local/bin/lein

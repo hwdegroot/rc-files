@@ -33,5 +33,5 @@ apt-get -y install lm-sensors
 sensors-detect
 
 echo "Applying Xresources"
-xrdb -merge "~/.Xresources"
+xrdb -merge "~rik/.Xresources"
 
