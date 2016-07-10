@@ -1,2 +1,0 @@
-amixer -c $CARD -M -D $MIXER get Headphone |
-
