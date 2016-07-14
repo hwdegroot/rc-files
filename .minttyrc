@@ -1,6 +1,6 @@
 BoldAsFont=no
-Font=Inconsolata for Powerline
-FontHeight=11
+Font=Sauce Code Powerline
+FontHeight=10
 FontSmoothing=full
 BoldAsColour=no
 Locale=en_US
@@ -28,3 +28,5 @@ CursorType=line
 CursorBlinks=no
 Columns=184
 Rows=58
+FontWeight=400
+FontIsBold=no
