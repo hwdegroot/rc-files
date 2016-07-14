@@ -34,10 +34,6 @@ Plugin 'guns/vim-clojure-highlight'
 " Erlang autocompletion
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
 
-" clojure highlighting
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 
