@@ -14,9 +14,6 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-" Vagrant highlightinh
-Plugin 'hashivim/vim-vagrant'
-
 " Plugin vim puppet
 Plugin 'rodjek/vim-puppet.git'
 
@@ -26,38 +23,45 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 " Python autocompletion
 Plugin 'davidhalter/jedi-vim'
 
-"Vim powerline
-Plugin 'Lokaltog/vim-powerline'
+" Vim powerline
+Plugin 'hwdegroot/vim-powerline'
 
 " Clojure plugins inc fireplace
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
+
+" Erlang autocompletion
+Plugin 'vim-erlang/vim-erlang-omnicomplete'
+
+" clojure highlighting
+Plugin 'guns/vim-clojure-static'
+Plugin 'guns/vim-clojure-highlight'
+
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-set number
-set nocp
 "Use monokai colorscheme for vim
 "see: https://github.com/sickill/vim-monokai
 syntax enable
 colorscheme monokai
 
+" set linenumbers
+set number
+
+" Do not use vi mode
+set nocompatible
 " size of a hard tabstop
 set tabstop=2
 
-" size of an "indent"
+" size of an indent
 set shiftwidth=2
 
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
 set softtabstop=2
 
-" make "tab" insert indents instead of tabs at the beginning of a line
-set smarttab
 
-" " always uses spaces instead of tab characters
-set expandtab
 
 " Search options
 set hlsearch
@@ -69,6 +73,47 @@ set list
 set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
+
+" clojure edit mode
+let g:paredit_mode = 1
+
+" clojure static
+let g:clojure_align_multiline_strings = 0
+" Evaluate Clojure buffers on load
+autocmd BufRead,BufNewFile,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
+" autocmd Syntax clojure EnableSyntaxExtension
+
+" Set groovy highlighting for all grovy extension and for jenkinsfile
+au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+" Set ruby syntax for Vagrantfile
+au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
+
+
+" Rainbow parenthesis: git@github.com:kien/rainbow_parentheses.vim.git
+let g:rbpt_colorpairs = [
+    \ ['brown',       'RoyalBlue3'],
+    \ ['Darkblue',    'SeaGreen3'],
+    \ ['darkgray',    'DarkOrchid3'],
+    \ ['darkgreen',   'firebrick3'],
+    \ ['darkcyan',    'RoyalBlue3'],
+    \ ['darkred',     'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['brown',       'firebrick3'],
+    \ ['gray',        'RoyalBlue3'],
+    \ ['black',       'SeaGreen3'],
+    \ ['darkmagenta', 'DarkOrchid3'],
+    \ ['Darkblue',    'firebrick3'],
+    \ ['darkgreen',   'RoyalBlue3'],
+    \ ['darkcyan',    'SeaGreen3'],
+    \ ['darkred',     'DarkOrchid3'],
+    \ ['red',         'firebrick3'],
+    \ ]
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+autocmd VimEnter * RainbowParenthesesToggle
+autocmd Syntax * RainbowParenthesesLoadRound
+autocmd Syntax * RainbowParenthesesLoadSquare
+autocmd Syntax * RainbowParenthesesLoadBraces
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
@@ -90,11 +135,10 @@ map <Esc>[1;3A <Alt-Up>
 map <Esc>[1;3B <Alt-Down>
 map <Esc>[1;3C <Alt-Right>
 map <Esc>[1;3D <Alt-Left>
-vnoremap y "*y
-nnoremap <silent> <C-Up> dd<Up>P
-nnoremap <silent> <C-Down> dd<Down>P
-nnoremap <silent> <C-Left> :bprev!<cr>
-nnoremap <silent> <C-Right> :bnext!<cr>
+noremap <silent> <C-Up> dd<Up>P
+noremap <silent> <C-Down> dd<Down>P
+noremap <silent> <C-Left> :bprev!<CR>
+noremap <silent> <C-Right> :bnext!<CR>
 
 "================================================================="
 "                    PLUGIN CONFIGURATION

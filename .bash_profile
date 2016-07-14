@@ -54,12 +54,8 @@ export VAGRANT_DETECTED_OS=cygwin
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-if [[ ! $TERM =~ screen && -z "$TMUX" ]]; then
-    exec tmux -2
-fi
-
 export WORKON_HOME=$HOME/.virtualenvs
-source /cygdrive/c/cygwin64/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 # virtualenv aliases
 # http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html

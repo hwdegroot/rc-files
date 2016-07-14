@@ -8,9 +8,7 @@
 !.profile
 !.minttyrc
 
-!.vim/*
-.vim/bundle/
-!.tmux.conf
+
 !.vimrc
 !README.md
 .bash_history
@@ -19,9 +17,5 @@
 .virtualenvs/
 .viminfo
 .local/
-local/
-bin/
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*
-!.autocompletion
-

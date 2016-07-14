@@ -1,6 +1,6 @@
 [user]
 	name = Rik de Groot
-	email = rik.de.groot@mendix.com
+	email = hwdgeroot@gmail.com
 [core]
 	autocrlf = False
 	editor = vim
@@ -34,7 +34,8 @@
 	guitool = p4merge
 [merge]
 	ff = false
-	tool = TortoiseMerge
+	tool = vimdiff
+	conflictstyle = diff3
 [credential]
 	helper = store
 [color]
@@ -56,6 +57,7 @@
 	trustExitCode = false
 [mergetool]
 	keepBackup = false
+	prompt = false
 [difftool "p4mergedifftool"]
 	cmd = p4merge \"$LOCAL\" \"$REMOTE\"
 [difftool "p4mergetool"]

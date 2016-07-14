@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+google-chrome https://www.wunderlist.com/#/lists/inbox
+

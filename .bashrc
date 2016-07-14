@@ -55,7 +55,6 @@ else
   PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w \$ '
 fi
 unset color_prompt force_color_prompt
-PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
   xterm*|rxvt*)
@@ -78,9 +77,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alFh'
-alias la='ls -Ah'
-alias l='ls -CFh'
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -102,3 +101,16 @@ if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
 
+# source rvm file
+if [[ -f /etc/profile.d/rvm.sh ]]; then
+  source /etc/profile.d/rvm.sh
+fi
+
+if [[ ! -z "$(which xinput)" ]] && [[ -z "$SSH_TTY" ]]; then
+  xinput set-prop "ETPS/2 Elantech Touchpad" "Synaptics Scrolling Distance" -77, -77
+fi
+
+PATH=$HOME/.local/bin:$HOME/bin:$PATH:/usr/sbin
+
+source ~/.config/bash-git-prompt/config
+source ~/bash-git-prompt/gitprompt.sh

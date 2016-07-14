@@ -1,16 +1,16 @@
 [submodule ".vim/bundle/Vundle.vim"]
-	path = .vim/bundle/Vundle.vim
-	url = git@github.com:VundleVim/Vundle.vim.git
-	ignore = dirty
-[submodule ".tmux-powerline"]
-	path = .tmux-powerline
-	url = git@github.com:erikw/tmux-powerline.git
-	ignore = dirty
+  path = .vim/bundle/Vundle.vim
+  url = git@github.com:VundleVim/Vundle.vim.git
+  ignore = dirty
 [submodule "gittools"]
-	path = gittools
-	url = git@github.com:hwdegroot/gittools.git
-	ignore = dirty
+  path = gittools
+  url = git@github.com:hwdegroot/gittools.git
+  ignore = dirty
 [submodule "fonts"]
-	path = fonts
-	url = git@github.com:powerline/fonts.git
-	ignore = dirty
+  path = fonts
+  url = git@github.com:powerline/fonts.git
+  ignore = dirty
+[submodule "bash-git-prompt"]
+  path = bash-git-prompt
+  url = git@github.com:hwdegroot/bash-git-prompt.git
+  ignore = dirty
