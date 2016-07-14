@@ -54,11 +54,10 @@ export VAGRANT_DETECTED_OS=cygwin
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
-export WORKON_HOME=$HOME/.virtualenvs
 which virtualenvwrapper.sh &>/dev/null
 if [[ $? -eq 0 ]];then 
 	source $(which virtualenvwrapper.sh)
-
+	export WORKON_HOME=$HOME/.virtualenvs
 	# virtualenv aliases
 	# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
 	alias v='workon'

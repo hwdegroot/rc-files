@@ -10,4 +10,4 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
 fi
 
 alias my-ip="wget http://ipinfo.io/ip -qO -"
-eval $(thefuck --alias)
+
