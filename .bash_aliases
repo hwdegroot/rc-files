@@ -9,5 +9,14 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
     source ~/gittools/.gittoolsrc
 fi
 
+[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR=/cygdrive/c/source/platform
+	if [[ -d $PLATFORMDIR ]]; then
+	repodir() {
+		PD=$PLATFORMDIR
+		cd "$PD/$1"
+	}
+	
+	alias pd=repodir
+fi
 alias my-ip="wget http://ipinfo.io/ip -qO -"
 
