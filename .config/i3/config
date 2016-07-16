@@ -173,7 +173,10 @@ bindsym XF86AudioPrev exec playerctl previous
 exec --no-startup-id nm-applet
 
 # startup slack in minimized mode
-exec "slack --startup"
+exec --no-startup-id slack --startup
+
+#start dropbox
+exec --no-startup-id dropbox start
 
 # Set nice wallpaper
 exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
