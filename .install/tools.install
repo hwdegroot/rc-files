@@ -4,7 +4,7 @@ echo "Install remoting tools"
 apt-get -y install curl vim wget
 
 echo "Effectiveness tools"
-apt-get -y install strace
+apt-get -y install strace mc
 
 echo "Installing slack"
 curl -C - -L -O https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
