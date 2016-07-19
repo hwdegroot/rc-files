@@ -1,6 +1,6 @@
 [user]
 	name = Rik de Groot
-	email = hwdgeroot@gmail.com
+	email = rik.de.groot@mendix.com
 [core]
 	autocrlf = False
 	editor = vim
@@ -29,7 +29,7 @@
 	ui = true
 	pager = true
 [diff]
-	tool = p4mergedifftool
+	tool = vimdiff
 	algorithm = patience
 	guitool = p4merge
 [merge]
@@ -52,22 +52,8 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
-[mergetool "p4mergetool"]
-	cmd = p4merge \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
-	trustExitCode = false
 [mergetool]
 	keepBackup = false
 	prompt = false
-[difftool "p4mergedifftool"]
-	cmd = p4merge \"$LOCAL\" \"$REMOTE\"
-[difftool "p4mergetool"]
-	path = C:/Program Files/Perforce/p4merge.exe
-[difftool "p4merge"]
-	path = C:/Program Files/Perforce/p4merge.exe
-	cmd = \"C:/Program Files/Perforce/p4merge.exe\" \"$LOCAL\" \"$REMOTE\"
-[mergetool "p4merge"]
-	path = C:/Program Files/Perforce/p4merge.exe
-	cmd = \"C:/Program Files/Perforce/p4merge.exe\" \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-[mergetool "TortoiseMerge"]
-	path = C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe
-	cmd = \"C:/Program Files/TortoiseSVN/bin/TortoiseMerge.exe\" /base:\"$BASE\" /mine:\"$LOCAL\" /theirs:\"$REMOTE\" /merged:\"$MERGED\"
+[difftool]
+	prompt = false
