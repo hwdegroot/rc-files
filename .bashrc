@@ -106,12 +106,6 @@ if [[ -f /etc/profile.d/rvm.sh ]]; then
   source /etc/profile.d/rvm.sh
 fi
 
-PATH=$HOME/.local/bin:$HOME/bin:$PATH:/usr/sbin
-
-if [[ -d /usr/local/rvm/gems/ruby-2.3.0/bin ]]; then
-	PATH=/usr/local/rvm/gems/ruby-2.3.0/bin:$PATH
-fi
-
 if [[ -d /usr/local/go/bin ]]; then
 	export GOPATH=$HOME/Go
 	export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
@@ -123,3 +117,8 @@ source ~/.config/bash-git-prompt/config
 source ~/bash-git-prompt/gitprompt.sh
 
 # RVM stuff
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+export GEM_HOME=$HOME/.rvm/rubies/default/gems
+export PATH=$HOME/.rvm/rubies/default/bin:$GEM_HOME:$PATH
+export PATH=$PATH:$HOME/.rvm/bin:$HOME/.rvm/rubies/default/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin

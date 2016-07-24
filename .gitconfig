@@ -1,6 +1,6 @@
 [user]
 	name = Rik de Groot
-	email = rik.de.groot@mendix.com
+	email = hwdegroot@gmail.com 
 [core]
 	autocrlf = False
 	editor = vim
@@ -51,5 +51,6 @@
 [diff]
 	tool = vimdiff
 [difftool]
+	prompt = false
 [mergetool]
 	prompt = false
