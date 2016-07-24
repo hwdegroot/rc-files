@@ -1,0 +1,47 @@
+#!/usr/bin/env bash
+
+
+curl -sSL https://get.rvm.io | sudo bash -s -- --with-gems="bundler" --ruby
+sudp chmod ugo+w -R /usr/local/rvm/{gems,gem-cache}
+rvm --default use 2.1.9
+
+echo "gdk"
+cd ~/source
+rm -rf gitlab-development-kit
+git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
+cd gitlab-development-kit
+sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
+
+PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
+cd ~
+wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
+tar -xvjf $PHANTOM_JS.tar.bz2
+sudo mv $PHANTOM_JS /usr/local/share
+sudo ln -s /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+phantomjs --version
+
+make
+
+cd ~/source
+git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git gdk-ee
+cd gdk-ee
+echo 3001 > port
+make gitlab_repo=https://gitlab.com/gitlab-org/gitlab-ee.git
+
+echo "Install gitlab-multi-runner"
+cd ~
+sudo apt-get -y install mercurial git-core wget make
+wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go*-*.tar.gz
+
+sudo apt-get -y install binfmt-support qemu-user-static
+
+/sbin/modprobe binfmt_misc
+
+mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
+
+# Support for ARM binaries through Qemu:
+{ echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
+	{ echo ':armeb:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-armeb-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
+
+
