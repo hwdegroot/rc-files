@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-<<<<<<< HEAD
 echo "Installing RVM..."
 curl -sSL https://get.rvm.io | bash -s stable --ignore-dotfiles
 source ~/.bashrc
@@ -43,37 +42,6 @@ sudo mv $PHANTOM_JS /usr/local/share
 sudo ln -s /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
 phantomjs --version
 
-=======
-echo "Installing RVM..."
-curl -sSL https://get.rvm.io | bash -s stable --ignore-dotfiles
-source ~/.bashrc
-rvm install ruby-2.1.8
-rvm --default use 2.1.8
-
-echo "Installing PhantomJS..."
-curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
-tar -xvjf $PHANTOM_JS.tar.bz2
-sudo mv $PHANTOM_JS /usr/local/share
-sudo ln -s /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
-phantomjs --version
-
-echo "installing Gitlab Development Kit..."
-mkdir -p ~/source
-cd ~/source
-rm -rf gitlab-development-kit gdk-ee
-git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
-cd gitlab-development-kit
-gem install bundler
-sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
-
->>>>>>> Reorder stuff
-make
-
-cd ~/source
-git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git gdk-ee
-cd gdk-ee
-echo 3001 > port
-make gitlab_repo=https://gitlab.com/gitlab-org/gitlab-ee.git
 
 echo "Install gitlab-multi-runner"
 cd ~
@@ -82,40 +50,4 @@ wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
 sudo tar -C /usr/local -xzf go*-*.tar.gz
 
 sudo apt-get -y install binfmt-support qemu-user-static
-
-<<<<<<< HEAD
-||||||| merged common ancestors
-#cat <<-EOF > binfmt_misc.sh
-##!/bin/bash
-#set -xe
-#/sbin/modprobe binfmt_misc
-#mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
-#
-## Support for ARM binaries through Qemu:
-#{ echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-#{ echo ':armeb:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-armeb-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-#EOF
-
-#chmod +x binfmt_misc.sh
-#./binfmt_misc.sh
-=======
-#cat <<-EOF > binfmt_misc.sh
-##!/bin/bash
-#set -xe
-#/sbin/modprobe binfmt_misc
-#mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
-#
-## Support for ARM binaries through Qemu:
-#{ echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-#{ echo ':armeb:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-armeb-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-#EOF
-
-#chmod +x binfmt_misc.sh
-#./binfmt_misc.sh
-
->>>>>>> Reorder stuff
-go get gitlab.com/gitlab-org/gitlab-ci-multi-runner
-cd $GOPATH/src/gitlab.com/gitlab-org/gitlab-ci-multi-runner/
-make deps
-make install
 
