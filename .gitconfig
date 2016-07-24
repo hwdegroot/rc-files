@@ -28,10 +28,6 @@
 	interactive = auto
 	ui = true
 	pager = true
-[diff]
-	tool = vimdiff
-	algorithm = patience
-	guitool = p4merge
 [merge]
 	ff = false
 	tool = vimdiff
@@ -52,8 +48,8 @@
 	oldHighlight = red bold 52
 	newNormal = green bold
 	newHighlight = green bold 22
-[mergetool]
-	keepBackup = false
-	prompt = false
+[diff]
+	tool = vimdiff
 [difftool]
+[mergetool]
 	prompt = false

@@ -71,3 +71,4 @@ if [[ $? -eq 0 ]];then
 	alias v.cd='cdvirtualenv'
 	alias v.lssitepackages='lssitepackages'
 fi
+

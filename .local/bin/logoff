@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-pkill -KILL -u rik
+pkill -KILL -u $USER
 

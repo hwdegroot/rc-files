@@ -1,9 +1,10 @@
 #!/usr/bin/env bash
 
 echo "Installing RVM..."
-curl -sSL https://get.rvm.io | sudo bash -s -- --with-gems="bundler" --ruby
-sudo chmod ugo+w -R /usr/local/rvm/{gems,gem-cache}
-rvm --default use 2.1.9
+curl -sSL https://get.rvm.io | bash -s stable --ignore-dotfiles
+source ~/.bashrc
+rvm install ruby-2.1.8
+rvm --default use 2.1.8
 
 echo "Installing PhantomJS..."
 curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
@@ -18,6 +19,7 @@ cd ~/source
 rm -rf gitlab-development-kit gdk-ee
 git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
 cd gitlab-development-kit
+gem install bundler
 sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
 
 make

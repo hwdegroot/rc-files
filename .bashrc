@@ -122,3 +122,4 @@ fi
 source ~/.config/bash-git-prompt/config
 source ~/bash-git-prompt/gitprompt.sh
 
+# RVM stuff
