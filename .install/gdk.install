@@ -36,14 +36,19 @@ sudo tar -C /usr/local -xzf go*-*.tar.gz
 
 sudo apt-get -y install binfmt-support qemu-user-static
 
-/sbin/modprobe binfmt_misc
+#cat <<-EOF > binfmt_misc.sh
+##!/bin/bash
+#set -xe
+#/sbin/modprobe binfmt_misc
+#mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
+#
+## Support for ARM binaries through Qemu:
+#{ echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
+#{ echo ':armeb:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-armeb-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
+#EOF
 
-mount -t binfmt_misc binfmt_misc /proc/sys/fs/binfmt_misc
-
-# Support for ARM binaries through Qemu:
-{ echo ':arm:M::\x7fELF\x01\x01\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28\x00:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff\xff:/usr/bin/qemu-arm-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-	{ echo ':armeb:M::\x7fELF\x01\x02\x01\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x02\x00\x28:\xff\xff\xff\xff\xff\xff\xff\x00\xff\xff\xff\xff\xff\xff\xff\xff\xff\xfe\xff\xff:/usr/bin/qemu-armeb-static:' > /proc/sys/fs/binfmt_misc/register; } 2>/dev/null
-
+#chmod +x binfmt_misc.sh
+#./binfmt_misc.sh
 go get gitlab.com/gitlab-org/gitlab-ci-multi-runner
 cd $GOPATH/src/gitlab.com/gitlab-org/gitlab-ci-multi-runner/
 make deps
