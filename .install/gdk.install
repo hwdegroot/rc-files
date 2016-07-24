@@ -57,3 +57,4 @@ cd $GOPATH/src/gitlab.com/gitlab-org/gitlab-ci-multi-runner/
 make deps
 make install
 echo "Run with 'gitlab-ci-multi-runner --debug run'"
+

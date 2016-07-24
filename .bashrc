@@ -119,6 +119,17 @@ if [[ -d /usr/local/go/bin ]]; then
 fi
 
 
+if [[ -d /usr/local/rvm/gems/ruby-2.3.0/bin ]]; then
+	PATH=/usr/local/rvm/gems/ruby-2.3.0/bin:$PATH
+fi
+
+if [[ -d /usr/local/go/bin ]]; then
+	export GOPATH=$HOME/Go
+	export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+	mkdir -p $GOPATH
+fi
+
+
 source ~/.config/bash-git-prompt/config
 source ~/bash-git-prompt/gitprompt.sh
 
