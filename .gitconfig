@@ -52,3 +52,5 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[mergetool]
+	prompt = false
