@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-apt-get -y install keepass2
+sudo apt-get -y install keepass2
 
