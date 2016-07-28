@@ -15,8 +15,9 @@ XTerm*secondaryScroll:true
 XTerm*saveLines:32767
 XTerm*troughColor:#000000
 XTerm*scrollColor:#222222
-XTerm*faceName: DejaVu Sans Mono
-XTerm*faceSize: 9
+!XTerm*faceName: Ubuntu Mono
+XTerm*faceName: Ubuntu Mono
+XTerm*faceSize: 11
 
 ! # with this set to true, when an app sends a bell to the
 ! # terminal, awesome hilights the appropriate tag(s) ;)
