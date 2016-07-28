@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Installing RVM..."
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 curl -sSL https://get.rvm.io | bash -s stable --ignore-dotfiles
 source ~/.bashrc
 rvm install ruby-2.1.8
@@ -8,9 +9,10 @@ rvm --default use 2.1.8
 
 echo "Installing PhantomJS..."
 curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
-tar -xvjf $PHANTOM_JS.tar.bz2
-sudo mv $PHANTOM_JS /usr/local/share
-sudo ln -s /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
+tar -xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
+sudo mv phantomjs-1.9.8-linux-x86_64 /usr/local/share
+sudo chmod +x /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs
+sudo ln -s /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
 phantomjs --version
 
 echo "installing Gitlab Development Kit..."
@@ -20,28 +22,6 @@ rm -rf gitlab-development-kit gdk-ee
 git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
 cd gitlab-development-kit
 sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
-
-||||||| merged common ancestors
-
-curl -sSL https://get.rvm.io | sudo bash -s -- --with-gems="bundler" --ruby
-sudp chmod ugo+w -R /usr/local/rvm/{gems,gem-cache}
-rvm --default use 2.1.9
-
-echo "gdk"
-cd ~/source
-rm -rf gitlab-development-kit
-git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
-cd gitlab-development-kit
-sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
-
-PHANTOM_JS="phantomjs-1.9.8-linux-x86_64"
-cd ~
-wget https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_JS.tar.bz2
-tar -xvjf $PHANTOM_JS.tar.bz2
-sudo mv $PHANTOM_JS /usr/local/share
-sudo ln -s /usr/local/share/$PHANTOM_JS/bin/phantomjs /usr/local/bin
-phantomjs --version
-
 
 echo "Install gitlab-multi-runner"
 cd ~
