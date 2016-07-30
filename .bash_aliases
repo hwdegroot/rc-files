@@ -19,5 +19,8 @@ fi
 	alias pd=repodir
 fi
 alias my-ip="wget http://ipinfo.io/ip -qO -"
-eval $(thefuck --alias)
+
+if [[ $(which thefuck >/dev/null) -eq 0 ]]; then
+	eval $(thefuck --alias)
+fi
 

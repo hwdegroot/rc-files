@@ -5,14 +5,14 @@ curl -c - -L -O http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-fami
 sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
 
 echo "Install remoting tools"
-apt-get -y install curl vim wget
+sudo apt-get -y install curl vim wget
 
 echo "Effectiveness tools"
-apt-get -y install strace mc
+sudo apt-get -y install strace mc
 
 echo "Installing slack"
 curl -C - -L -O https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
-dpkg -i slack-desktop-2.1.0-amd64.deb
+sudo dpkg -i slack-desktop-2.1.0-amd64.deb
 
 echo "Install python stuff"
 apt-get -y install python python-pip python-psutil
@@ -20,22 +20,22 @@ pip install virtualenv virtualenvwrapper
 
 echo "Installing node/npm"
 curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-apt-get -y install nodejs
-apt-get -y install build-essential
+sudo apt-get -y install nodejs
+sudo apt-get -y install build-essential
 
 echo "Install git tooling"
-npm install -g diff-so-fancy
+sudo npm install -g diff-so-fancy
 
 echo "FUCK!!"
-pip install thefuck
+sudo pip install thefuck
 
 echo "Install openvpn"
-apt-get -y install openvpn
+sudo apt-get -y install openvpn
 
 echo "installing temp shizzle" 
-apt-get -y install lm-sensors
+sudo apt-get -y install lm-sensors
 sensors-detect
 
 echo "Applying Xresources"
-xrdb -merge "~rik/.Xresources"
+xrdb -merge ~/.Xresources
 
