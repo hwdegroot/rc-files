@@ -20,7 +20,7 @@ phantomjs --version
 echo "installing Gitlab Development Kit..."
 mkdir -p ~/source
 cd ~/source
-rm -rf gitlab-development-kit gdk-ee
+rm -rf gitlab-development-kit 
 git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
 cd gitlab-development-kit
 sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
