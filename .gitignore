@@ -11,7 +11,6 @@
 
 !.vimrc
 !README.md
-.bash_history
 .ssh/
 .cache/
 .virtualenvs/
