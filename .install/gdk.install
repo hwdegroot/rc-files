@@ -11,7 +11,7 @@ rvm --default use 2.1.8
 
 echo "Installing PhantomJS..."
 curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
-tar -xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
+tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
 sudo mv phantomjs-1.9.8-linux-x86_64 /usr/local/share
 sudo chmod +x /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs
 sudo ln -s /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
