@@ -50,9 +50,10 @@ override_git_prompt_colors() {
   # GIT_PROMPT_END_ROOT=" \n${White}${Time12a}${ResetColor} # "
 
   ## Please do not add colors to these symbols
-  # GIT_PROMPT_SYMBOLS_AHEAD="↑·"             # The symbol for "n versions ahead of origin"
-  # GIT_PROMPT_SYMBOLS_BEHIND="↓·"            # The symbol for "n versions behind of origin"
-  # GIT_PROMPT_SYMBOLS_PREHASH=":"            # Written before hash of commit, if no name could be found
+export GEM_HOME=$HOME/.rvm/rubies/default/gems/bin
+  GIT_PROMPT_SYMBOLS_AHEAD="«·"             # The symbol for "n versions ahead of origin"
+  GIT_PROMPT_SYMBOLS_BEHIND="·»"            # The symbol for "n versions behind of origin"
+  GIT_PROMPT_SYMBOLS_PREHASH=":"            # Written before hash of commit, if no name could be found
   GIT_PROMPT_SYMBOLS_NO_REMOTE_TRACKING="${BoldRed}¿ " # This symbol is written after the branch, if the branch is not tracked
 }
 
