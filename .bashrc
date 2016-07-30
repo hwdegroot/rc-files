@@ -118,7 +118,7 @@ source ~/bash-git-prompt/gitprompt.sh
 
 # RVM stuff
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-export GEM_HOME=$HOME/.rvm/rubies/default/gems
+export GEM_HOME=$HOME/.rvm/rubies/default/gems/bin
 export PATH=$HOME/.rvm/rubies/default/bin:$GEM_HOME:$PATH
 export PATH=$PATH:$HOME/.rvm/bin:$HOME/.rvm/rubies/default/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
