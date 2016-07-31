@@ -26,6 +26,9 @@ Plugin 'davidhalter/jedi-vim'
 " Vim powerline
 Plugin 'hwdegroot/vim-powerline'
 
+" Coffee script
+Plugin 'kchmck/vim-coffee-script'
+
 " Clojure plugins inc fireplace
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
