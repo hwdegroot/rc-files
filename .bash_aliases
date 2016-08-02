@@ -20,7 +20,7 @@ fi
 fi
 alias my-ip="wget http://ipinfo.io/ip -qO -"
 
-if [[ $(which thefuck >/dev/null) -eq 0 ]]; then
+if [[ "$(which thefuck &>/dev/null || echo $?)" -ne 1 ]]; then
 	eval $(thefuck --alias)
 fi
 
