@@ -24,6 +24,7 @@ override_git_prompt_colors() {
   GIT_PROMPT_SYMBOLS_AHEAD="${BoldGreen}+" # The symbol for "n versions ahead of origin"
   GIT_PROMPT_SYMBOLS_BEHIND=" ${BoldRed}-"  # The symbol for "n versions behind of origin"
 
+  GIT_PROMPT_SHOW_UNTRACKED_FILES="normal"
   ## For the command indicator, the placeholder _LAST_COMMAND_STATE_ 
   ## will be replaced with the exit code of the last command
   ## e.g.
