@@ -1,0 +1,13 @@
+#!/bin/bash
+
+usage(){
+	echo "`basename $0` /path/to/backup /backup/location"
+	exit 1
+}
+
+if [[ "$1" == "" ]] || [[ ! -d "$1" ]] || [[ "$2" == "" ]]; then
+	usage
+fi
+
+rsync -aAX $1 $2
+
