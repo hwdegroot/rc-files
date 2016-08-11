@@ -50,6 +50,8 @@ set number
 
 " Do not use vi mode
 set nocompatible
+" Always indent spaces
+set expandtab
 " size of a hard tabstop
 set tabstop=2
 
