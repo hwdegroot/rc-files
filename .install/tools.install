@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+echo "Install remoting tools"
+sudo apt-get -y install curl vim wget
+
 echo "Installing Ubuntu fonts"
 curl -c - -L -O http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
 sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
@@ -8,7 +11,7 @@ echo "Install remoting tools"
 sudo apt-get -y install curl vim wget
 
 echo "Effectiveness tools"
-sudo apt-get -y install strace mc
+sudo apt-get -y install strace mc htop
 
 echo "Installing slack"
 curl -C - -L -O https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
