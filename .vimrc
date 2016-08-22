@@ -62,6 +62,8 @@ set shiftwidth=2
 " other than the (hard)tabstop
 set softtabstop=2
 
+" Enable mouse scrolling
+set mouse=a
 
 
 " Search options
