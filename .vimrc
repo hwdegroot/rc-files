@@ -52,6 +52,7 @@ set number
 set nocompatible
 " Always indent spaces
 set expandtab
+
 " size of a hard tabstop
 set tabstop=2
 
@@ -65,6 +66,8 @@ set softtabstop=2
 " Enable mouse scrolling
 set mouse=a
 
+" Use system clipboard iso vim cut buffer
+set clipboard=unnamedplus
 
 " Search options
 set hlsearch
