@@ -178,6 +178,8 @@ exec --no-startup-id slack --startup
 #start dropbox
 exec --no-startup-id dropbox start
 
+# start shutter
+exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
 exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
 

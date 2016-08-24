@@ -24,3 +24,5 @@ if [[ "$(which thefuck &>/dev/null || echo $?)" -ne 1 ]]; then
 	eval $(thefuck --alias)
 fi
 
+#alias logoff='pkill -KILL -u $USER'
+
