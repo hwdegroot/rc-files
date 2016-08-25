@@ -72,3 +72,4 @@ if [[ $? -eq 0 ]];then
 	alias v.lssitepackages='lssitepackages'
 fi
 
+complete -C cf_completion cf
