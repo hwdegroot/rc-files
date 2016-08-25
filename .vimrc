@@ -104,6 +104,7 @@ noremap <silent> <C-Up> dd<Up>P
 noremap <silent> <C-Down> dd<Down>P
 noremap <silent> <C-Left> :bprev!<CR>
 noremap <silent> <C-Right> :bnext!<CR>
+nnoremap <C-l> :buffers!<CR>:buffer<Space>
 noremap <silent> <C-d>b :diffg BA<CR>
 noremap <silent> <C-d>r :diffg RE<CR>
 noremap <silent> <C-d>l :diffg LO<CR>
