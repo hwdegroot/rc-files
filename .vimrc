@@ -80,20 +80,6 @@ set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 
-" clojure edit mode
-let g:paredit_mode = 1
-
-" clojure static
-let g:clojure_align_multiline_strings = 0
-" Evaluate Clojure buffers on load
-autocmd BufRead,BufNewFile,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
-" autocmd Syntax clojure EnableSyntaxExtension
-
-" Set groovy highlighting for all grovy extension and for jenkinsfile
-au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
-" Set ruby syntax for Vagrantfile
-au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
-
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
@@ -129,11 +115,19 @@ noremap <silent> <C-d>l :diffg LO<CR>
 set backspace=2
 autocmd Filetype gitcommit setlocal textwidth=72
 
+" Set ruby syntax for Vagrantfile
+au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
+
+" Set groovy syntax for Jenkinsfile
 autocmd BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+
 " Evaluate Clojure buffers on load
 autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
 
-" clojure
+" clojure edit mode
+let g:paredit_mode = 1
+
+" clojure static
 let g:clojure_align_multiline_strings = 1
 
 " enable all Python syntax highlighting features
