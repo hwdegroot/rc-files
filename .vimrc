@@ -67,7 +67,8 @@ set softtabstop=2
 set mouse=a
 
 " Use system clipboard iso vim cut buffer
-set clipboard=unnamedplus
+set clipboard=unnamed
+"vnoremap y "*y
 
 " Search options
 set hlsearch
