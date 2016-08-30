@@ -84,6 +84,10 @@ hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
+" Insert dat2016/08/30e
+nnoremap <C-t> "=strftime("%Y/%m/%d")<CR>P
+nnoremap <C-T> "=strftime("%Y/%m/%d %H:%M:%S")<CR>P
+
 "================================================================="
 "                    MAPPING CONFIGURATION
 "================================================================="
