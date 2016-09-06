@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
-cat <<EOF >> /etc/apt/sources.list.d/jessie-backports.list
-  deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
-  deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+cat <<-EOF >> /etc/apt/sources.list.d/jessie-backports.list
+deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
+deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free
 EOF
+
 sudo apt-get update
 i3latest=$(apt-cache policy i3 | grep -Po "(?<=[\* ]{5})[0-9]{1,2}\.[0-9\-~a-z\+]*" | head -1)
 
 sudo apt-get -y install feh i3=$i3latest i3blocks
+
