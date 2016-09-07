@@ -24,3 +24,12 @@ if [[ "$(which thefuck &>/dev/null || echo $?)" -ne 1 ]]; then
 	eval $(thefuck --alias)
 fi
 
+
+ssh_proxy() {
+  echo "Running ssh proxy @ port 1080"
+  echo " - ssh -ND 1080 $1"
+  ssh -ND 1080 $@ &
+}
+
+alias ssh-proxy='ssh_proxy'
+
