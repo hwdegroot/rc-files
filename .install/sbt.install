@@ -15,3 +15,7 @@ sudo ln -fs /usr/local/share/scala/bin/scalac /usr/local/bin/scalac
 sudo ln -fs /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc
 sudo ln -fs /usr/local/share/scala/bin/scalap /usr/local/bin/scalap
 
+mkdir -p $HOME/.sbt/0.13
+[[ ! -f $HOME/.sbt/0.13/local.sbt ]] && touch $HOME/.sbt/0.13/local.sbt
+echo "scalacOptions ++= Seq(\"-Xmax-classfile-name\",\"100\")" >> $HOME/.sbt/0.13/local.sbt
+
