@@ -1,0 +1,11 @@
+wget  http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz
+tar zxf scala-2.11.8.tgz
+
+sudo mv scala-2.11.8 /usr/local/share
+sudo ln -s /usr/local/share/scala-2.11.8 /usr/local/share/scala
+sudo ln -s /usr/local/share/scala/bin/fsc /usr/local/bin/fsc
+sudo ln -s /usr/local/share/scala/bin/scala /usr/local/bin/scala
+sudo ln -s /usr/local/share/scala/bin/scalac /usr/local/bin/scalac
+sudo ln -s /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc
+sudo ln -s /usr/local/share/scala/bin/scalap /usr/local/bin/scalap
+
