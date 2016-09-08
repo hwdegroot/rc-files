@@ -124,3 +124,7 @@ export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
+

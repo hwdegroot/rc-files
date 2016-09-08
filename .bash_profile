@@ -73,3 +73,4 @@ if [[ $? -eq 0 ]];then
 fi
 
 complete -C cf_completion cf
+
