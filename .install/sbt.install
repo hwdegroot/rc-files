@@ -1,11 +1,17 @@
-wget  http://downloads.lightbend.com/scala/2.11.8/scala-2.11.8.tgz
-tar zxf scala-2.11.8.tgz
+#!/usr/bin/env bash
 
-sudo mv scala-2.11.8 /usr/local/share
-sudo ln -s /usr/local/share/scala-2.11.8 /usr/local/share/scala
-sudo ln -s /usr/local/share/scala/bin/fsc /usr/local/bin/fsc
-sudo ln -s /usr/local/share/scala/bin/scala /usr/local/bin/scala
-sudo ln -s /usr/local/share/scala/bin/scalac /usr/local/bin/scalac
-sudo ln -s /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc
-sudo ln -s /usr/local/share/scala/bin/scalap /usr/local/bin/scalap
+VERSION=2.11.8
+echo "installing scala"
+rm -f scala-$VERSION.tgz
+wget  http://downloads.lightbend.com/scala/$VERSION/scala-$VERSION.tgz
+tar zxf scala-$VERSION.tgz
+
+sudo rm -rf /usr/local/share/scala-$VERSION
+sudo mv scala-$VERSION /usr/local/share
+sudo ln -fs /usr/local/share/scala-$VERSION /usr/local/share/scala
+sudo ln -fs /usr/local/share/scala/bin/fsc /usr/local/bin/fsc
+sudo ln -fs /usr/local/share/scala/bin/scala /usr/local/bin/scala
+sudo ln -fs /usr/local/share/scala/bin/scalac /usr/local/bin/scalac
+sudo ln -fs /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc
+sudo ln -fs /usr/local/share/scala/bin/scalap /usr/local/bin/scalap
 
