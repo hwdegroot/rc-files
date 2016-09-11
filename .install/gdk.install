@@ -1,14 +1,9 @@
 #!/usr/bin/env bash
 
-echo "Installing RVM..."
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-cd ~
-curl -sSL https://get.rvm.io | bash -s -- stable --ignore-dotfiles
-source ~/.rvm/scripts/rvm
-source ~/.bashrc
 rvm install ruby-2.1.8
 rvm --default use 2.1.8
 
+exit 0
 echo "Installing PhantomJS..."
 curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
 tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
