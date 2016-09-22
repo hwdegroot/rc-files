@@ -4,6 +4,6 @@ echo "Installing docker"
 sudo apt-get -y install docker
 
 cat <<-EOF | sudo tee /etc/default/docker
-DOCKER_OPTS=""
+DOCKER_OPTS="--insecure-registry docker-virtual.artifactory.srv.hq.mendix.net"
 EOF
 
