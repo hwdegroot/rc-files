@@ -46,3 +46,30 @@ fi
 
 complete -C cf_completion cf
 
+ssh_proxy() {
+  args=()
+  port=1080
+  if [[ $# -eq 0 ]]; then
+    echo "ssh-proxy [-p <port>] user@server [-i identityfile]"
+    return 1
+  fi
+  while [ $# -gt 0 ]; do
+    case $1 in
+      -p|--port)
+        shift
+        port=$1
+        ;;
+      *) args+=("$1")
+    esac
+    shift
+    echo ${args[@]}
+  done
+  set -- ${args[@]}
+  echo "Running ssh proxy @ port 1080"
+  echo " - ssh -ND $port $@"
+  ssh -ND $port $@ &
+}
+
+alias ssh-proxy='ssh_proxy'
+
+
