@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Installing docker"
+sudo apt-get -y install docker
+
+cat <<-EOF | sudo tee /etc/default/docker
+DOCKER_OPTS=""
+EOF
+
