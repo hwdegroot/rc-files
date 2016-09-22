@@ -68,6 +68,7 @@ ssh_proxy() {
   echo "Running ssh proxy @ port 1080"
   echo " - ssh -ND $port $@"
   ssh -ND $port $@ &
+  echo $! > .ssh-proxy.pid
 }
 
 alias ssh-proxy='ssh_proxy'
