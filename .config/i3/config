@@ -63,7 +63,8 @@ bindsym $mod+h split h
 bindsym $mod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+f fullscreen global
+bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
@@ -178,6 +179,8 @@ exec --no-startup-id slack --startup
 #start dropbox
 exec --no-startup-id dropbox start
 
+# start shutter
+exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
 exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
 

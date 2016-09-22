@@ -67,7 +67,7 @@ esac
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-  alias ls='ls --color=auto'
+  alias ls='ls -h --color=auto'
   alias dir='dir --color=auto'
   alias vdir='vdir --color=auto'
 
@@ -77,9 +77,9 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alhF'
+alias la='ls -hA'
+alias l='ls -hCF'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -106,6 +106,16 @@ if [[ -f /etc/profile.d/rvm.sh ]]; then
   source /etc/profile.d/rvm.sh
 fi
 
+# sensible bash
+# https://github.com/mrzool/bash-sensible 
+if [[ -f $HOME/.config/sensible.bash/sensible.bash ]]; then
+  source $HOME/.config/sensible.bash/sensible.bash
+fi
+# 
+if [[ -f /etc/profile.d/rvm.sh ]]; then
+  source /etc/profile.d/rvm.sh
+fi
+
 if [[ -d /usr/local/go/bin ]]; then
 	export GOPATH=$HOME/Go
 	export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
@@ -123,4 +133,8 @@ export GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+
+if [ -n "$DISPLAY" ]; then
+  xset b off
+fi
 

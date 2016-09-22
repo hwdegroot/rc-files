@@ -43,32 +43,3 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
-# use a colored prompt in vagrant
-# Broken in vagrant & Cygwin
-# see: https://github.com/mitchellh/vagrant/issues/6281
-export VAGRANT_DETECTED_OS=cygwin
-
-# Git shizzle
-# Set editor for git to vim
-# see: http://unix.stackexchange.com/questions/44336/im-not-getting-syntax-coloring-in-vim-using-cygwin
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
-which virtualenvwrapper.sh &>/dev/null
-if [[ $? -eq 0 ]];then 
-	source $(which virtualenvwrapper.sh)
-	export WORKON_HOME=$HOME/.virtualenvs
-	# virtualenv aliases
-	# http://blog.doughellmann.com/2010/01/virtualenvwrapper-tips-and-tricks.html
-	alias v='workon'
-	alias v.deactivate='deactivate'
-	alias v.mk='mkvirtualenv --no-site-packages'
-	alias v.mk_withsitepackages='mkvirtualenv'
-	alias v.rm='rmvirtualenv'
-	alias v.switch='workon'
-	alias v.add2virtualenv='add2virtualenv'
-	alias v.cdsitepackages='cdsitepackages'
-	alias v.cd='cdvirtualenv'
-	alias v.lssitepackages='lssitepackages'
-fi
-

@@ -52,6 +52,7 @@ set number
 set nocompatible
 " Always indent spaces
 set expandtab
+
 " size of a hard tabstop
 set tabstop=2
 
@@ -65,6 +66,9 @@ set softtabstop=2
 " Enable mouse scrolling
 set mouse=a
 
+" Use system clipboard iso vim cut buffer
+set clipboard=unnamed
+"vnoremap y "*y
 
 " Search options
 set hlsearch
@@ -77,22 +81,12 @@ set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 
-" clojure edit mode
-let g:paredit_mode = 1
-
-" clojure static
-let g:clojure_align_multiline_strings = 0
-" Evaluate Clojure buffers on load
-autocmd BufRead,BufNewFile,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
-" autocmd Syntax clojure EnableSyntaxExtension
-
-" Set groovy highlighting for all grovy extension and for jenkinsfile
-au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
-" Set ruby syntax for Vagrantfile
-au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
-
 " show the matching part of the pair for [] {} and ()
 set showmatch
+
+" Insert date
+nnoremap <C-t> "=strftime("%Y/%m/%d")<CR>p
+nnoremap <C-Shift-t> "=strftime("%Y/%m/%d %H:%M:%S")<CR>p
 
 "================================================================="
 "                    MAPPING CONFIGURATION
@@ -111,13 +105,19 @@ map <Esc>[1;3A <Alt-Up>
 map <Esc>[1;3B <Alt-Down>
 map <Esc>[1;3C <Alt-Right>
 map <Esc>[1;3D <Alt-Left>
-noremap <silent> <C-Up> dd<Up>P
-noremap <silent> <C-Down> dd<Down>P
+nnoremap <C-Down> :m .+1<CR>==
+nnoremap <C-Up> :m .-2<CR>==
+inoremap <C-Down> <Esc>:m .+1<CR>==gi
+inoremap <C-UP> <Esc>:m .-2<CR>==gi
+vnoremap <C-Down> :m '>+1<CR>gv=gv
+vnoremap <C-Up> :m '<-2<CR>gv=gv
 noremap <silent> <C-Left> :bprev!<CR>
 noremap <silent> <C-Right> :bnext!<CR>
+nnoremap <C-l> :buffers!<CR>:buffer<Space>
 noremap <silent> <C-d>b :diffg BA<CR>
 noremap <silent> <C-d>r :diffg RE<CR>
 noremap <silent> <C-d>l :diffg LO<CR>
+inoremap <S-Tab> <C-V><Tab>
 
 "================================================================="
 "                    PLUGIN CONFIGURATION
@@ -126,11 +126,19 @@ noremap <silent> <C-d>l :diffg LO<CR>
 set backspace=2
 autocmd Filetype gitcommit setlocal textwidth=72
 
+" Set ruby syntax for Vagrantfile
+au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
+
+" Set groovy syntax for Jenkinsfile
 autocmd BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+
 " Evaluate Clojure buffers on load
 autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
 
-" clojure
+" clojure edit mode
+let g:paredit_mode = 1
+
+" clojure static
 let g:clojure_align_multiline_strings = 1
 
 " enable all Python syntax highlighting features

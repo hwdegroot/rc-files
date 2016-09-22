@@ -1,14 +1,11 @@
 #!/usr/bin/env bash
 
 echo "Install remoting tools"
-sudo apt-get -y install curl vim wget
+sudo apt-get -y install curl gvim wget
 
 echo "Installing Ubuntu fonts"
 curl -c - -L -O http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
 sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
-
-echo "Install remoting tools"
-sudo apt-get -y install curl vim wget
 
 echo "Effectiveness tools"
 sudo apt-get -y install strace mc htop
@@ -41,4 +38,13 @@ sensors-detect
 
 echo "Applying Xresources"
 xrdb -merge ~/.Xresources
+
+echo "Install cf client"
+mkdir -p cf
+sudo apt-get install ruby
+curl --silent --fail -L -o "cf.tar.gz" "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"
+tar xzf cf.tar.gz -C cf
+mv cf/cf* /usr/local/bin 
+gem install cf_completion
+rm -rf cf*
 

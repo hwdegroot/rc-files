@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
+echo "Installing Keppass2..."
 sudo apt-get -y install keepass2
 
