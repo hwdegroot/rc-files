@@ -106,6 +106,16 @@ if [[ -f /etc/profile.d/rvm.sh ]]; then
   source /etc/profile.d/rvm.sh
 fi
 
+# sensible bash
+# https://github.com/mrzool/bash-sensible 
+if [[ -f $HOME/.config/sensible.bash/sensible.bash ]]; then
+  source $HOME/.config/sensible.bash/sensible.bash
+fi
+# 
+if [[ -f /etc/profile.d/rvm.sh ]]; then
+  source /etc/profile.d/rvm.sh
+fi
+
 if [[ -d /usr/local/go/bin ]]; then
 	export GOPATH=$HOME/Go
 	export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin

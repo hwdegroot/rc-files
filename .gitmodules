@@ -14,3 +14,6 @@
   path = bash-git-prompt
   url = git@github.com:hwdegroot/bash-git-prompt.git
   ignore = dirty
+[submodule ".config/sensible.bash"]
+	path = .config/sensible.bash
+	url = git@github.com:mrzool/bash-sensible.git
