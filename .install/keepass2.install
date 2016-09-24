@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+echo "Installing dropbox"
+rm -rf dropbox_*
+wget https://linux.dropbox.com/packages/debian/dropbox_2015.10.28_amd64.deb
+
+sudo dpkg -i `ls dropbox_*`
+dropbox start -i
+
 echo "Installing Keppass2..."
 sudo apt-get -y install keepass2
 
