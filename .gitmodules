@@ -17,4 +17,4 @@
 [submodule ".config/sensible.bash"]
   path = .config/sensible.bash
   url = git@github.com:mrzool/bash-sensible.git
-  ignore = diirty
+  ignore = dirty
