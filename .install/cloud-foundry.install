@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "Install cf client"
+mkdir -p cf
+sudo apt-get install ruby
+curl --silent --fail -L -o "cf.tar.gz" "https://cli.run.pivotal.io/stable?release=linux64-binary&source=github"
+tar xzf cf.tar.gz -C cf
+mv cf/cf* /usr/local/bin 
+gem install cf_completion
+rm -rf cf*
+

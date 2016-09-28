@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+pushd  $HOME/.local/share
+rm -rf Markdown_1.0.1* markdown-1.0.1
+wget http://daringfireball.net/projects/downloads/Markdown_1.0.1.zip
+unzip Markdown_1.0.1.zip
+mv Markdown_1.0.1 markdown-1.0.1
+popd
+ln -fs $HOME/.local/share/markdown-1.0.1/Markdown.pl $HOME/.local/bin/markdown
+

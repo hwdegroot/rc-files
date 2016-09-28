@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "Installing docker"
+sudo apt install -y docker
+
+echo "Tweak service"
+sudo mkdir -p /etc/systemd/system/docker.service.d
+
+sudo cat <<OPTS > /etc/systemd/system/docker.service.d/docker.conf
+EnvironmentFile=-/etc/default/docker
+ExecStart=
+ExecStart=/usr/bin/dockerd $DOCKER_OPTS -H fd://
+OPTS
+
+sudo cat <<DOCKER_OPTS > /etc/default/docker
+DOCKER_OPTS="--insecure-registry docker-virtual.artifactory.srv.hq.mendix.net"
+DOCKER_OPTS
+
+sudo systemctl restart docker
+
