@@ -3,7 +3,19 @@
 echo "Installing docker"
 sudo apt-get -y install docker
 
-cat <<-EOF | sudo tee /etc/default/docker
-DOCKER_OPTS="--insecure-registry docker-virtual.artifactory.srv.hq.mendix.net"
+echo "Tweak service"
+sudo mkdir -p /etc/systemd/system/docker.service.d
+
+cat <<-EOF | sudo tee -a /etc/default/docker
+DOCKER_OPTS="--debug --insecure-registry docker-virtual.artifactory.srv.hq.mendix.net"
 EOF
+
+cat <<-OPTS | sudo tee /etc/systemd/system/docker.service.d/docker.conf
+EnvironmentFile=-/etc/default/docker
+ExecStart=
+ExecStart=/usr/bin/dockerd \$DOCKER_OPTS -H fd://
+OPTS
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
 

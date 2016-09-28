@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "Install python stuff"
+apt-get -y install python python-pip python-psutil
+pip install virtualenv virtualenvwrapper
+
+echo "FUCK!!"
+sudo pip install thefuck
+
