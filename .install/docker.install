@@ -1,19 +1,28 @@
 #!/bin/bash
 
 echo "Installing docker"
-sudo apt-get -y install docker
+sudo apt-get update
+sudo apt-get purge "lxc-docker*"
+sudo apt-get purge "docker.io"
+sudo apt-get -y install apt-transport-https ca-certificates 
+sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+
+sudo mkdir -p /etc/apt/sources.list.d
+echo "deb https://apt.dockerproject.org/repo debian-jessie main" | sudo tee /etc/apt/sources.list.d/docker.list
+sudo apt-get update
+sudo apt-get install -y docker-engine
 
 echo "Tweak service"
 sudo mkdir -p /etc/systemd/system/docker.service.d
 
-cat <<-EOF | sudo tee -a /etc/default/docker
-DOCKER_OPTS="--debug --insecure-registry docker-virtual.artifactory.srv.hq.mendix.net"
-EOF
-
 cat <<-OPTS | sudo tee /etc/systemd/system/docker.service.d/docker.conf
+[Service]
 EnvironmentFile=-/etc/default/docker
 ExecStart=
-ExecStart=/usr/bin/dockerd \$DOCKER_OPTS -H fd://
+ExecStart=/usr/bin/dockerd \
+  --debug \
+  --insecure-registry docker-virtual.artifactory.srv.hq.mendix.net \
+  -H fd://
 OPTS
 
 sudo systemctl daemon-reload
