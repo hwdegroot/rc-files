@@ -34,3 +34,7 @@ __pd() {
 complete -o nospace -F __pd pd
 complete -C cf_completion cf
 
+if [[ -f $HOME/gittools/gittools.completion ]]; then
+  source $HOME/gittools/gittools.completion;
+fi
+
