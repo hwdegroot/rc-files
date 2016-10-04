@@ -1,0 +1,36 @@
+#!/bin/bash
+__pd() {
+  set mark-directories on
+  pdir=$HOME/source
+  [[ ${pdir:-1} == "/" ]] && pdir=${pdir:0:-1}
+
+  local IFS=$'\n\t'
+  base="$pdir"
+  curr="${COMP_WORDS[$COMP_CWORD]}"
+  full="$base/$curr"
+  if [[ ! -d "$full" ]]; then
+    base=${full%/*}/
+    curr=${full//$base/}
+  else
+    base=$full
+    curr=
+  fi
+  if [[ ! -d $base ]]; then
+    COMPREPLY=()
+    return
+  fi
+
+  tmp=( "$(compgen -W "`ls $base`" -- "$curr")" )
+  COMP_REPLY=()
+  for c in ${tmp[@]}; do
+    if [[ -d "$base/$c" ]]; then
+      [[ ${base:-1} == "/" ]] && base=${base:0:-1}
+      COMP_ENTRY="${base}${c}"
+      COMP_REPLY+=( "${COMP_ENTRY//$pdir\//}/" )
+    fi
+  done
+  COMPREPLY=( "${COMP_REPLY[@]}" )
+}
+complete -o nospace -F __pd pd
+complete -C cf_completion cf
+

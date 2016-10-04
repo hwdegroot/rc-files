@@ -9,10 +9,11 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
   source ~/gittools/.gittoolsrc
 fi
 
-[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR=~/source/platform
+[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR="$HOME/source/"
 if [[ -d $PLATFORMDIR ]]; then
   repodir() {
     PD=$PLATFORMDIR
+    [[ "${PD:-1}" == "/" ]] && PD="${PD:0:-1}"
     cd "$PD/$1"
   }
 
@@ -44,7 +45,6 @@ if [[ $? -eq 0 ]];then
   alias v.lssitepackages='lssitepackages'
 fi
 
-complete -C cf_completion cf
 
 ssh_proxy() {
   args=()

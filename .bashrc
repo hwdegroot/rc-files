@@ -100,6 +100,9 @@ fi
 if [[ -f /etc/bash_completion ]] && ! shopt -oq posix; then
   source /etc/bash_completion
 fi
+if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
+  source $HOME/.bash_completion
+fi
 
 # source rvm file
 if [[ -f /etc/profile.d/rvm.sh ]]; then
