@@ -170,6 +170,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# HDPI scaling
+#exec xrandr --dpi 220
+
 # startup network-manager applet
 exec --no-startup-id nm-applet
 
