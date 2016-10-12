@@ -8,7 +8,7 @@
 !.profile
 !.minttyrc
 
-
+.install/cert/
 !.vimrc
 !README.md
 .ssh/

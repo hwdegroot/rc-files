@@ -45,6 +45,39 @@ if [[ $? -eq 0 ]];then
   alias v.lssitepackages='lssitepackages'
 fi
 
+# docker aliases
+alias docker-remove-images='docker images -qa | xargs -i docker rmi -f {}'
+alias docker-remove-containers='docker ps -qa | xargs -i docker rm -f {}'
+alias docker-remove-volumes='docker volume ls -q | xargs -i docker volume rm {}'
+# git aliases
+alias gp='git push'
+alias g!='git add . && git commit --amend && git push --force'
+alias gm='git commit -am '
+alias gc='git clean -fdx && git reset --hard'
+alias c='clear'
+alias gp='git push'
+alias gl='git log'
+
+gam() {
+  git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
+}
+
+alias ga=gam
+
+aa_256 () 
+{
+  local o= i= x=`tput op` cols=`tput cols` y= oo= yy=;
+  y=`printf %$(($cols-6))s`;
+  yy=${y// /=};
+  for i in {0..256};
+  do
+    o=00${i};
+    oo=`echo -en "setaf ${i}\nsetab ${i}\n"|tput -S`;
+    echo -e "${o:${#o}-3:3} ${oo}${yy}${x}";
+  done
+}
+alias colors=aa_256
+
 
 ssh_proxy() {
   args=()

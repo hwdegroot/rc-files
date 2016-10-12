@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" >> /etc/apt/sources.list.d/virtualbox.list'
+echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 
-cat <<-EOF > /etc/apt/sources.list.d/virtualbox-5.0.list
-  # contrib repo for virtualbox
-  deb http://download.virtualbox.org/virtualbox/debian jessie contrib
+cat <<EOF | sudo tee /etc/apt/sources.list.d/virtualbox-5.0.list
+# contrib repo for virtualbox
+deb http://download.virtualbox.org/virtualbox/debian jessie contrib
 EOF
 wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
 wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -

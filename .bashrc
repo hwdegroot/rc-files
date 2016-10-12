@@ -114,20 +114,16 @@ fi
 if [[ -f $HOME/.config/sensible.bash/sensible.bash ]]; then
   source $HOME/.config/sensible.bash/sensible.bash
 fi
-# 
-if [[ -f /etc/profile.d/rvm.sh ]]; then
-  source /etc/profile.d/rvm.sh
-fi
 
 if [[ -d /usr/local/go/bin ]]; then
-	export GOPATH=$HOME/Go
-	export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-	mkdir -p $GOPATH
+  export GOPATH=$HOME/Go
+  export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+  mkdir -p $GOPATH
 fi
 
 
-source ~/.config/bash-git-prompt/config
-source ~/bash-git-prompt/gitprompt.sh
+[[ -f ~/.config/bash-git-prompt/config ]] && . ~/.config/bash-git-prompt/config
+[[ -f ~/bash-git-prompt/gitprompt.sh ]] && . ~/bash-git-prompt/gitprompt.sh
 
 # RVM stuff
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
