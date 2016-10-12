@@ -9,7 +9,7 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
   source ~/gittools/.gittoolsrc
 fi
 
-[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR="$HOME/source/"
+[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR="$HOME/source/platform"
 if [[ -d $PLATFORMDIR ]]; then
   repodir() {
     PD=$PLATFORMDIR
