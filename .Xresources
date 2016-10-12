@@ -41,11 +41,11 @@ Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.hintstyle: hintfull
-Xft.dpi:       180
+! Xft.dpi:       180
 Xft.autohint:  0
 Xft.lcdfilter: lcddefault
 
 XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>v: insert-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>c: copy-selection(CLIPBOARD)
-
+Xcursor.size: 8 

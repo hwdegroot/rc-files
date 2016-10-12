@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Luxi Mono 8
+font pango:Ubuntu Mono 10
 #font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -170,7 +170,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # HDPI scaling
-exec xrandr --dpi 200
+exec xrandr --dpi 100
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
@@ -185,4 +185,7 @@ exec --no-startup-id dropbox start
 exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
 exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
+
+exec $HOME/.config/i3/adjust-resolution.sh
+
 
