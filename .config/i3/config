@@ -170,9 +170,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # HDPI scaling
-exec xrandr --dpi 100
+exec xrandr --dpi 90
 # reset resolution to 1920x1080
-exec $HOME/.config/i3/adjust-resolution.sh
+exec $HOME/.config/i3/adjust-resolution.sh 1920 1080 60.00
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
@@ -186,7 +186,5 @@ exec --no-startup-id dropbox start
 # start shutter
 exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
-exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
-
-
+exec --no-startup-id "/usr/bin/feh -Z --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
 

@@ -26,3 +26,5 @@ sudo update-alternatives --set x-terminal-emulator /usr/bin/xterm
 echo "Applying Xresources"
 xrdb -merge ~/.Xresources
 
+sudo ln -fs $HOME/.local/share/logoff /usr/bin/logoff
+
