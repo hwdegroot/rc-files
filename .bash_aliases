@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [[ -f ~/gittools/.gittoolsrc ]]; then
   export PRE_FETCH=1
   export POST_PULL=1
@@ -9,16 +8,6 @@ if [[ -f ~/gittools/.gittoolsrc ]]; then
   source ~/gittools/.gittoolsrc
 fi
 
-[[ -z "$PLATFORMDIR" ]] && PLATFORMDIR="$HOME/source/platform"
-if [[ -d $PLATFORMDIR ]]; then
-  repodir() {
-    PD=$PLATFORMDIR
-    [[ "${PD:-1}" == "/" ]] && PD="${PD:0:-1}"
-    cd "$PD/$1"
-  }
-
-  alias pd=repodir
-fi
 alias my-ip="wget http://ipinfo.io/ip -qO -"
 
 if [[ "$(which thefuck &>/dev/null || echo $?)" -ne 1 ]]; then
