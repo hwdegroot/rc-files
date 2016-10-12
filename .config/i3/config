@@ -146,7 +146,7 @@ bar {
 }
 
 # Spawn a terminal in the same directory
-bindsym $mod+l exec "i3lock -c 000000 -i ~/.config/i3/Pictures/LockScreen.png -p default -d -n"
+bindsym $mod+l exec "i3lock -c 000000 -i ~/.config/i3/Pictures/LockScreen.png -t -p default -d -n"
 
 # Start shell in pwd
 bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
@@ -171,6 +171,8 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # HDPI scaling
 exec xrandr --dpi 100
+# reset resolution to 1920x1080
+exec $HOME/.config/i3/adjust-resolution.sh
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
@@ -186,6 +188,5 @@ exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
 exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
 
-exec $HOME/.config/i3/adjust-resolution.sh
 
 
