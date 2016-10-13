@@ -172,7 +172,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # HDPI scaling
 exec xrandr --dpi 90
 # reset resolution to 1920x1080
-exec $HOME/.config/i3/adjust-resolution.sh 1920 1080 60.00
+exec $HOME/.config/i3/set-output.sh eDP-1 1920 1080 60.00
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
