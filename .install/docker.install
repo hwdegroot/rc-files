@@ -21,6 +21,7 @@ EnvironmentFile=-/etc/default/docker
 ExecStart=
 ExecStart=/usr/bin/dockerd \
   --debug \
+  --insecure-registry docker-local.artifactory.srv.hq.mendix.net \
   --insecure-registry docker-virtual.artifactory.srv.hq.mendix.net \
   -H fd://
 OPTS
