@@ -1,4 +1,5 @@
 #!/bin/bash
+
 if [[ -f ~/gittools/.gittoolsrc ]]; then
   export PRE_FETCH=1
   export POST_PULL=1
@@ -50,7 +51,6 @@ alias gl='git log'
 gam() {
   git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
 }
-
 alias ga=gam
 
 aa_256 () 
@@ -92,7 +92,6 @@ ssh_proxy() {
   ssh -ND $port $@ &
   echo $! > .ssh-proxy.$!.pid
 }
-
 alias ssh-proxy='ssh_proxy'
 
 
