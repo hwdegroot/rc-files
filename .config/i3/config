@@ -145,8 +145,10 @@ bar {
   position top
 }
 
-# Spawn a terminal in the same directory
-bindsym $mod+l exec "i3lock -c 000000 -i ~/.config/i3/Pictures/LockScreen.png -t -p default -d -n"
+# lock screen after 3 minutes
+bindsym $mod+l exec ~/.config/i3/lock.sh
+exec --no-startup-id  xautolock -time 1 -locker /home/rik/.config/i3/lock.sh -detectsleep
+#exec "xautolock -enable"
 
 # Start shell in pwd
 bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
@@ -161,7 +163,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec $HOME/.config/i3/toggletouchpad.sh # toggle touchpad
+bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
