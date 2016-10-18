@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec $HOME/.config/i3/i3-term.sh
+bindsym $mod+Return exec ~/.config/i3/i3-term.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -150,9 +150,6 @@ bindsym $mod+l exec ~/.config/i3/lock.sh
 exec --no-startup-id  xautolock -time 1 -locker /home/rik/.config/i3/lock.sh -detectsleep
 #exec "xautolock -enable"
 
-# Start shell in pwd
-bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
-
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
@@ -174,7 +171,7 @@ bindsym XF86AudioPrev exec playerctl previous
 # HDPI scaling
 exec xrandr --dpi 90
 # reset resolution to 1920x1080
-exec $HOME/.local/bin/output eDP-1 1920 1080 60.00
+exec ~/.local/bin/output eDP-1 1920 1080 60.00
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
@@ -188,5 +185,5 @@ exec --no-startup-id dropbox start
 # start shutter
 exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
-exec --no-startup-id "/usr/bin/feh -Z --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
+exec --no-startup-id feh -Z --bg-scale ~/.config/i3/Pictures/Wallpaper.jpg
 
