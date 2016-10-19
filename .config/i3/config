@@ -147,7 +147,7 @@ bar {
 
 # lock screen after 3 minutes
 bindsym $mod+l exec ~/.config/i3/lock.sh
-exec --no-startup-id  xautolock -time 1 -locker /home/rik/.config/i3/lock.sh -detectsleep
+exec --no-startup-id  xautolock -time 5 -locker /home/rik/.config/i3/lock.sh -detectsleep
 #exec "xautolock -enable"
 
 # Pulse Audio controls
