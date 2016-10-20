@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "Install remoting tools"
-sudo apt-get -y install curl vim-gnome wget
+sudo apt-get -y install curl vim-gnome wget tig gitg
 
 echo "Installing Ubuntu fonts"
 wget http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb

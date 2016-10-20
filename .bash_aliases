@@ -47,6 +47,9 @@ alias gc='git clean -fdx && git reset --hard'
 alias c='clear'
 alias gp='git push'
 alias gl='git log'
+alias clone="git clone"
+alias co="git checkout"
+alias gb='git branch'
 
 gam() {
   git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
