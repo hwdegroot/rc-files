@@ -4,8 +4,7 @@ cat <<SERVICE | sudo tee /etc/systemd/system/i3lock.service
 # source: https://bbs.archlinux.org/viewtopic.php?pid=1170536#p1170536 by 65kid
 #
 [Unit]
-Description=i3lock
-Before=sleep.target
+Description=i3lock service
 
 [Service]
 User=rik
