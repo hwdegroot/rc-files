@@ -1,0 +1,18 @@
+#!/bin/bash
+set -e +x
+
+wd=`mktemp -d -p $(dirname $0)`
+pushd $wd
+IMAGE=$1
+cat <<-D > Dockerfile
+FROM docker-local.artifactory.srv.hq.mendix.net/$IMAGE
+RUN groupadd -g 1000 test && useradd -m -g test -u 1000 test
+RUN rsync -r /home/jenkins/ /home/test/
+RUN chown -R test:test /home/test
+USER test
+D
+docker build -t $IMAGE .
+rm -rf $wd
+popd
+docker run -it --rm -u test:test -v `pwd`:`pwd` -w `pwd` $IMAGE
+
