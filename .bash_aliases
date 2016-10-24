@@ -50,6 +50,7 @@ alias gl='git log'
 alias clone="git clone"
 alias co="git checkout"
 alias gb='git branch'
+alias pull="git pull"
 
 gam() {
   git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
