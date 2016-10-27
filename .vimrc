@@ -118,7 +118,7 @@ noremap <silent> <C-d>b :diffg BA<CR>
 noremap <silent> <C-d>r :diffg RE<CR>
 noremap <silent> <C-d>l :diffg LO<CR>
 inoremap <S-Tab> <C-V><Tab>
-
+map <C-c> :bd<CR>
 "================================================================="
 "                    PLUGIN CONFIGURATION
 "================================================================="
