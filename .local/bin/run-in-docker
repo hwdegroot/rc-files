@@ -16,7 +16,7 @@ rm -rf $wd
 popd
 name=$(docker run -it -u test:test -v `pwd`:`pwd` -w `pwd` -d $IMAGE)
 
-docker exec $name $2
+docker exec $name ${@:2}
 
 docker stop $name
 docker rm $name
