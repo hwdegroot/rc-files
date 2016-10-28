@@ -6,6 +6,7 @@ pushd $wd
 IMAGE=$1
 cat <<-D > Dockerfile
 FROM docker-local.artifactory.srv.hq.mendix.net/$IMAGE
+USER root
 RUN groupadd -g 1000 test && useradd -m -g test -u 1000 test
 RUN rsync -r /home/jenkins/ /home/test/
 RUN chown -R test:test /home/test
