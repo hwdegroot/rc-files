@@ -1,6 +1,6 @@
 [user]
 	name = Rik de Groot
-	email = hwdegroot@gmail.com 
+	email = 
 [core]
 	autocrlf = False
 	editor = vim
