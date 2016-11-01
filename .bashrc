@@ -122,8 +122,9 @@ if [[ -d /usr/local/go/bin ]]; then
 fi
 
 
-[[ -f ~/.config/bash-git-prompt/config ]] && . ~/.config/bash-git-prompt/config
-[[ -f ~/bash-git-prompt/gitprompt.sh ]] && . ~/bash-git-prompt/gitprompt.sh
+[[ -f ~/.config/bash-git-prompt/config ]] && source ~/.config/bash-git-prompt/config
+[[ -f ~/bash-git-prompt/gitprompt.sh ]] && source ~/bash-git-prompt/gitprompt.sh
+[[ -f ~/.gitrc ]] && source ~/.gitrc
 
 # RVM stuff
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
@@ -136,6 +137,4 @@ export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
-
-[[ -f ~/.gitrc ]] && . ~/.gitrc
 
