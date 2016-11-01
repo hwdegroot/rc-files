@@ -1,6 +1,5 @@
 *
 !.gitignore 
-!.gitconfig
 .bash_history
 !.bash_aliases
 !.bash_profile
