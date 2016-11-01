@@ -137,3 +137,8 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
+
+export GIT_AUTHOR_NAME="$(git config user.name)"
+export GIT_AUTHOR_EMAIL="$(git config user.email)"
+export GIT_COMMITER_NAME=$GIT_AUTHOR_NAME
+export GIT_COMMITER_EMAIL=$GIT_AUTHOR_EMAIL
