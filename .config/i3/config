@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Luxi Mono 8
+font pango:Ubuntu Mono 10
 #font pango:DejaVu Sans Mono 8
 
 # Before i3 v4.8, we used to recommend this one as the default:
@@ -32,7 +32,7 @@ floating_modifier $mod
 
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec $HOME/.config/i3/i3-term.sh
+bindsym $mod+Return exec ~/.config/i3/i3-term.sh
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -145,15 +145,14 @@ bar {
   position top
 }
 
-# Spawn a terminal in the same directory
-bindsym $mod+l exec "i3lock -c 000000 -i ~/.config/i3/Pictures/LockScreen.png -p default -d -n"
-
-# Start shell in pwd
-bindsym $mod+b exec "~/.local/bin/i3-shell.sh"
+# lock screen after 3 minutes
+bindsym $mod+l exec ~/.config/i3/lock.sh
+exec --no-startup-id  xautolock -time 5 -locker /home/rik/.config/i3/lock.sh -detectsleep
+#exec "xautolock -enable"
 
 # Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 5%+
-bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset Master 5%-
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer sset Master 5%+
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer sset Master 5%-
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
@@ -161,7 +160,7 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Touchpad controls
-bindsym XF86TouchpadToggle exec $HOME/.config/i3/toggletouchpad.sh # toggle touchpad
+bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play
@@ -170,7 +169,9 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
 # HDPI scaling
-exec xrandr --dpi 200
+exec xrandr --dpi 90
+# reset resolution to 1920x1080
+exec ~/.local/bin/output eDP-1 1920 1080 60.00
 
 # startup network-manager applet
 exec --no-startup-id nm-applet
@@ -184,5 +185,5 @@ exec --no-startup-id dropbox start
 # start shutter
 exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
-exec --no-startup-id "/usr/bin/feh --bg-scale $HOME/.config/i3/Pictures/Wallpaper.jpg"
+exec --no-startup-id feh -Z --bg-scale ~/.config/i3/Pictures/Wallpaper.jpg
 

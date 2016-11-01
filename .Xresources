@@ -35,5 +35,17 @@ XTerm*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine
 XTerm*matcher.button: 1
 
 ! # dont forget to change this to your favorite browser
-XTerm*urlLauncher: chromium
+XTerm*urlLauncher: google-chrome
 
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.hintstyle: hintfull
+! Xft.dpi:       180
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+
+XTerm*VT100.Translations: #override \
+                          Ctrl Shift <Key>v: insert-selection(CLIPBOARD) \n\
+                          Ctrl Shift <Key>c: copy-selection(CLIPBOARD)
+Xcursor.size: 8 

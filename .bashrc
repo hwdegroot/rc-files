@@ -137,3 +137,5 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
+[[ -f ~/.gitrc ]] && . ~/.gitrc
+

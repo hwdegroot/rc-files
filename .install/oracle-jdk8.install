@@ -4,6 +4,7 @@ wget quiet --header "Cookie: oraclelicense=accept-securebackup-cookie" http://do
 sudo mkdir -p /usr/lib/jvm/j2sdk8-oracle
 sudo tar vzxf jdk-8u101-linux-x64.tar.gz --strip-components=1 -C /usr/lib/jvm/j2sdk8-oracle
 
+sudo apt install -y ca-certificates ca-certificates-java
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/j2sdk8-oracle/bin/java 100
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/j2sdk8-oracle/bin/javac 100
 
@@ -12,5 +13,5 @@ echo "export JAVA_HOME=/usr/lib/jvm/j2sdk8-oracle" | sudo tee -a /etc/environmen
 echo "export PATH=$JAVA_HOME/bin:$PATH" | sudo tee -a /etc/environment
 . /etc/environment
 
-sudo keytool -importcert -noprompt -file cert/mendix.cer -keystore $JAVA_HOME/jre/lib/security/cacerts -storepass changeit
+sudo keytool -importcert -noprompt -file cert/mendix.cer -keystore /etc/ssl/certs/java/cacerts -storepass changeit
 

@@ -1,7 +1,15 @@
 #!/bin/bash
+_pd() {
+  pdir="$PLATFORMDIR"
+  [[ -z "$pdir" ]] && pdir=$HOME/source/platform
+  [[ ${pdir:-1} == "/" ]] && pdir=${pdir:0:-1}
+  cd $pdir/$1
+}
+alias pd=_pd
 __pd() {
   set mark-directories on
-  pdir=$HOME/source
+  [[ ! -z "$PLATFORMDIR" ]] && [[ -d $PLATFORMDIR ]] && pdir=$(cd $PLATFORMDIR && pwd)
+  [[ -z "$pdir" ]] && pdir=$HOME/source/platform/
   [[ ${pdir:-1} == "/" ]] && pdir=${pdir:0:-1}
 
   local IFS=$'\n\t'

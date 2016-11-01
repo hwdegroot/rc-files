@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+echo "Install remoting tools"
+sudo apt-get -y install tig gitg
+
+cp -f `dirname $0`/templates/.gitconfig ~/.gitconfig
+echo "Git config user name"
+read GIT_USER_NAME
+[[ -n "$GIT_USER_NAME" ]] && git config --global user.name "$GIT_USER_NAME"
+
+echo "Git config user email"
+read GIT_USER_EMAIL
+[[ -n "$GIT_USER_EMAIL" ]] && git config --global user.email "$GIT_USER_EMAIL"
+
+

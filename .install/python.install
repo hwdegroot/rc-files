@@ -1,10 +1,20 @@
 #!/bin/bash
 
 echo "Install python stuff"
-sudo apt-get -y install build-essential libssl-dev libffi-dev python-dev python python-setuptools python-psutil
+sudo apt-get -y install \
+  build-essential \
+  libssl-dev \
+  libffi-dev \
+  python-dev \
+  python \
+  python-setuptools \
+  python-psutil
 sudo easy_install pip
-sudo ip install virtualenv virtualenvwrapper
-sudo pip install aws awscli
+sudo pip install \
+  virtualenv \
+  virtualenvwrapper \
+  aws \
+  awscli
 
 echo "FUCK!!"
 sudo pip install thefuck

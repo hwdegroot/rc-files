@@ -1,6 +1,3 @@
-[user]
-	name = Rik de Groot
-	email = 
 [core]
 	autocrlf = False
 	editor = vim

@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+sudo apt install -y plymouth plymouth-themes grub-pc
+[[ -z $(grep "intel_agp" /etc/initramfs-tools/modules) ]] && echo "intel_agp" | sudo tee -a /etc/initramfs-tools/modules 
+[[ -z $(grep "drm" /etc/initramfs-tools/modules) ]] && echo "drm" | sudo tee -a /etc/initramfs-tools/modules 
+[[ -z $(grep "i915 modeset=1" /etc/initramfs-tools/modules) ]] && echo "i915 modeset=1" | sudo tee -a /etc/initramfs-tools/modules 
+echo "==  Modules  ===="
+cat /etc/initramfs-tools/modules
+echo "================="
+echo ""
+
+sudo cp /etc/default/grub /etc/default/grub.old
+sudo sed -i.bak 's/.*GRUB_GFXMODE=.*/GRUB_GFXMODE=1920x1080/g' /etc/default/grub
+sudo sed -i.bak 's/.*GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"/g' /etc/default/grub
+echo "== Grub defaults ======="
+cat /etc/default/grub
+echo "========================"
+echo ""
+
+sudo update-grub
+sudo /usr/sbin/plymouth-set-default-theme lines
+sudo update-initramfs -u
+
+sudo mkdir -p /boot/grub2
+GRUB_FONT_SIZE=36
+GRUB_FONT=/boot/grub2/UbuntuMono$GRUB_FONT_SIZE.pf2
+sudo grub-mkfont -s $((GRUB_FONT_SIZE)) -o $GRUB_FONT /usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf
+
+if [[ -z $(grep "GRUB_FONT=" /etc/default/grub) ]]; then
+  echo "GRUB_FONT=$GRUB_FONT" | sudo tee -a /etc/default/grub
+else 
+  sudo sed -i.bak "s/.*GRUB_FONT=.*/GRUB_FONT=$GRUB_FONT/g" /etc/default/grub
+fi
+cat /etc/default/grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
