@@ -8,5 +8,13 @@ mkdir ~/.fonts/fontconfig/conf.d/
 wget -P ~/.fonts/ https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
 fc-cache -vf ~/.fonts/
 wget -P ~/.fonts/fontconfig/conf.d/ https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+pip show powerline-status
 
-
+POWERLINE_CONF="$(pip show powerline-status | grep -oP "(?<=Location: ).*")/powerline/bindings/tmux/powerline.conf"
+if [[ -f "$POWERLINE_CONF" ]]; then
+  if [[ ! -f "~/.tmux.conf" ]] || [[ -z "$(cat ~/.tmux.conf | grep "$POWERLINE_CONF")" ]]; then
+    cat <<-TMUX | tee ~/.tmux.conf
+		source "$REPOSITORY_ROOT/powerline/bindings/tmux/powerline.conf"
+		TMUX
+  fi
+fi
