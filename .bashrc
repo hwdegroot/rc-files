@@ -138,3 +138,11 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
+
+POWERLINE_ROOT="$(pip show powerline-status | grep -oP "(?<=Location: ).*")/powerline"
+if [[ -d "$POWERLINE_ROOT" ]]; then 
+  export POWERLINE_ROOT
+else 
+  unset POWERLINE_ROOT
+fi
+
