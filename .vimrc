@@ -29,6 +29,12 @@ Plugin 'hwdegroot/vim-powerline'
 " Coffee script
 Plugin 'kchmck/vim-coffee-script'
 
+" Vim rails
+Plugin 'tpope/vim-rails'
+
+" Git plugin
+Plugin 'tpope/vim-fugitive'
+
 " Clojure plugins inc fireplace
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
