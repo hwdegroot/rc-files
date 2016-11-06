@@ -24,7 +24,7 @@ Plugin 'puppetlabs/puppet-syntax-vim'
 Plugin 'davidhalter/jedi-vim'
 
 " Vim powerline
-Plugin 'hwdegroot/vim-powerline'
+Bundle 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
 
 " Coffee script
 Plugin 'kchmck/vim-coffee-script'
