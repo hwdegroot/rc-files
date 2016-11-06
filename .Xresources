@@ -16,7 +16,7 @@ XTerm*saveLines:32767
 XTerm*troughColor:#000000
 XTerm*scrollColor:#222222
 !XTerm*faceName: Ubuntu Mono
-XTerm*faceName: Ubuntu Mono
+XTerm*faceName: Ubuntu Mono derivative Powerline
 XTerm*faceSize: 11
 
 ! # with this set to true, when an app sends a bell to the
