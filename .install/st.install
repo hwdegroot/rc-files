@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+mkdir -p ~/source
+pushd ~/source
+
+sudo apt install -qyy libx11-dev libxft-dev libxext-dev
+
+rm -rf st
+git clone git://git.suckless.org/st
+
+cd st
+
+sed -i.bak 's|/usr/X11R6/|/usr/|g' config.mk
+make clean 
+make
+
+sed -i.bak 's/Liberation Mono/Ubuntu Mono/g' config.h
+sudo make install
+
+cd ..
+rm -rf st
+popd
+

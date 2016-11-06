@@ -1,7 +1,7 @@
 #!/bin/bash
 # i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
 
-CMD=xterm
+CMD='st -f "Ubuntu Mono:pixelsize=14"'
 CWD=''
 
 # Get window ID
@@ -21,8 +21,8 @@ if [ -n "$PID" ]; then
   fi
 fi
 if [ -n "$CWD" ]; then
-  cd $CWD && $CMD
+  cd $CWD && eval $CMD
 else
-  $CMD
+  eval $CMD
 fi
 
