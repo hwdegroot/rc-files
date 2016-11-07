@@ -15,9 +15,9 @@ XTerm*secondaryScroll:true
 XTerm*saveLines:32767
 XTerm*troughColor:#000000
 XTerm*scrollColor:#222222
-!XTerm*faceName: Ubuntu Mono
-XTerm*faceName: Ubuntu Mono derivative Powerline
-XTerm*faceSize: 11
+XTerm*faceName: Source Code Pro for Powerline
+! XTerm*faceName: Ubuntu Mono derivative Powerline
+XTerm*faceSize: 10
 
 ! # with this set to true, when an app sends a bell to the
 ! # terminal, awesome hilights the appropriate tag(s) ;)
@@ -48,4 +48,4 @@ Xft.lcdfilter: lcddefault
 XTerm*VT100.Translations: #override \
                           Ctrl Shift <Key>v: insert-selection(CLIPBOARD) \n\
                           Ctrl Shift <Key>c: copy-selection(CLIPBOARD)
-Xcursor.size: 8 
+Xcursor.size: 8

@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 
+
+apply_st_patch() {
+  wget http://st.suckless.org/patches/$1
+  git apply $1
+  rm $1
+}
+
 mkdir -p ~/source
 pushd ~/source
 
@@ -10,23 +17,15 @@ git clone git://git.suckless.org/st
 
 cd st
 git checkout 0.7
-wget http://st.suckless.org/patches/st-scrollback-0.7.diff
-git apply st-scrollback-0.7.diff
-rm st-scrollback-0.7.diff
-
-wget http://st.suckless.org/patches/st-scrollback-20160924-f739843.diff
-git apply st-scrollback-20160924-f739843.diff
-rm st-scrollback-20160924-f739843.diff
-
-wget http://st.suckless.org/patches/st-scrollback-mouse-20161020-6e79e83.diff
-git apply st-scrollback-mouse-20161020-6e79e83.diff
-rm st-scrollback-mouse-20161020-6e79e83.diff
+apply_st_patch st-scrollback-0.7.diff
+apply_st_patch st-scrollback-20160924-f739843.diff
+apply_st_patch st-scrollback-mouse-20161020-6e79e83.diff
+apply_st_patch st-delkey-0.6.diff
+apply_st_patch st-delkey-20160727-308bfbf.diff
+apply_st_patch st-visualbell-20160727-308bfbf.diff
 
 sed -i.bak 's|/usr/X11R6/|/usr/|g' config.mk
-make clean 
-make
-
-sed -i.bak 's/Liberation Mono/Ubuntu Mono/g' config.h
+make clean
 sudo make install
 
 cd ..
