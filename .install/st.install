@@ -9,6 +9,18 @@ rm -rf st
 git clone git://git.suckless.org/st
 
 cd st
+git checkout 0.7
+wget http://st.suckless.org/patches/st-scrollback-0.7.diff
+git apply st-scrollback-0.7.diff
+rm st-scrollback-0.7.diff
+
+wget http://st.suckless.org/patches/st-scrollback-20160924-f739843.diff
+git apply st-scrollback-20160924-f739843.diff
+rm st-scrollback-20160924-f739843.diff
+
+wget http://st.suckless.org/patches/st-scrollback-mouse-20161020-6e79e83.diff
+git apply st-scrollback-mouse-20161020-6e79e83.diff
+rm st-scrollback-mouse-20161020-6e79e83.diff
 
 sed -i.bak 's|/usr/X11R6/|/usr/|g' config.mk
 make clean 

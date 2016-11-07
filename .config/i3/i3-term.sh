@@ -1,8 +1,8 @@
 #!/bin/bash
 # i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
 
-#CMD='st -f "Ubuntu Mono derivative Powerline:pixelsize=14"'
-CMD=xterm
+CMD='st -f "Ubuntu Mono derivative Powerline:pixelsize=14"'
+#CMD=xterm
 CWD=''
 
 # Get window ID
