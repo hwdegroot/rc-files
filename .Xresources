@@ -16,8 +16,11 @@ XTerm*saveLines:32767
 XTerm*troughColor:#000000
 XTerm*scrollColor:#222222
 XTerm*faceName: Source Code Pro for Powerline
-! XTerm*faceName: Ubuntu Mono derivative Powerline
+!XTerm*faceName: Ubuntu Mono derivative Powerline
 XTerm*faceSize: 10
+XTerm*font: fixed
+XTerm*boldFont: fixed
+XTerm*allowBoldFonts: false
 
 ! # with this set to true, when an app sends a bell to the
 ! # terminal, awesome hilights the appropriate tag(s) ;)
