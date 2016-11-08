@@ -1,4 +1,5 @@
 *
+**/*.sw[a-z]
 !.gitignore 
 .bash_history
 !.bash_aliases
