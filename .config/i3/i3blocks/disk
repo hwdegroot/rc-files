@@ -20,5 +20,8 @@ ALERT_LOW="${2:-10}" # color will turn red under this value (default: 10%)
 disk=$(df -h -P "$DIR" | tail -1)
 free=$(echo "$disk" | awk '{print $4}')
 used=$(echo "$disk" | awk '{print $5}' | grep -Po "\d+")
-[[ $((100-$used)) -lt $((ALERT_LOW)) ]] && ALERT="$(tput setaf 1)!!"
-echo "${ALERT}${free}$(tput sgr0)"
+
+echo "$free ($used%)"
+echo "$free ($used%)"
+[[ $((100-$used)) -lt $((ALERT_LOW)) ]] && echo "#FF0000"
+exit 0

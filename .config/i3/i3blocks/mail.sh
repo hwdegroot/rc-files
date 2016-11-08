@@ -7,9 +7,11 @@ COUNT=`echo "$COUNT" | grep -oPm1 "(?<=<fullcount>)[^<]+" `
 echo $COUNT
 if [ "$COUNT" != "0" ]; then
    if [ "$COUNT" = "1" ];then
-      WORD="mail";
+     WORD="mail";
    else
       WORD="mails";
    fi
 fi
-
+echo "$COUNT unread $WORD"
+[[ $((COUNT)) -gt 0 ]] && echo "#FF0000"
+exit 0
