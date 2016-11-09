@@ -6,5 +6,5 @@ SSID="$(sudo iw $iface link | grep -Po "(?<=SSID: ).*")"
 BITRATE="$(sudo iw $iface link | grep -Po "(?<=tx bitrate: ).*" )"
 SIGNAL="$(sudo iw $iface link | grep -Po "(?<=signal: ).*")"
 
-echo "$SSID @ $BITRATE ($SIGNAL)"
+printf "%s @ %15s (%8s)"  "$SSID" "$BITRATE" "$SIGNAL"
 
