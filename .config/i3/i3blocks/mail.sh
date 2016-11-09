@@ -13,5 +13,7 @@ if [ "$COUNT" != "0" ]; then
    fi
 fi
 echo "$COUNT unread $WORD"
-[[ $((COUNT)) -gt 0 ]] && echo "#FF0000"
-exit 0
+COLOR="#d5d5d5"
+[[ $((COUNT)) -gt 0 ]] && COLOR="#5af665"
+echo $COLOR
+

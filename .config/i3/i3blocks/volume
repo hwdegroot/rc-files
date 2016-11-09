@@ -67,4 +67,17 @@ case $BLOCK_BUTTON in
   5) amixer -q -D $MIXER sset $SCONTROL $(capability) ${STEP}- unmute ;; # scroll down, decrease
 esac
 
-volume | format
+vol=$(volume | format)
+color="#d70a53"
+if [[ "$vol" == "MUTE" ]]; then
+  icon=
+  color="#ffff00"
+elif [[ $((`echo $vol | grep -Po "\d+"`)) -lt 50 ]]; then
+  icon=
+else
+  icon=
+fi
+
+printf "%s %s\n" "$icon" "$vol"
+printf "%s %s\n" "$icon" "$vol"
+echo $color
