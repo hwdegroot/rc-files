@@ -14,10 +14,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-DIR="${1}"
 ALERT_LOW="${2:-10}" # color will turn red under this value (default: 10%)
 
-disk=$(df -h -P "$DIR" | tail -1)
+disk=$(df -h -P $1 | tail -1)
 free=$(echo "$disk" | awk '{print $4}')
 used=$(echo "$disk" | awk '{print $5}' | grep -Po "\d+")
 
