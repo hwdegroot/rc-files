@@ -8,5 +8,5 @@ SIGNAL="$(sudo iw $iface link | grep -Po "(?<=signal: ).*")"
 if [[ -z "$SSID" ]]; then
   echo " wlan down"
 else
-  printf " %s %13s (%8s)"  "$SSID" "$BITRATE" "$SIGNAL"
+  printf " %s - %12s (%7s)"  "$SSID" "$BITRATE" "$SIGNAL"
 fi
