@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+usage() {
+	cat <<-USAGE
+	 Usage: `basename $0` <VM name>
+	
+	  Stop VM if running
+	  Use 'vbox-list' to get all boxes and their status
+	USAGE
+  exit 1
+}
+
+[[ -z "$1" ]] && usage
+
+RUNNING="$(VBoxManage list runningvms | grep "$1")"
+
+[[ -z "$RUNNING" ]] && echo "$1 already stopped" && exit 0
+
+[[ -z "$(VBoxManage list vms | grep "$1")" ]] && usage
+
+UUID=$(VBoxManage list runningvms | grep -P "$1" | grep -Po '(?<={).*(?=})')
+VBoxManage controlvm $UUID poweroff
+

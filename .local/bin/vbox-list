@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+usage() {
+	cat <<-USAGE
+	 Usage: `basename $0`
+	
+	
+	
+	USAGE
+  exit 1
+}
+
+red() { echo "$(tput setaf 1)$*$(tput setaf 9)"; }
+green() { echo "$(tput setaf 2)$*$(tput setaf 9)"; }
+RUNNING="$(VBoxManage list runningvms)"
+
+
+while read vm; do
+  STATUS=$(red "stopped")
+  [[ ! -z  "$(echo $RUNNING | grep "$vm")" ]] && STATUS=$(green "running")
+  printf "%s %s" "$STATUS" "$vm"
+  echo ""
+done< <(VBoxManage list vms | grep -Po '(?<=").*(?=")')
+
