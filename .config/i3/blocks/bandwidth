@@ -71,13 +71,13 @@ if [[ "${PREV_IN}" != "" ]] && [[ "${PREV_OUT}" != "" ]]; then
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_IN))
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_OUT))
   elif [[ "${DISPLAY}" = "in" ]]; then
-    echo "${USAGE_IN}"
-    echo "${USAGE_IN}"
+    printf "%8s\n" "${USAGE_IN}"
+    printf "%8s\n" "${USAGE_IN}"
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_IN))
   elif [[ "${DISPLAY}" = "out" ]]; then
-    echo "${USAGE_OUT}"
-    echo "${USAGE_OUT}"
+    printf "%8s\n" "${USAGE_OUT}"
+    printf "%8s\n" "${USAGE_OUT}"
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_OUT))
   fi
