@@ -12,7 +12,19 @@ if [[ "${BATTERY_STATE}" = "Charging" ]]; then
   echo "${BATTERY_POWER}%+"
   echo ""
 elif [[ "${BATTERY_STATE}" = "Discharging" ]]; then
-  echo " ${BATTERY_POWER}%-"
+  if [[ $((BATTERY_POWER)) -gt 80 ]]; then
+    LABEL=
+  elif [[ $((BATTERY_POWER)) -gt 60 ]]; then
+    LABEL=
+  elif [[ $((BATTERY_POWER)) -gt 40 ]]; then
+    LABEL=
+  elif [[ $((BATTERY_POWER)) -gt 20 ]]; then
+    LABEL=
+  else
+    LABEL=
+  fi
+
+  echo "${LABEL} ${BATTERY_POWER}%-"
   echo "${BATTERY_POWER}%-"
   echo ""
 else
