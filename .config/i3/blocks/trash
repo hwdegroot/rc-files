@@ -25,6 +25,9 @@ URGENT_VALUE=100
 
 echo "${TRASH_COUNT}"
 echo "${TRASH_COUNT}"
+if [[ $((TRASH_COUNT)) -gt 0 ]]; then
+  echo "#ff0000"
+fi
 echo ""
 
 if [[ "${TRASH_COUNT}" -ge "${URGENT_VALUE}" ]]; then

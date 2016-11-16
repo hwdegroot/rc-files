@@ -27,5 +27,6 @@ if [[ "${status}" == "on" ]]; then
 else
   echo " mute"
   echo "off (${volume}%)"
+  echo "#ffff00"
   echo ""
 fi

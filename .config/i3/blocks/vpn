@@ -4,5 +4,6 @@ VPNC_PATH='/proc/sys/net/ipv4/conf/tun0'
 if [[ -e "${VPNC_PATH}" ]]; then
   echo "on"
   echo "on"
+  echo "#00ff00"
   echo ""
 fi

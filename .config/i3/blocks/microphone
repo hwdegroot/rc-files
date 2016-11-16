@@ -22,5 +22,6 @@ if [[ "${status}" == "on" ]]; then
 else
   echo " off"
   echo "off"
+  echo "#ffff00"
   echo ""
 fi

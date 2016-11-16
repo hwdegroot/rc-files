@@ -73,11 +73,17 @@ if [[ "${PREV_IN}" != "" ]] && [[ "${PREV_OUT}" != "" ]]; then
   elif [[ "${DISPLAY}" = "in" ]]; then
     printf "%8s\n" "${USAGE_IN}"
     printf "%8s\n" "${USAGE_IN}"
+    if [[ $((DIFF_IN)) -gt 0 ]]; then
+      echo "#ff0000"
+    fi
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_IN))
   elif [[ "${DISPLAY}" = "out" ]]; then
     printf "%8s\n" "${USAGE_OUT}"
     printf "%8s\n" "${USAGE_OUT}"
+    if [[ $((DIFF_OUT)) -gt 0 ]]; then
+      echo "#00ff00"
+    fi
     echo ""
     DIFF_TOTAL=$((DIFF_TOTAL+DIFF_OUT))
   fi
