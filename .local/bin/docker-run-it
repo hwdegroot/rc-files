@@ -3,6 +3,10 @@ set -e +x
 
 REPO=${REPO:-"docker-virtual.artifactory.srv.hq.mendix.net"}
 
+cat <<USAGE
+  Usage: docker-run-it [docker run options] image
+USAGE
+
 cat <<REPO
 Using default repo: $REPO
 To change the default repository, set a variable 'REPO'

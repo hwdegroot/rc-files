@@ -146,3 +146,5 @@ else
   unset POWERLINE_ROOT
 fi
 
+export JAVA_HOME=/usr/lib/jvm/java-8-oracle
+
