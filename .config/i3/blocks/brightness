@@ -31,7 +31,7 @@ elif [[ "${METHOD}" = "xbacklight" ]]; then
 fi
 
 if [[ "${curBrightness}" -le 0 ]]; then
-  exit
+  curBrightness=0
 fi
 
 if [[ "${METHOD}" = "xrandr" ]]; then
