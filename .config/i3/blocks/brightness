@@ -4,10 +4,10 @@
 METHOD="kernel"
 
 # Left click
-if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+if [[ $((BLOCK_BUTTON)) -eq 1 ]] || [[ $((BLOCK_BUTTON)) -eq 4 ]]; then
   `dirname $0`/adjust_brightness +5
 # Right click
-elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
+elif [[ $((BLOCK_BUTTON)) -eq 3 ]] || [[ $((BLOCK_BUTTON)) -eq 5 ]]; then
   `dirname $0`/adjust_brightness -5
 fi
 
