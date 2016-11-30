@@ -186,5 +186,5 @@ exec --no-startup-id dropbox start
 # start shutter
 exec --nostartup-id shutter --min_at_startup
 # Set nice wallpaper
-exec --no-startup-id feh -Z --bg-scale ~/.config/i3/Pictures/Wallpaper.jpg
+exec --no-startup-id feh --bg-scale --geometry 1920x1080 ~/.config/i3/Pictures/Wallpaper.jpg
 

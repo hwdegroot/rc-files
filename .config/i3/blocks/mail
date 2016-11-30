@@ -34,7 +34,7 @@ if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
 fi
 
 MAIL_FILE="/tmp/.mail"
-URGENT_VALUE="100"
+URGENT_VALUE="2"
 
 GET_UNREAD=$(cat<<EOF
 ? LOGIN "${MAIL_USER}" "${MAIL_PASSWORD}"
@@ -48,10 +48,6 @@ UNREAD_COUNT=$(cat "${MAIL_FILE}" | grep -i "UNSEEN" | grep -oE "[0-9]*" | head 
 
 # For security reasons
 rm "${MAIL_FILE}"
-
-if [[ "${UNREAD_COUNT}" = "" ]]; then
-  exit
-fi
 
 echo "${UNREAD_COUNT}"
 echo "${UNREAD_COUNT}"
