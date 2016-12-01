@@ -17,7 +17,7 @@ sudo dpkg -i slack-desktop-2.1.0-amd64.deb
 echo "Install openvpn"
 sudo apt-get -y install openvpn
 
-echo "installing temp shizzle" 
+echo "installing temp shizzle"
 sudo apt-get -y install lm-sensors
 sensors-detect
 
@@ -27,4 +27,7 @@ echo "Applying Xresources"
 xrdb -merge ~/.Xresources
 
 sudo ln -fs $HOME/.local/share/logoff /usr/bin/logoff
+
+echo "Gnome pomodoro"
+sudo apt-get install gnome-shell-pomodoro
 
