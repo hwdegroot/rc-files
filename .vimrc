@@ -83,9 +83,13 @@ nnoremap <F3> :set hlsearch!<CR>
 
 " Change end-of-line, space and tab characters.
 set list
-set listchars=eol:$,trail:·,tab:»·,extends:>,precedes:<
+set listchars=eol:$,trail:·,tab:»·,extends:»,precedes:«
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
+" Show trailing whitepace and spaces before a tab:
+hi ExtraWhitespace ctermbg=red guibg=red
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd BufWritePre * :%s/\s\+$//e
 
 " show the matching part of the pair for [] {} and ()
 set showmatch
