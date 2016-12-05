@@ -178,7 +178,7 @@ exec ~/.local/bin/output eDP-1 1920 1080 60.00
 exec --no-startup-id nm-applet
 
 # Gnome pomodoro timert
-exec --no-startup-id gnome-pomodoro
+#exec --no-startup-id gnome-pomodoro
 
 # startup slack in minimized mode
 exec --no-startup-id slack --startup
