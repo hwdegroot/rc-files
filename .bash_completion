@@ -42,6 +42,8 @@ __pd() {
 complete -o nospace -F __pd pd
 complete -C cf_completion cf
 
+. <(npm completion)
+
 if [[ -f $HOME/gittools/gittools.completion ]]; then
   source $HOME/gittools/gittools.completion;
 fi

@@ -14,6 +14,8 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
+" Typescript
+Plugin 'leafgarland/typescript-vim'
 " Plugin vim puppet
 Plugin 'rodjek/vim-puppet.git'
 
@@ -145,6 +147,9 @@ autocmd BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
 
 " Evaluate Clojure buffers on load
 autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
+
+" Typescript
+au BufRead,BufNewFile,BufRead,BufEnter *.ts,*.tsx setf typescript
 
 " clojure edit mode
 let g:paredit_mode = 1
