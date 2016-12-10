@@ -18,7 +18,7 @@ fi
 alias logoff='pkill -KILL -u $USER'
 
 which virtualenvwrapper.sh &>/dev/null
-if [[ $? -eq 0 ]];then 
+if [[ $? -eq 0 ]];then
   source $(which virtualenvwrapper.sh)
   export WORKON_HOME=$HOME/.virtualenvs
   # virtualenv aliases
@@ -57,7 +57,7 @@ gam() {
 }
 alias ga=gam
 
-aa_256 () 
+aa_256 ()
 {
   local o= i= x=`tput op` cols=`tput cols` y= oo= yy=;
   y=`printf %$(($cols-6))s`;
@@ -98,4 +98,4 @@ ssh_proxy() {
 }
 alias ssh-proxy='ssh_proxy'
 
-
+alias apt-upgrade='sudo apt-get upgrade -y && sudo apt autoremove -y'
