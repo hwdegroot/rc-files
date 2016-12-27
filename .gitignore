@@ -1,6 +1,6 @@
 *
 **/*.sw[a-z]
-!.gitignore 
+!.gitignore
 .bash_history
 !.bash_aliases
 !.bash_profile
@@ -18,3 +18,5 @@
 .local/
 .vim/bundle/*
 !.vim/bundle/Vundle.vim/*
+*.sw[a-z]
+
