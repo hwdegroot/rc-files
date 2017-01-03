@@ -19,15 +19,34 @@
     added = green
     changed = red bold
     untracked = magenta bold
+[color "diff-highlight"]
+    oldNormal = red bold
+    oldHighlight = red bold 52
+    newNormal = green bold
+    newHighlight = green bold 22
 [color]
     diff = auto
     status = auto
     branch = auto
     interactive = auto
     ui = auto
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[merge]
+    ff = false
+    tool = vimdiff
+    conflictstyle = diff3
+[mergetool]
+    prompt = false
+[fetch]
+    prune = true
     pager = true
 [credential]
     helper = store
+[status]
+    submoduleSummary = true
 [alias]
     d  = diff --find-renames --find-copies --format=fuller --color-words
     dw = diff --find-renames --find-copies --format=fuller
@@ -105,11 +124,11 @@
     wat = !git whatever
     jemoeder = !git add . && git commit --amend --no-edit && git push --force-with-lease
 
-    yolo = !git whatever && git push
+    yolo = !git add . && git commit --amend --no-edit
     fuck-the-world = !git yolo
     wtf = !git yolo
 
-    sync = pull --rebase origin master
+    sync = pull --rebase origin
 
     # Update git commit author date when amending.
     #
@@ -121,20 +140,3 @@
     ls = branch -a
     visual = !gitk
     last = log -1 HEAD
-[color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
-[merge]
-    ff = false
-    tool = vimdiff
-    conflictstyle = diff3
-[mergetool]
-    prompt = false
-[fetch]
-    prune = true

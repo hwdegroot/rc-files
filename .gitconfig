@@ -124,11 +124,11 @@
     wat = !git whatever
     jemoeder = !git add . && git commit --amend --no-edit && git push --force-with-lease
 
-    yolo = !git whatever && git push
+    yolo = !git add . && git commit --amend --no-edit
     fuck-the-world = !git yolo
     wtf = !git yolo
 
-    sync = pull --rebase origin master
+    sync = pull --rebase origin
 
     # Update git commit author date when amending.
     #
@@ -140,3 +140,6 @@
     ls = branch -a
     visual = !gitk
     last = log -1 HEAD
+[user]
+	name = Rik de Groot
+	email = rik.de.groot@mendix.com

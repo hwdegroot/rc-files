@@ -41,7 +41,6 @@ alias docker-remove-containers='docker ps -qa | xargs -i docker rm -f {}'
 alias docker-remove-volumes='docker volume ls -q | xargs -i docker volume rm {}'
 # git aliases
 alias gp='git push'
-alias g!='git add . && git commit --amend && git push --force'
 alias gm='git commit -am '
 alias gc='git clean -fdx && git reset --hard'
 alias c='clear'
