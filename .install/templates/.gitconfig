@@ -135,7 +135,7 @@
     # cf http://stackoverflow.com/questions/9110310
     amend = !git commit --amend --date=\"$(date -R)\"
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
-    filemode = !git config core.fileMode
+    filemode = config core.fileMode
     co = checkout
     ls = branch -a
     visual = !gitk
