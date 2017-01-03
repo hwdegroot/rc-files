@@ -103,7 +103,7 @@
     watevs = !git whatever
     fuck = !git whatever
     wat = !git whatever
-    jemoeder = !git whatever
+    jemoeder = !git add . && git commit --amend --no-edit && git push --force-with-lease
 
     yolo = !git whatever && git push
     fuck-the-world = !git yolo
