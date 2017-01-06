@@ -90,6 +90,7 @@
     lf = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --decorate --follow
     lll = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph HEAD...master
     lw =  log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph --decorate
+    last = log -1 HEAD
 
     # show the most recent commit
     wut = log --pretty=oneline --abbrev-commit --graph --decorate -p -n 1
@@ -113,30 +114,32 @@
 
     m = merge
     a = add
-
+    ls = branch -a
+    on-a-leach = push --force-with-lease
     clean-how-i-mean = !git status -s | grep --color=never '??' | cut -c4- | xargs -I@ rm -rv @
-    cleanse = !git clean-how-i-mean
 
     whatever = commit -a --fixup HEAD
-    whatevs = !git whatever
-    watevs = !git whatever
     fuck = !git whatever
-    wat = !git whatever
-    jemoeder = !git add . && git commit --amend --no-edit && git push --force-with-lease
-
-    yolo = !git add . && git commit --amend --no-edit
-    fuck-the-world = !git yolo
-    wtf = !git yolo
+    jemoeder = !git add . && git amend && git on-a-leach
+    yolo = !git add . && git amend
+    wtf = !git jemoeder
 
     sync = pull --rebase origin
+    same-same = !git reset --hard && git pull
+    level = !git same-same
+    # visuals
+    tree = !tig --all
+    visual = !git tree
+    master = checkout master
 
     # Update git commit author date when amending.
     #
     # cf http://stackoverflow.com/questions/9110310
-    amend = !git commit --amend --date=\"$(date -R)\"
+    amend = !git commit --amend --date=\"$(date -R)\" --no-edit
+    fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash; }; f"
+    fixup = commit --fixup
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
     filemode = config core.fileMode
-    co = checkout
-    ls = branch -a
-    visual = !gitk
-    last = log -1 HEAD
+    delete = branch -d
+    delete-remote = "!f() { git push origin :$1; }; f"
+
