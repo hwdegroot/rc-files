@@ -136,7 +136,7 @@
     #
     # cf http://stackoverflow.com/questions/9110310
     amend = !git commit --amend --date=\"$(date -R)\" --no-edit
-    fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash; }; f"
+    fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash $1~1; }; f"
     fixup = commit --fixup
     permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
     filemode = config core.fileMode
