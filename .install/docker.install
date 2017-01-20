@@ -1,31 +1,29 @@
 #!/bin/bash
 
 echo "Installing docker"
-sudo apt-get update
-sudo apt-get purge "lxc-docker*"
-sudo apt-get purge "docker.io"
-sudo apt-get -y install apt-transport-https ca-certificates 
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+su -c "apt-get update"
+su -c "apt-get purge \"lxc-docker*\""
+su -c "apt-get purge \"docker.io\""
+su -c "apt-get -y install apt-transport-https ca-certificates "
+su -c "apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D"
 
-sudo mkdir -p /etc/apt/sources.list.d
-echo "deb https://apt.dockerproject.org/repo debian-jessie main" | sudo tee /etc/apt/sources.list.d/docker.list
-sudo apt-get update
-sudo apt-get install -y docker-engine
+su -c "mkdir -p /etc/apt/sources.list.d"
+echo "deb https://apt.dockerproject.org/repo debian-jessie main" | tee docker.list
+su -c "mv docker.list /etc/apt/sources.list.d/docker.list"
+su -c "apt-get update"
+su -c "apt-get install -y docker docker-engine"
 
 echo "Tweak service"
-sudo mkdir -p /etc/systemd/system/docker.service.d
-
-cat <<-OPTS | sudo tee /etc/systemd/system/docker.service.d/docker.conf
-[Service]
-EnvironmentFile=-/etc/default/docker
-ExecStart=
-ExecStart=/usr/bin/dockerd \
-  --debug \
-  --insecure-registry docker-local.artifactory.srv.hq.mendix.net \
-  --insecure-registry docker-virtual.artifactory.srv.hq.mendix.net \
-  -H fd://
+cat <<-OPTS | tee daemon.json
+{
+  "insecure-registries": [
+    "docker-local.artifactory.srv.hq.mendix.net",
+    "docker-virtual.artifactory.srv.hq.mendix.net"
+  ]
+}
 OPTS
 
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+su -c "mv daemon.json /etc/docker/"
+su -c "systemctl daemon-reload"
+su -c "systemctl restart docker"
 

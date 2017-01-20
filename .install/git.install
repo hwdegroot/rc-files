@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Install remoting tools"
-sudo apt-get -y install tig gitg git-extras
-sudo npm install -g git-open
+su -c "apt-get -y install tig gitg git-extras"
+su -c "npm install -g git-open"
 
 cp -f `dirname $0`/templates/.gitconfig ~/.gitconfig
 echo "Git config user name"

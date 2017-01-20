@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 URGENT_VALUE=25
-APT_LIST=$(sudo apt update -qq  &> /dev/null && apt list --upgradable 2>/dev/null | wc -l)
+APT_LIST=$(su -c "apt update -qq"  &> /dev/null && apt list --upgradable 2>/dev/null | wc -l)
 PACKAGE_COUNT=$((APT_LIST-1))
 
 if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then

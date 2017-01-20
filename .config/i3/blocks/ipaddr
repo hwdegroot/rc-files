@@ -12,7 +12,7 @@ fi
 if [[ "$DISPLAY" != "local" ]]; then
   external_ip=$(wget http://ipinfo.io/ip -qO-)
 fi
-local_ip=$(sudo ifconfig ${INSTANCE} | grep -Po "inet [\d\.]+" | grep -Po "[\d.]+")
+local_ip=$(ifconfig ${INSTANCE} | grep -Po "inet [\d\.]+" | grep -Po "[\d.]+")
 
 case $DISPLAY in
   local)

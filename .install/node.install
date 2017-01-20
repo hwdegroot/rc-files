@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo "Installing node/npm"
-curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-sudo apt-get -y install nodejs
-sudo apt-get -y install build-essential
+curl -sL https://deb.nodesource.com/setup_7.x | su -c "bash -"
+su -c "apt-get -y install nodejs"
+su -c "apt-get -y install build-essential"
 
 echo "Install git tooling"
-sudo npm install -g diff-so-fancy
+su -c "npm install -g diff-so-fancy"
 

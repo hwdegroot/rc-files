@@ -3,7 +3,7 @@
 echo "Getting and installing lein/clojure"
 curl -O http://repo1.maven.org/maven2/org/clojure/clojure/1.8.0/clojure-1.8.0.zip
 unzip clojure-1.8.0.zip
-sudo  mv clojure-1.8.0 /usr/lib
-sudo chmod go+rw /usr/lib/clojure-1.8.0/clojure-1.8.0.jar
+su -c "mv clojure-1.8.0 /usr/lib"
+su -c "chmod go+rw /usr/lib/clojure-1.8.0/clojure-1.8.0.jar"
 
 ~rik/.local/bin/lein

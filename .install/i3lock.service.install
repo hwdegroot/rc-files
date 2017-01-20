@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-cat <<SERVICE | sudo tee /etc/systemd/system/i3lock.service 
+cat <<SERVICE | tee i3lock.service
 # source: https://bbs.archlinux.org/viewtopic.php?pid=1170536#p1170536 by 65kid
 #
 [Unit]
@@ -16,5 +16,7 @@ ExecStart=/usr/bin/i3lock -c 000000 -i $HOME/.config/i3/Pictures/LockScreen.png 
 WantedBy=sleep.target suspend.target
 SERVICE
 
-sudo systemctl enable i3lock.service
+su -c "mv i3lock.service /etc/systemd/system/i3lock.service"
+
+su -c "systemctl enable i3lock.service"
 

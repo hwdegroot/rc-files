@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 
-sudo apt-get -y install openjdk-7-jre wget 
+su -c "apt-get -y install openjdk-7-jre wget"
 
 # Set environment varsu
-echo "export SBT_OPTS=\"-Xms40M -Xmx2G -Xss2M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=1G -Djavax.net.ssl.trustStore=cacerts -Djavax.net.ssl.trustStorePassword=changeit\"" | sudo tee -a /etc/environment
+su -c 'echo "export SBT_OPTS=\"-Xms40M -Xmx2G -Xss2M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=1G -Djavax.net.ssl.trustStore=cacerts -Djavax.net.ssl.trustStorePassword=changeit\"" >> /etc/environment'
 VERSION=2.11.8
 echo "installing scala"
 rm -f scala-$VERSION.tgz*
 wget  http://downloads.lightbend.com/scala/$VERSION/scala-$VERSION.tgz
 tar zxf scala-$VERSION.tgz
 
-sudo rm -rf /usr/local/share/scala-$VERSION
-sudo mv scala-$VERSION /usr/local/share
-sudo ln -fs /usr/local/share/scala-$VERSION /usr/local/share/scala
-sudo ln -fs /usr/local/share/scala/bin/fsc /usr/local/bin/fsc
-sudo ln -fs /usr/local/share/scala/bin/scala /usr/local/bin/scala
-sudo ln -fs /usr/local/share/scala/bin/scalac /usr/local/bin/scalac
-sudo ln -fs /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc
-sudo ln -fs /usr/local/share/scala/bin/scalap /usr/local/bin/scalap
+su -c "rm -rf /usr/local/share/scala-$VERSION"
+su -c "mv scala-$VERSION /usr/local/share"
+su -c "ln -fs /usr/local/share/scala-$VERSION /usr/local/share/scala"
+su -c "ln -fs /usr/local/share/scala/bin/fsc /usr/local/bin/fsc"
+su -c "ln -fs /usr/local/share/scala/bin/scala /usr/local/bin/scala"
+su -c "ln -fs /usr/local/share/scala/bin/scalac /usr/local/bin/scalac"
+su -c "ln -fs /usr/local/share/scala/bin/scaladoc /usr/local/bin/scaladoc"
+su -c "ln -fs /usr/local/share/scala/bin/scalap /usr/local/bin/scalap"
 
 mkdir -p $HOME/.sbt/0.13
 [[ ! -f $HOME/.sbt/0.13/local.sbt ]] && touch $HOME/.sbt/0.13/local.sbt
@@ -25,11 +25,11 @@ echo "scalacOptions ++= Seq(\"-Xmax-classfile-name\",\"100\")" | tee -a  $HOME/.
 
 # Install dependencies:
 # git - used from sbt-commons
-echo "export SCALA_HOME=/usr/local/share/scala" | sudo tee -a /etc/environment
+su -c 'echo "export SCALA_HOME=/usr/local/share/scala" >> /etc/environment'
 echo "export PATH=$SCALA_HOME/bin:$PATH"
 # install sbt
-echo "deb https://dl.bintray.com/sbt/debian /" | sudo tee -a /etc/apt/sources.list.d/sbt.list
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823
-sudo apt-get -qq update
-sudo apt-get install -y sbt
+su -c 'echo "deb https://dl.bintray.com/sbt/debian /" >> /etc/apt/sources.list.d/sbt.list'
+su -c "apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 2EE0EA64E40A89B84B2DF73499E82A75642AC823"
+su -c "apt-get -qq update"
+su -c "apt-get install -y sbt"
 

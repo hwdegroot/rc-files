@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SSID_NAME=$(sudo iwgetid -r)
+SSID_NAME=$(iwgetid -r)
 
 # You can put any urgent name so the block will give warning
 # if a network with this name is used, like public wifi or alike.

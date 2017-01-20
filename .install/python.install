@@ -1,21 +1,21 @@
 #!/bin/bash
 
 echo "Install python stuff"
-sudo apt-get -y install \
+su -c "apt-get -y install \
   build-essential \
   libssl-dev \
   libffi-dev \
   python-dev \
   python \
   python-setuptools \
-  python-psutil
-sudo easy_install pip
-sudo pip install \
+  python-psutil"
+su -c "easy_install pip"
+su -c "pip install \
   virtualenv \
   virtualenvwrapper \
   aws \
-  awscli
+  awscli"
 
 echo "FUCK!!"
-sudo pip install thefuck
+su -c "pip install thefuck"
 

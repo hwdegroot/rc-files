@@ -2,16 +2,16 @@
 
 # Left click
 if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
-  sudo ufw enable
+  ufw enable
 # Middle click
 elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
-  sudo ufw reload
+  ufw reload
 # Right click
 elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
-  sudo ufw disable
+  ufw disable
 fi
 
-status=$(sudo ufw status 2>/dev/null)
+status=$(ufw status 2>/dev/null)
 
 if [[ $? -gt 0 ]]; then
   exit

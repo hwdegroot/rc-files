@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 
-wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
-echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+su -c "wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | apt-key add -"
+echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" | tee virtualbox.list
+su -c "mv virtualbox.list /etc/apt/sources.list.d/"
 
-cat <<EOF | sudo tee /etc/apt/sources.list.d/virtualbox-5.0.list
+cat <<EOF | tee virtualbox-5.0.list
 # contrib repo for virtualbox
 deb http://download.virtualbox.org/virtualbox/debian jessie contrib
 EOF
-wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
-wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+su -c "mv virtualbox-5.0.list /etc/apt/sources.list.d/"
+su -c "wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | apt-key add -"
+su -c "wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key add -"
 
-sudo apt-get update
-sudo apt-get -y install dkms virtualbox-5.0
+su -c "apt-get update"
+su -c "apt-get -y install dkms virtualbox-5.0"
 

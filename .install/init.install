@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+username=$USER
+after="# su without a password"
+su -c "sed -i \"s/$after/$after\nauth      sufficient pam_succeed_if.so use_uid user = $username/g\" /etc/pam.d/su"
+
+su -c "cp root/* ~root/"
+

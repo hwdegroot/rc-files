@@ -1,33 +1,33 @@
 #!/usr/bin/env bash
 
 echo "Install remoting tools"
-sudo apt-get -y install curl vim-gnome wget lolcat cowsay
+su -c "apt-get -y install curl vim-gnome wget lolcat cowsay"
 
 echo "Installing Ubuntu fonts"
 wget http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
-sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
+su -c "dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb"
 
 echo "Effectiveness tools"
-sudo apt-get -y install strace mc htop
+su -c "apt-get -y install strace mc htop"
 
 echo "Installing slack"
 wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
-sudo dpkg -i slack-desktop-2.1.0-amd64.deb
+su -c "dpkg -i slack-desktop-2.1.0-amd64.deb"
 
 echo "Install openvpn"
-sudo apt-get -y install openvpn
+su -c "apt-get -y install openvpn"
 
 echo "installing temp shizzle"
-sudo apt-get -y install lm-sensors
+su -c "apt-get -y install lm-sensors"
 sensors-detect
 
-sudo update-alternatives --set x-terminal-emulator /usr/bin/xterm
+su -c "update-alternatives --set x-terminal-emulator /usr/bin/xterm"
 
 echo "Applying Xresources"
 xrdb -merge ~/.Xresources
 
-sudo ln -fs $HOME/.local/share/logoff /usr/bin/logoff
+su -c "ln -fs $HOME/.local/share/logoff /usr/bin/logoff"
 
 echo "Gnome pomodoro"
-sudo apt-get install gnome-shell-pomodoro
+su -c "apt-get install gnome-shell-pomodoro"
 
