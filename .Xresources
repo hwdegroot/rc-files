@@ -17,7 +17,7 @@ XTerm*troughColor:#000000
 XTerm*scrollColor:#222222
 XTerm*faceName: Source Code Pro for Powerline
 !XTerm*faceName: Ubuntu Mono derivative Powerline
-XTerm*faceSize: 10
+XTerm*faceSize: 9
 XTerm*font: fixed
 XTerm*boldFont: fixed
 XTerm*allowBoldFonts: false
