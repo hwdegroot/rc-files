@@ -110,7 +110,7 @@ if [[ -f /etc/profile.d/rvm.sh ]]; then
 fi
 
 # sensible bash
-# https://github.com/mrzool/bash-sensible 
+# https://github.com/mrzool/bash-sensible
 if [[ -f $HOME/.config/sensible.bash/sensible.bash ]]; then
   source $HOME/.config/sensible.bash/sensible.bash
 fi
@@ -133,6 +133,7 @@ export GEM_PATH=$GEM_HOME
 export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
 export PATH=$PATH:$HOME/.rvm/bin
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
 
 if [ -n "$DISPLAY" ]; then
   xset b off
@@ -140,9 +141,9 @@ fi
 
 
 POWERLINE_ROOT="$(pip show powerline-status | grep -oP "(?<=Location: ).*")/powerline"
-if [[ -d "$POWERLINE_ROOT" ]]; then 
+if [[ -d "$POWERLINE_ROOT" ]]; then
   export POWERLINE_ROOT
-else 
+else
   unset POWERLINE_ROOT
 fi
 
