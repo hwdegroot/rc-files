@@ -1,7 +1,7 @@
 #!/bin/bash
 
 INSTANCE="${BLOCK_INSTANCE}"
-
+INSTANCE="tun0;local"
 DISPLAY=$(echo "${INSTANCE}" | awk -F ';' '{print $2}')
 INSTANCE=$(echo "${INSTANCE}" | awk -F ';' '{print $1}')
 
@@ -12,7 +12,7 @@ fi
 if [[ "$DISPLAY" != "local" ]]; then
   external_ip=$(wget http://ipinfo.io/ip -qO-)
 fi
-local_ip=$(ifconfig ${INSTANCE} | grep -Po "inet [\d\.]+" | grep -Po "[\d.]+")
+local_ip=$(/sbin/ifconfig ${INSTANCE} | grep -Po "inet [\d\.]+" | grep -Po "[\d.]+")
 
 case $DISPLAY in
   local)

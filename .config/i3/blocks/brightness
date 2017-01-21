@@ -44,7 +44,7 @@ fi
 percent=${percent%.*}
 
 if [[ "${percent}" -le 0 ]]; then
-  exit
+  percent=0
 fi
 
 echo "${percent}%"
