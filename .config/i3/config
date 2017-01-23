@@ -172,6 +172,9 @@ exec xrandr --dpi 90
 # reset resolution to 1920x1080
 exec ~/.local/bin/output eDP-1 1920 1080 60.00
 
+# fix backlight file
+exec su -c "/bin/chmod 666 /sys/class/backlight/intel_backlight/brightness"
+
 # startup network-manager applet
 exec --no-startup-id nm-applet
 

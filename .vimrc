@@ -101,6 +101,8 @@ set showmatch
 nnoremap <C-t> "=strftime("%Y/%m/%d")<CR>p
 nnoremap <C-Shift-t> "=strftime("%Y/%m/%d %H:%M:%S")<CR>p
 
+set cursorline
+
 "================================================================="
 "                    MAPPING CONFIGURATION
 "================================================================="
