@@ -11,6 +11,7 @@ elif [[ $((BLOCK_BUTTON)) -eq 3 ]] || [[ $((BLOCK_BUTTON)) -eq 5 ]]; then
   `dirname $0`/adjust_brightness -5
 fi
 
+
 URGENT_VALUE=10
 
 if [[ "${METHOD}" = "xrandr" ]]; then
@@ -18,10 +19,10 @@ if [[ "${METHOD}" = "xrandr" ]]; then
   xrandrOutput=$(xrandr --verbose)
 
   if [[ "${device}" = "primary" ]]; then
-    device=$(echo "${xrandrOutput}" | grep 'primary' | head -n 1 | awk -F ' ' '{print $1}')
+    device=$(echo "${xrandrOutput}" | /bin/grep 'primary' | head -n 1 | awk -F ' ' '{print $1}')
   fi
 
-  curBrightness=$(echo "${xrandrOutput}" | grep "${device}" -A 5 | grep -i "Brightness" | awk -F ':' '{print $2}')
+  curBrightness=$(echo "${xrandrOutput}" | /bin/grep "${device}" -A 5 | /bin/grep -i "Brightness" | awk -F ':' '{print $2}')
 elif [[ "${METHOD}" = "kernel" ]]; then
   device="${BLOCK_INSTANCE:-intel_backlight}"
   maxBrightness=$(cat /sys/class/backlight/${device}/max_brightness)

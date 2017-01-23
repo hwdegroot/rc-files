@@ -1,20 +1,20 @@
 #!/bin/bash
 
-abs_val=$(echo $1 | grep -Po "\d+")
-sign=$(echo $1 | grep -o "-")
+abs_val=$(echo $1 | /bin/grep -Po "\d+")
+sign=$(echo $1 | /bin/grep -o "-")
 [[ -z "$sign" ]] && sign="+"
 # base dir for backlight class
 basedir="/sys/class/backlight/"
 
 # get the backlight handler
-handler=$basedir$(ls $basedir)"/"
+handler=$basedir$(/bin/ls $basedir)"/"
 
 # get current brightness
-old_brightness=$(cat $handler"brightness")
+old_brightness=$(/bin/cat $handler"brightness")
 
 # get max brightness
-max_brightness=$(cat $handler"max_brightness")
-delta=$(echo "scale=0; $max_brightness * $abs_val / 100"  | bc -l)
+max_brightness=$(/bin/cat $handler"max_brightness")
+delta=$(echo "scale=0; $max_brightness * $abs_val / 100"  | /usr/bin/bc -l)
 
 # calculate new brightness %
 new_brightness=$(($old_brightness $sign$delta))
@@ -26,5 +26,5 @@ new_brightness=$(($old_brightness $sign$delta))
 [[ $((new_brightness)) -lt 0 ]] && new_brightness=100
 
 # set the new brightness value
-su -c "chmod 666 ${handler}brightness"
-echo $new_brightness > ${handler}brightness
+su -c "/bin/chmod 666 ${handler}brightness"
+/bin/echo $new_brightness > ${handler}brightness
