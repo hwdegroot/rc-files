@@ -131,6 +131,7 @@
     tree = !tig --all
     visual = !git tree
     master = checkout master
+    rename-branch = "!f() { b=$(git rev-parse --abbrev-ref HEAD); git branch -m $1 && git push origin :$b $1 && git push origin -u $1; }; f"
 
     # Update git commit author date when amending.
     #
