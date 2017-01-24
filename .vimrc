@@ -13,38 +13,30 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
-
+" Markdown plugin
+Bundle 'gabrielelana/vim-markdown'
 " Typescript
 Plugin 'leafgarland/typescript-vim'
 " Plugin vim puppet
 Plugin 'rodjek/vim-puppet.git'
-
 " Puppet syntax highlighting
 Plugin 'puppetlabs/puppet-syntax-vim'
-
 " Python autocompletion
 Plugin 'davidhalter/jedi-vim'
-
 " Vim powerline
 Bundle 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
-
 " Coffee script
 Plugin 'kchmck/vim-coffee-script'
-
 " Vim rails
 Plugin 'tpope/vim-rails'
-
 " Git plugin
 Plugin 'tpope/vim-fugitive'
-
 " Clojure plugins inc fireplace
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-clojure-static'
 Plugin 'guns/vim-clojure-highlight'
-
 " Erlang autocompletion
 Plugin 'vim-erlang/vim-erlang-omnicomplete'
-
 call vundle#end()            " required
 filetype plugin indent on    " required
 
@@ -152,6 +144,9 @@ autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fi
 
 " Typescript
 au BufRead,BufNewFile,BufRead,BufEnter *.ts,*.tsx setf typescript
+
+" Markdown support plugin
+let g:markdown_enable_folding = 0
 
 " clojure edit mode
 let g:paredit_mode = 1
