@@ -2,7 +2,6 @@
     autocrlf = False
     editor = vim
     filemode = false
-    pager = diff-highlight | diff-so-fancy | less --tabs=1,5 -R
 [branch]
     autosetuprebase = always
 [pull]
@@ -127,11 +126,11 @@
     sync = pull --rebase origin
     same-same = !git reset --hard && git pull
     level = !git same-same
+
     # visuals
     tree = !tig --all
     visual = !git tree
     master = checkout master
-    rename-branch = "!f() { b=$(git rev-parse --abbrev-ref HEAD); git branch -m $1 && git push origin :$b $1 && git push origin -u $1; }; f"
 
     # Update git commit author date when amending.
     #
@@ -143,4 +142,4 @@
     filemode = config core.fileMode
     delete = branch -d
     delete-remote = "!f() { git push origin :$1; }; f"
-
+    moar = "!f() { [ ! -d \"$GIT_PREFIX\" ] || cd $GIT_PREFIX && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
