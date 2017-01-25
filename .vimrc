@@ -15,9 +15,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Colorschemes \o/
 Plugin 'flazz/vim-colorschemes'
-" Markdown plugin
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
 " Typescript
 Plugin 'leafgarland/typescript-vim'
 " Plugin vim puppet
@@ -148,9 +145,6 @@ autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fi
 " Typescript
 au BufRead,BufNewFile,BufRead,BufEnter *.ts,*.tsx setf typescript
 
-" Markdown support plugin
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_toc_autofit = 1
 " clojure edit mode
 let g:paredit_mode = 1
 
