@@ -1,20 +1,19 @@
 #!/bin/bash
 
-# Left click
 if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
-  sudo bluetooth on
-# Middle click
-elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
-  sudo bluetooth toggle
-# Right click
+  su -c "/bin/systemctl stop bluetooth"
 elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
-  sudo bluetooth off
+  su -c "/bin/systemctl start bluetooth"
 fi
 
-STATUS=$(bluetooth | grep -wo 'on')
+STATUS=$(systemctl status bluetooth | grep -o 'active (running)')
 
-if [[ "${STATUS}" = "on" ]]; then
+if [[ ! -z "${STATUS}" ]]; then
   echo "on"
   echo "on"
-  echo ""
+  echo "#0000ff"
+else
+  echo "off"
+  echo "off"
+  echo "#ffff00"
 fi
