@@ -42,5 +42,4 @@ fi
 # if [ -d "${HOME}/info" ]; then
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
-su - -c "/bin/chmod 0666 /sys/class/backlight/intel_backlight/brightness"
 

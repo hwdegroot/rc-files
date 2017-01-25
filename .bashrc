@@ -150,3 +150,5 @@ if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
   source $HOME/.bash_completion
 fi
 
+su -c "/bin/chmod 0666 /sys/class/backlight/intel_backlight/brightness"
+
