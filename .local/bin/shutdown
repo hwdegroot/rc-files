@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-su -c "/sbin/poweroff"
+sudo poweroff
 
