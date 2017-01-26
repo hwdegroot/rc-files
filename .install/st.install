@@ -10,7 +10,7 @@ apply_st_patch() {
 mkdir -p ~/source
 pushd ~/source
 
-su -c "apt install -qyy libx11-dev libxft-dev libxext-dev"
+sudo apt install -qyy libx11-dev libxft-dev libxext-dev
 
 rm -rf st
 git clone git://git.suckless.org/st
@@ -26,7 +26,7 @@ apply_st_patch st-visualbell-20160727-308bfbf.diff
 
 sed -i.bak 's|/usr/X11R6/|/usr/|g' config.mk
 make clean
-su -c " make install"
+sudo  make install
 
 cd ..
 rm -rf st

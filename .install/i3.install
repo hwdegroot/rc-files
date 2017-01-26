@@ -4,17 +4,17 @@ deb http://ftp.debian.org/debian/ jessie-backports main contrib non-free
 deb-src http://ftp.debian.org/debian/ jessie-backports main contrib non-free
 EOF
 
-su -c "mv jessie-backports.list /etc/apt/sources.list.d/jessie-backports.list"
+sudo mv jessie-backports.list /etc/apt/sources.list.d/jessie-backports.list
 
-su -c "apt-get update"
+sudo apt-get update
 i3latest=$(apt-cache policy i3 | grep -Po "(?<=[\* ]{5})[0-9]{1,2}\.[0-9\-~a-z\+]*" | head -1)
 
-su -c "apt-get -y install feh i3=$i3latest xautolock xterm"
+sudo apt-get -y install feh i3=$i3latest xautolock xterm
 git clone git@github.com:vivien/i3blocks.git ~/source/i3blocks
 cp ~/.config/i3/fonts/*.ttf ~/.fonts
 fc-cache -f -v
 cd ~/source/i3blocks
 make clean debug
-su -c "make install"
+sudo make install
 cd -
 

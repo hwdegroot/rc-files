@@ -6,9 +6,9 @@ rvm install ruby --latest
 echo "Installing PhantomJS..."
 curl -L -O -C - https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-1.9.8-linux-x86_64.tar.bz2
 tar xvjf phantomjs-1.9.8-linux-x86_64.tar.bz2
-su -c "mv phantomjs-1.9.8-linux-x86_64 /usr/local/share"
-su -c "chmod +x /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs"
-su -c "ln -s /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/bin/phantomjs"
+sudo mv phantomjs-1.9.8-linux-x86_64 /usr/local/share
+sudo chmod +x /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs
+sudo ln -s /usr/local/share/phantomjs-1.9.8-linux-x86_64/bin/phantomjs /usr/bin/phantomjs
 phantomjs --version
 
 echo "installing Gitlab Development Kit..."
@@ -17,13 +17,13 @@ cd ~/source
 rm -rf gitlab-development-kit
 git clone https://gitlab.com/gitlab-org/gitlab-development-kit.git
 cd gitlab-development-kit
-su -c "apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang"
+sudo apt-get -y install postgresql postgresql-contrib libpq-dev redis-server libicu-dev cmake g++ nodejs libkrb5-dev ed pkg-config golang
 
 echo "Install gitlab-multi-runner"
 cd ~
-su -c "apt-get -y install mercurial git-core wget make"
+sudo apt-get -y install mercurial git-core wget make
 wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz
-su -c "tar -C /usr/local -xzf go*-*.tar.gz"
+sudo tar -C /usr/local -xzf go*-*.tar.gz
 
-su -c "apt-get -y install binfmt-support qemu-user-static"
+sudo apt-get -y install binfmt-support qemu-user-static
 

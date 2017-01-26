@@ -16,7 +16,7 @@ ExecStart=/usr/bin/i3lock -c 000000 -i $HOME/.config/i3/Pictures/LockScreen.png 
 WantedBy=sleep.target suspend.target
 SERVICE
 
-su -c "mv i3lock.service /etc/systemd/system/i3lock.service"
+sudo mv i3lock.service /etc/systemd/system/i3lock.service
 
-su -c "systemctl enable i3lock.service"
+sudo systemctl enable i3lock.service
 

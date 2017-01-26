@@ -3,9 +3,9 @@
 echo "Installing dropbox"
 rm -rf dropbox_*
 wget https://linux.dropbox.com/packages/debian/dropbox_2015.10.28_amd64.deb
-su -c "dpkg -i `ls dropbox_*`"
+sudo dpkg -i `ls dropbox_*`
 dropbox start -i
 
 echo "Installing Keppass2..."
-su -c "apt-get -y install keepass2"
+sudo apt-get -y install keepass2
 

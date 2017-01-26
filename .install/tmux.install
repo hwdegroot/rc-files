@@ -1,8 +1,8 @@
 #!/bin/bash
 
-su -c "apt install -y tmux python-hglib python-psutil socat"
-su -c "pip install pygit2 pyuv i3ipc"
-su -c "pip install powerline-status"
+sudo apt install -y tmux python-hglib python-psutil socat
+sudo pip install pygit2 pyuv i3ipc
+sudo pip install powerline-status
 
 mkdir ~/.fonts/fontconfig/conf.d/
 wget -P ~/.fonts/ https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf

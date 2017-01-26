@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
-  su -c "/bin/systemctl stop bluetooth"
+  sudo systemctl stop bluetooth
 elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
-  su -c "/bin/systemctl start bluetooth"
+  sudo systemctl start bluetooth
 fi
 
 STATUS=$(systemctl status bluetooth | grep -o 'active (running)')

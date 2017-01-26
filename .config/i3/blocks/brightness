@@ -48,6 +48,7 @@ if [[ "${percent}" -le 0 ]]; then
   percent=0
 fi
 
+
 echo "${percent}%"
 echo "${percent}%"
 echo ""
