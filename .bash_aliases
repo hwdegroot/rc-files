@@ -97,4 +97,4 @@ ssh_proxy() {
 }
 alias ssh-proxy='ssh_proxy'
 
-alias apt-upgrade='su -c "apt update && apt-get upgrade -y && apt autoremove -y"'
+alias apt-upgrade='su - -c "/usr/bin/apt update && /usr/bin/apt upgrade -y && /usr/bin/apt autoremove -y"'
