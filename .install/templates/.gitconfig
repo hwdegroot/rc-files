@@ -144,3 +144,4 @@
     delete = branch -d
     delete-remote = "!f() { git push origin :$1; }; f"
     moar = "!f() { [ ! -d \"$GIT_PREFIX\" ] || cd $GIT_PREFIX && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+    delete-submodule = "!f() { rm -rf $1; git submodule deinit $1; git rm -r $1; git rm --cached $1; }; f"
