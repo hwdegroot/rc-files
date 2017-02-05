@@ -48,3 +48,4 @@ if [[ -f $HOME/gittools/gittools.completion ]]; then
   source $HOME/gittools/gittools.completion;
 fi
 
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
