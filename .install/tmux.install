@@ -1,5 +1,14 @@
 #!/bin/bash
 
+sudo apt-get install -y cmake
+wget https://github.com/libgit2/libgit2/archive/v0.25.0.tar.gz
+tar xzf v0.25.0.tar.gz
+cd libgit2-0.25.0/
+cmake .
+make
+sudo make install
+cd -
+
 sudo apt install -y tmux python-hglib python-psutil socat
 sudo pip install pygit2 pyuv i3ipc
 sudo pip install powerline-status
@@ -12,8 +21,8 @@ wget -P ~/.fonts/fontconfig/conf.d/ https://github.com/powerline/powerline/raw/d
 POWERLINE_CONF="$(pip show powerline-status | grep -oP "(?<=Location: ).*")/powerline/bindings/tmux/powerline.conf"
 if [[ -f "$POWERLINE_CONF" ]]; then
   if [[ ! -f ~/.tmux.conf ]] || [[ -z "$(cat ~/.tmux.conf | grep "$POWERLINE_CONF")" ]]; then
-    cat <<-TMUX | tee -a ~/.tmux.conf
-		source "$POWERLINE_CONF"
-		TMUX
+	cat <<-TMUX | tee -a ~/.tmux.conf
+	source "$POWERLINE_CONF"
+	TMUX
   fi
 fi

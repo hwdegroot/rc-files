@@ -19,7 +19,7 @@ XTerm*scrollColor:#222222
 !XTerm*faceName: Anonymice Powerline
 !XTerm*faceName: Arimo Powerline
 !XTerm*faceName: Cousine Powerline
-!XTerm*faceName: Dejavu Sans Mono for Powerline
+XTerm*faceName: Dejavu Sans Mono for Powerline
 !XTerm*faceName: Droid Sans Mono for Powerline
 !XTerm*faceName: Droid Sans Mono Slashed for Powerline
 !XTerm*faceName: Droid Sans Mono Dotted for Powerline
@@ -29,7 +29,8 @@ XTerm*scrollColor:#222222
 !XTerm*faceName: Literation Mono Powerline
 !XTerm*faceName: Meslo for Powerline
 !XTerm*faceName: Sauce Code Powerline
-XTerm*faceName: Source Code Pro for Powerline
+!!XTerm*faceName: Source Code Pro for Powerline
+!XTerm*faceName: PragmataPro
 !XTerm*faceName: Symbol Neu Powerline
 !XTerm*faceName: Terminess Powerline
 !XTerm*faceName: Tinos Powerline
@@ -39,7 +40,7 @@ XTerm*faceName: Source Code Pro for Powerline
 XTerm*faceSize: 9
 XTerm*font: fixed
 XTerm*boldFont: fixed
-XTerm*allowBoldFonts: false
+XTerm*allowBoldFonts: true
 
 ! # with this set to true, when an app sends a bell to the
 ! # terminal, awesome hilights the appropriate tag(s) ;)
