@@ -40,7 +40,7 @@ XTerm*faceName: Dejavu Sans Mono for Powerline
 XTerm*faceSize: 9
 XTerm*font: fixed
 XTerm*boldFont: fixed
-XTerm*allowBoldFonts: true
+XTerm*allowBoldFonts: false
 
 ! # with this set to true, when an app sends a bell to the
 ! # terminal, awesome hilights the appropriate tag(s) ;)
