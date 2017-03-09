@@ -6,38 +6,32 @@ set laststatus=2   " Always show the statusline
 set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 " Colorschemes \o/
-Plugin 'flazz/vim-colorschemes'
+Plug 'flazz/vim-colorschemes'
 " Typescript
-Plugin 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim'
 " Plugin vim puppet
-Plugin 'rodjek/vim-puppet.git'
+Plug 'rodjek/vim-puppet'
 " Puppet syntax highlighting
-Plugin 'puppetlabs/puppet-syntax-vim'
+Plug 'puppetlabs/puppet-syntax-vim'
 " Python autocompletion
-Plugin 'davidhalter/jedi-vim'
+Plug 'davidhalter/jedi-vim'
 " Vim powerline
-Bundle 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
 " Coffee script
-Plugin 'kchmck/vim-coffee-script'
+Plug 'kchmck/vim-coffee-script'
 " Vim rails
-Plugin 'tpope/vim-rails'
+Plug 'tpope/vim-rails'
 " Git plugin
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 " Clojure plugins inc fireplace
-Plugin 'tpope/vim-fireplace'
-Plugin 'guns/vim-clojure-static'
-Plugin 'guns/vim-clojure-highlight'
+Plug 'tpope/vim-fireplace'
+Plug 'guns/vim-clojure-static'
+Plug 'guns/vim-clojure-highlight'
 " Erlang autocompletion
-Plugin 'vim-erlang/vim-erlang-omnicomplete'
-call vundle#end()            " required
+Plug 'vim-erlang/vim-erlang-omnicomplete'
+call plug#end()            " required
 filetype plugin indent on    " required
 
 " Change end-of-line, space and tab characters.
