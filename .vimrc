@@ -31,6 +31,8 @@ Plug 'guns/vim-clojure-static'
 Plug 'guns/vim-clojure-highlight'
 " Erlang autocompletion
 Plug 'vim-erlang/vim-erlang-omnicomplete'
+" Powershell highlight
+Plug 'PProvost/vim-ps1'
 call plug#end()            " required
 filetype plugin indent on    " required
 
