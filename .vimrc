@@ -1,4 +1,3 @@
-
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set nocompatible   " Disable vi-compatibility
@@ -33,6 +32,11 @@ Plug 'guns/vim-clojure-highlight'
 Plug 'vim-erlang/vim-erlang-omnicomplete'
 " Powershell highlight
 Plug 'PProvost/vim-ps1'
+" Javascript development
+Plug 'pangloss/vim-javascript'
+Plug 'crusoexia/vim-javascript-lib'
+" undo vim
+Plug 'sjl/gundo.vim'
 call plug#end()            " required
 filetype plugin indent on    " required
 
@@ -42,54 +46,72 @@ set listchars=eol:$,trail:·,tab:»·,extends:»,precedes:«
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 " Show trailing whitepace and spaces before a tab:
-"autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
+autocmd Syntax * syn match ExtraWhitespace /\s\+$\| \+\ze\t/
 autocmd InsertLeave * redraw!
 autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 autocmd BufWritePre * :%s/\s\+$//e
-"Use monokai colorscheme for vim
-"see: https://github.com/sickill/vim-monokai
-syntax on
+
+" Highlight current line
+set cursorline
+" Colorscheme
 colorscheme monokai
+"colorscheme badwolf
+"let g:badwolf_darkgutter = 1
+"let g:badwolf_tabline = 2
 
-
+" redraw only when we need to.
+"set lazyredraw
+" visual autocomplete for command menu
+set wildmenu
+" Enable syntax highlighting
+syntax on
 " set linenumbers
 set number
-
-" Do not use vi mode
-set nocompatible
 " Always indent spaces
 set expandtab
-
 " size of a hard tabstop
 set tabstop=2
-
 " size of an indent
 set shiftwidth=2
-
 " a combination of spaces and tabs are used to simulate tab stops at a width
 " other than the (hard)tabstop
 set softtabstop=2
-
 " Enable mouse scrolling
 set mouse=a
-
 " Use system clipboard iso vim cut buffer
 set clipboard=unnamed
 "vnoremap y "*y
 
 " Search options
+" highlight matches
 set hlsearch
+" Start searching as soon as characters are entered
 set incsearch
-nnoremap <F3> :set hlsearch!<CR>
-
+" turn off search highlight
+let hlstate=0
+nnoremap <F3> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
+" Folding
+" enable folding
+set foldenable
+" 10 nested fold max
+set foldnestmax=10
+" open most folds by default
+set foldlevelstart=10
+" space open/closes folds
+nnoremap <space> za
+" fold based on indent level
+set foldmethod=indent
+
+" toggle gundo
+nnoremap <C-u> :GundoToggle<CR>
+
 " Insert date
 nnoremap <C-t> "=strftime("%Y/%m/%d")<CR>p
-nnoremap <C-Shift-t> "=strftime("%Y/%m/%d %H:%M:%S")<CR>p
-
-set cursorline
+nnoremap <C-T> "=strftime("%Y/%m/%d %H:%M:%S")<CR>p
+nnoremap <F12> :exe ':silent !chromium-browser %'<CR
 
 "================================================================="
 "                    MAPPING CONFIGURATION
