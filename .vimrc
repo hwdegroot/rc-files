@@ -155,13 +155,16 @@ autocmd Filetype gitcommit setlocal textwidth=72
 au BufNewFile,BufRead,BufEnter Vagrantfile setf ruby
 
 " Set groovy syntax for Jenkinsfile
-autocmd BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile  setf groovy
+au BufNewFile,BufRead,BufEnter *.groovy,Jenkinsfile setf groovy
 
 " Evaluate Clojure buffers on load
-autocmd BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
+au BufNewFile,BufRead,BufEnter *.clj(s?) try | silent! Require | catch /^Fireplace/ | endtry
 
 " Typescript
-au BufRead,BufNewFile,BufRead,BufEnter *.ts,*.tsx setf typescript
+au BufRead,BufNewFile,BufEnter *.ts,*.tsx setf typescript
+
+" Nginx files
+au BufRead,BufNewFile,BufEnter /etc/nginx/*,/usr/local/nginx/conf/*,*.conf setf nginx
 
 " clojure edit mode
 let g:paredit_mode = 1

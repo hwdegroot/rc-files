@@ -33,10 +33,15 @@ sudo apt-get install gnome-shell-pomodoro
 
 
 echo "Vim colors"
-cd ~/.vim/colors
+mkdir -p ~/.vim/colors
 wget -O ~/.vim/colors/badwolf.vim https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
 wget -O ~/.vim/colors/goodwolf.vim https://raw.githubusercontent.com/sjl/badwolf/master/colors/goodwolf.vim
 wget -O ~/.vim/colors/monokai.vim https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+wget -O ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/vim-scripts/molokai/master/colors/molokai.vim
+
+echo "Vim syntax"
+mkdir -p ~/.vim/syntax
+wget -O ~/.vim/syntax/nginx.vim https://raw.githubusercontent.com/vim-scripts/nginx.vim/master/syntax/nginx.vim
 
 echo "Vim plugin manager"
 mkdir -p ~/.vim/autoload/
