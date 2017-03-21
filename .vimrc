@@ -55,6 +55,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set cursorline
 " Colorscheme
 colorscheme monokai
+colorscheme molokai
 "colorscheme badwolf
 "let g:badwolf_darkgutter = 1
 "let g:badwolf_tabline = 2
