@@ -76,6 +76,9 @@
     s = status -s
     stq = status -uno -s
 
+    autosquash = rebase -i --autosquash
+
+    n = "!f() { git log -$1; }; f"
     t  = !git tag -ln1 | sort -rn
     tt = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
     ttt = log --all --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
