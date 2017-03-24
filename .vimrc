@@ -39,6 +39,7 @@ Plug 'crusoexia/vim-javascript-lib'
 Plug 'sjl/gundo.vim'
 " Haskell
 Plug 'eagletmt/ghcmod-vim'
+Plug 'neovimhaskell/haskell-vim'
 call plug#end()            " required
 filetype plugin indent on    " required
 
