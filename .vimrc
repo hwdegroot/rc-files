@@ -37,6 +37,8 @@ Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
 " undo vim
 Plug 'sjl/gundo.vim'
+" Haskell
+Plug 'eagletmt/ghcmod-vim'
 call plug#end()            " required
 filetype plugin indent on    " required
 
