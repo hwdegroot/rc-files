@@ -77,6 +77,7 @@
     stq = status -uno -s
 
     autosquash = rebase -i --autosquash
+    unstash = stash pop
 
     n = "!f() { git log -$1; }; f"
     t  = !git tag -ln1 | sort -rn
