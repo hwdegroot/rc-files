@@ -4,3 +4,7 @@ sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 sudo apt-get update
 sudo apt-get install -y ansible
 
+# Do not display ansible cowsay
+if [[ -z "$(grep '^export ANSIBLE_NOCOWS=1' /etc/environment)" ]]; then
+  echo "export ANSIBLE_NOCOWS=1" | sudo tee -a /etc/environment
+fi
