@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+sudo apt-get install vagrant
+vagrant plugin install vagrant-hostmanager vagrant-triggers
+
+sudo wget https://raw.github.com/kura/vagrant-bash-completion/master/etc/bash_completion.d/vagrant -O /etc/bash_completion.d/vagrant
