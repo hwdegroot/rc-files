@@ -28,3 +28,5 @@ sudo mv daemon.json /etc/docker/
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 
+curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose | sudo tee /etc/bash_completion.d/compose
+curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker | sudo tee /etc/bash_completion.d/docker

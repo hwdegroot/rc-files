@@ -41,6 +41,8 @@ Plug 'eagletmt/ghcmod-vim'
 Plug 'neovimhaskell/haskell-vim'
 " Ansible plugin
 Plug 'chase/vim-ansible-yaml'
+" docker
+Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
 call plug#end()            " required
 filetype plugin indent on    " required
 
