@@ -101,6 +101,7 @@
     wut = log --pretty=oneline --abbrev-commit --graph --decorate -p -n 1
 
     unstage = reset
+    autofixup = !git log --oneline --grep='fixup' | awk '{print $1}' | xargs git rev-list --parents -n 1 | awk '{print $2}' | xargs git rebase -i --autosquash
     undo = reset HEAD~1
     staged = diff --cached --find-renames --find-copies --format=fuller --color-words
       # see http://stackoverflow.com/questions/12055198/find-out-git-branch-creator
