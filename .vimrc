@@ -48,7 +48,7 @@ filetype plugin indent on    " required
 
 " Change end-of-line, space and tab characters.
 set list
-set listchars=eol:$,trail:·,tab:»·,extends:»,precedes:«
+set listchars=eol:↲,trail:·,tab:»·,extends:»,precedes:«
 hi NonText ctermfg=238 ctermbg=NONE guifg=#000000 guibg=NONE
 hi SpecialKey ctermfg=130 ctermbg=NONE guifg=#af5f00 guibg=NONE
 " Show trailing whitepace and spaces before a tab:
