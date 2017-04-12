@@ -10,4 +10,4 @@ sudo wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | apt-key a
 sudo apt-get update
 sudo apt-get -y install dkms virtualbox-5.0
 
-wget -q https://raw.githubusercontent.com/Bash-it/bash-it/master/completion/available/virtualbox.completion.bash -O- | sudu tee /etc/bash_completion.d/vagrant
+wget -q https://raw.githubusercontent.com/Bash-it/bash-it/master/completion/available/virtualbox.completion.bash -O- | sudo tee /etc/bash_completion.d/vagrant
