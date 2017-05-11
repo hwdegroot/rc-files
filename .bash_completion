@@ -49,3 +49,5 @@ if [[ -f $HOME/gittools/gittools.completion ]]; then
 fi
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
+
+source <(kubectl completion bash)
