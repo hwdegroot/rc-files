@@ -155,3 +155,7 @@ su -c "/bin/chmod 0666 /sys/class/backlight/intel_backlight/brightness"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Minikube
+#which minikube >/dev/null && eval $(minikube docker-env)
+

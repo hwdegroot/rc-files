@@ -50,4 +50,5 @@ fi
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+source <(minikube completion bash)
 source <(kubectl completion bash)

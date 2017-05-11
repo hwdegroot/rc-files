@@ -7,12 +7,17 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x minikube
 sudo mv minikube /usr/local/bin/
 
+echo "Adding autocompletion for minkube to ~/.bash_completion"
+sed -i '/minikube completion bash/d' ~/.bash_completion
+which minikube && echo "source <(minikube completion bash)" | tee -a ~/.bash_completion
+
 echo "Installing kubectl"
 release=$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$release/bin/linux/amd64/kubectl
 chmod +x kubectl
 sudo mv kubectl /usr/local/bin/
 
+echo "Adding autocompletion for kubectl to ~/.bash_completion"
 sed -i '/kubectl completion bash/d' ~/.bash_completion
 which kubectl && echo "source <(kubectl completion bash)" | tee -a ~/.bash_completion
 
