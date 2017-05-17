@@ -43,6 +43,9 @@ Plug 'neovimhaskell/haskell-vim'
 Plug 'chase/vim-ansible-yaml'
 " docker
 Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+" rust
+Plug 'rust-lang/rust.vim'
+Plug 'vim-syntastic/syntastic'
 call plug#end()            " required
 filetype plugin indent on    " required
 
