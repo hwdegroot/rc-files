@@ -129,8 +129,6 @@ else
   unset POWERLINE_ROOT
 fi
 
-export JAVA_HOME=/usr/lib/jvm/java-8-oracle
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.

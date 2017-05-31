@@ -1,15 +1,23 @@
 #!/usr/bin/env bash
+_jdk_major=8
+_jdk_minor=131
+_jdk_build=11
+
+_jdk_version=${_jdk_major}u${_jdk_minor}
+_jdk_pkg=${_jdk_version}-b${_jdk_build}
+
 sudo rm -fr jdk-8u101-linux-x64.tar.gz* /usr/lib/jvm/j2sdk8-oracle
-wget quiet --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz
+wget --quiet \
+  --header "Cookie: oraclelicense=accept-securebackup-cookie" \
+  http://download.oracle.com/otn-pub/java/jdk/$_jdk_pkg/jdk-$_jdk_version-linux-x64.tar.gz
 sudo mkdir -p /usr/lib/jvm/j2sdk8-oracle
-sudo tar vzxf jdk-8u101-linux-x64.tar.gz --strip-components=1 -C /usr/lib/jvm/j2sdk8-oracle
+sudo tar vzxf jdk-$_jdk_version-linux-x64.tar.gz --strip-components=1 -C /usr/lib/jvm/j2sdk8-oracle
 sudo apt install -y ca-certificates ca-certificates-java
 sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/j2sdk8-oracle/bin/java 100
 sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/j2sdk8-oracle/bin/javac 100
 
 # Set environment varsu
-echo 'export JAVA_HOME=/usr/lib/jvm/j2sdk8-oracle' | sudo tee -a /etc/environment
-echo 'export PATH=$JAVA_HOME/bin:$PATH' | sudo tee -a  /etc/environment
+echo 'JAVA_HOME=/usr/lib/jvm/j2sdk8-oracle' | sudo tee -a /etc/environment
 . /etc/environment
 
 sudo keytool -importcert -noprompt -alias mendix -file cert/mendix.cer -keystore /etc/ssl/certs/java/cacerts -storepass changeit
