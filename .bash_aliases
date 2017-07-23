@@ -54,6 +54,7 @@ alias pull="git pull"
 alias i-haz-monitor="xrandr --output HDMI-1 --left-of eDP-1 --auto"
 alias i-haz-no-monitor="xrandr --output HDMI-1 --off"
 alias i-haz-monitor-aight="xrandr --output HDMI-1 --right-of eDP-1 --auto"
+alias i-haz-clone-mode="xrandr --output HDMI-1 --same-as eDP-1 --mode"
 alias i-haz-clone-monitor="xrandr --output HDMI-1 --same-as eDP-1 --auto"
 
 gam() {
