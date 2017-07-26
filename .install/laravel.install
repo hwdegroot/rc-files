@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+sudo apt-get -qqy install php
+wget https://getcomposer.org/installer -O composer-setup.php
+echo 669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410  composer-setup.php | sha384sum -c -
+echo "Install composer"
+sudo php composer-setup.php --install-dir=/usr/local/bin --filename=composer
+rm composer-setup.php
+
+
+COMPOSER_HOME=$HOME/.composer/vendor/bin
+if [[ ":$PATH:" != *":$COMPOSER_HOME:"* ]]; then
+  PATH="${PATH}:${LARAVEL_HOME}"
+fi
+sudo sed -i '/COMPOSER_HOME/d' /etc/environment
+echo "export COMPOSER_HOME=$COMPOSER_HOME"
+
+echo "Install laravel"
+composer global require "laravel/installer=~1.1"
+
