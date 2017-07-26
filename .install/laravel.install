@@ -8,12 +8,32 @@ rm composer-setup.php
 
 
 COMPOSER_HOME=$HOME/.composer/vendor/bin
+mkdir -p $COMPOSER_HOME
 if [[ ":$PATH:" != *":$COMPOSER_HOME:"* ]]; then
-  PATH="${PATH}:${LARAVEL_HOME}"
+  export PATH="${PATH}:${COMPOSER_HOME}"
 fi
 sudo sed -i '/COMPOSER_HOME/d' /etc/environment
-echo "export COMPOSER_HOME=$COMPOSER_HOME"
+echo "export COMPOSER_HOME=$COMPOSER_HOME" | sudo tee -a /etc/environment
+
+sudo sed -i '/PATH/d' /etc/environment
+echo "export PATH=$PATH" | sudo tee -a /etc/environment
 
 echo "Install laravel"
 composer global require "laravel/installer=~1.1"
+composer global require "laravel/homestead=~2.0"
+
+echo "Install Redis"
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+
+echo "Install MySQL"
+sudo apt-get install -qqy mysql-server
+
+echo "Install Memcached"
+sudo apt-get -qqy install php-memcache memcached
+
+echo "Install beanstalk"
+sudo apt-get install -qqy beanstalkd
 
