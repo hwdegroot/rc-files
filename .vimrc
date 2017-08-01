@@ -7,45 +7,71 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 call plug#begin('~/.vim/plugged')
 " Colorschemes \o/
 Plug 'flazz/vim-colorschemes'
+
 " Typescript
 Plug 'leafgarland/typescript-vim'
-" Plugin vim puppet
-Plug 'rodjek/vim-puppet'
-" Puppet syntax highlighting
-Plug 'puppetlabs/puppet-syntax-vim'
-" Python autocompletion
-Plug 'davidhalter/jedi-vim'
-" Vim powerline
-Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
-" Coffee script
-Plug 'kchmck/vim-coffee-script'
-" Vim rails
-Plug 'tpope/vim-rails'
-" Git plugin
-Plug 'tpope/vim-fugitive'
-" Clojure plugins inc fireplace
-Plug 'tpope/vim-fireplace'
-Plug 'guns/vim-clojure-static'
-Plug 'guns/vim-clojure-highlight'
-" Erlang autocompletion
-Plug 'vim-erlang/vim-erlang-omnicomplete'
-" Powershell highlight
-Plug 'PProvost/vim-ps1'
 " Javascript development
 Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
+
+" Plugin vim puppet
+"Plug 'rodjek/vim-puppet'
+
+" Puppet syntax highlighting
+"Plug 'puppetlabs/puppet-syntax-vim'
+
+" Python autocompletion
+Plug 'davidhalter/jedi-vim'
+
+" Vim powerline
+Plug 'powerline/powerline', { 'rtp': 'powerline/bindings/vim/' }
+
+" Coffee script
+"Plug 'kchmck/vim-coffee-script'
+
+" Vim rails
+Plug 'tpope/vim-rails'
+
+" Git plugin
+Plug 'tpope/vim-fugitive'
+" Clojure plugins inc fireplace
+"Plug 'tpope/vim-fireplace'
+"Plug 'guns/vim-clojure-static'
+"Plug 'guns/vim-clojure-highlight'
+
+" Erlang autocompletion
+"Plug 'vim-erlang/vim-erlang-omnicomplete'
+"
+" Powershell highlight
+Plug 'PProvost/vim-ps1'
+
 " undo vim
-Plug 'sjl/gundo.vim'
+"Plug 'sjl/gundo.vim'
+
 " Haskell
-Plug 'eagletmt/ghcmod-vim'
-Plug 'neovimhaskell/haskell-vim'
+"Plug 'eagletmt/ghcmod-vim'
+"Plug 'neovimhaskell/haskell-vim'
+
 " Ansible plugin
 Plug 'chase/vim-ansible-yaml'
+
 " docker
 Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
+
 " rust
 Plug 'rust-lang/rust.vim'
 Plug 'vim-syntastic/syntastic'
+
+" sbt & scala syntax
+Plug 'derekwyatt/vim-sbt'
+Plug 'derekwyatt/vim-scala'
+
+" html
+Plug 'docunext/closetag.vim'
+
+" Fancy file browser
+Plug 'vim-scripts/LustyJuggler'
+Plug 'vim-scripts/LustyExplorer'
 call plug#end()            " required
 filetype plugin indent on    " required
 
