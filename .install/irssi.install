@@ -1,0 +1,8 @@
+#!/usr/bin/emv bash
+# https://quadpoint.org/articles/irssi/
+# https://github.com/shabble/irssi-docs/wiki/Formats
+gpg --keyserver wwwkeys.pgp.net --recv-keys '7EE6 5E30 82A5 FB06 AC7C 368D 00CC B587 DDBE F0E1'
+
+echo "Install irssi and screen"
+sudo apt-get install irssi screen
+
