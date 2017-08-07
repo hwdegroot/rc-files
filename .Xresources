@@ -54,8 +54,9 @@ XTerm*VT100*translations: #override Shift <Btn1Up>: exec-formatted("google-chrom
 ! # these three lines enable clicking on links to open them ;)
 ! ## if you want to enable tab support, append ,tabbed to the next line
 ! ## then use shift+down arrow to create tabs and shift+{left,right} arrows to switch between them
+XTerm*cutchars:        `"()'*<>[]{|}
 XTerm*perl-ext-common: default,matcher,-option-popup,-selection-popup,-realine
-XTerm*matcher.button: 1
+Xterm*matcher.button:  1
 
 ! # dont forget to change this to your favorite browser
 XTerm*urlLauncher: google-chrome
