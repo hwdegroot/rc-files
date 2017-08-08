@@ -43,3 +43,5 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
+
+export PATH="$HOME/.cargo/bin:$PATH"

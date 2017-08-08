@@ -39,6 +39,7 @@ fi
 alias docker-remove-images='docker images -qa | xargs -i docker rmi -f {}'
 alias docker-remove-containers='docker ps -qa | xargs -i docker rm -f {}'
 alias docker-remove-volumes='docker volume ls -q | xargs -i docker volume rm {}'
+alias docker-remove-networks='docker network ls | xargs docker network rm'
 # git aliases
 alias gp='git push'
 alias gm='git commit -am '
@@ -56,6 +57,23 @@ alias i-haz-no-monitor="xrandr --output HDMI-1 --off"
 alias i-haz-monitor-aight="xrandr --output HDMI-1 --right-of eDP-1 --auto"
 alias i-haz-clone-mode="xrandr --output HDMI-1 --same-as eDP-1 --mode"
 alias i-haz-clone-monitor="xrandr --output HDMI-1 --same-as eDP-1 --auto"
+alias apt-upgrade='sudo apt-get -qqy update && sudo apt-get -qqy upgrade && sudo apt-get -y autoremove'
+
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  alias ls='exa'
+  alias dir='dir --color=auto'
+  alias vdir='vdir --color=auto'
+
+  alias grep='grep --color=auto'
+  alias fgrep='fgrep --color=auto'
+  alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='exa -alhF'
+alias la='exa -a'
+alias l='exa -hlF'
 
 gam() {
   git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
