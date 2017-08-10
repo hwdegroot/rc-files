@@ -91,15 +91,6 @@ fi
 [[ -f ~/bash-git-prompt/gitprompt.sh ]] && source ~/bash-git-prompt/gitprompt.sh
 [[ -f ~/.gitrc ]] && source ~/.gitrc
 
-# RVM stuff
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-export GEM_HOME=$HOME/.rvm/rubies/default/gems
-export GEM_PATH=$GEM_HOME
-export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
-export PATH=$PATH:$HOME/.rvm/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
-
 if [ -n "$DISPLAY" ]; then
   xset b off
 fi
@@ -139,4 +130,14 @@ export NVM_DIR="$HOME/.nvm"
 
 # Minikube
 #which minikube >/dev/null && eval $(minikube docker-env)
+
+# RVM stuff
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+export GEM_HOME=$HOME/.rvm/rubies/default/gems
+export GEM_PATH=$GEM_HOME
+export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
+
 
