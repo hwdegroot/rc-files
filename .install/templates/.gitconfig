@@ -1,156 +1,157 @@
 [core]
-    autocrlf = False
-    editor = vim
-    filemode = false
-    pager = diff-highlight | diff-so-fancy |  less --tabs=4 -RFX
+  autocrlf = False
+  editor = vim
+  filemode = false
+  pager = diff-highlight | diff-so-fancy |  less --tabs=4 -RFX
 [branch]
-    autosetuprebase = always
+  autosetuprebase = always
 [pull]
-    rebase = preserve
+  rebase = preserve
 [rerere]
-    enabled = true
+  enabled = true
 [push]
-    default = simple
+  default = simple
 [color "branch"]
-    current = yellow bold
-    local = yellow dim
-    remote = green dim bold
+  current = yellow bold
+  local = yellow dim
+  remote = green dim bold
 [color "status"]
-    added = green
-    changed = red bold
-    untracked = magenta bold
+  added = green
+  changed = red bold
+  untracked = magenta bold
 [color "diff-highlight"]
-    oldNormal = red bold
-    oldHighlight = red bold 52
-    newNormal = green bold
-    newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color]
-    diff = auto
-    status = auto
-    branch = auto
-    interactive = auto
-    ui = auto
+  diff = auto
+  status = auto
+  branch = auto
+  interactive = auto
+  ui = auto
 [diff]
-    tool = vimdiff
+  tool = vimdiff
 [difftool]
-    prompt = false
+  prompt = false
 [merge]
-    ff = false
-    tool = vimdiff
-    conflictstyle = diff3
+  ff = false
+  tool = vimdiff
+  conflictstyle = diff3
 [mergetool]
-    prompt = false
+  prompt = false
 [fetch]
-    prune = true
-    pager = true
+  prune = true
+  pager = true
 [credential]
-    helper = store
+  helper = store
 [status]
-    submoduleSummary = true
+  submoduleSummary = true
 [alias]
-    d  = diff --find-renames --find-copies --format=fuller --color-words
-    dw = diff --find-renames --find-copies --format=fuller
+  d  = diff --find-renames --find-copies --format=fuller --color-words
+  dw = diff --find-renames --find-copies --format=fuller
 
     # diff upstream master
-    du = diff --find-renames --find-copies --format=fuller --color-words origin/master HEAD
+  du = diff --find-renames --find-copies --format=fuller --color-words origin/master HEAD
 
     # diff current branch against master
-    dm = diff --find-renames --find-copies --format=fuller --color-words master HEAD
-    dms = diff --find-renames --find-copies --stat master HEAD
+  dm = diff --find-renames --find-copies --format=fuller --color-words master HEAD
+  dms = diff --find-renames --find-copies --stat master HEAD
 
     # git show commits that are on the current branch but NOT on some other branch, eg:
     #
     #     git diffbranch master..
     #
     # Note the two dots that come AFTER the name of the master branch.
-    diffbranch = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph
+  diffbranch = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph
 
     # diff current branch against the same branch at origin
     # eg just before pushing to remote to assure you are only pushing what you think you are pushing.
     # More flexible form of git diff origin/master master
-    diffremote = "! branchname=$(git branch | grep ^\\* | cut -d' ' -f2); git diff origin/$branchname $branchname"
+  diffremote = "! branchname=$(git branch | grep ^\\* | cut -d' ' -f2); git diff origin/$branchname $branchname"
 
-    ci = commit
-    co = checkout
+  ci = commit
+  co = checkout
+  cp = cherry-pick
 
-    s = status -s
-    stq = status -uno -s
+  s = status -s
+  stq = status -uno -s
 
-    autosquash = rebase -i --autosquash
-    unstash = stash pop
-    uberclean = clean -ffdx
-    pick = cherry-pick
+  autosquash = rebase -i --autosquash
+  unstash = stash pop
+  uberclean = clean -ffdx
+  pick = cherry-pick
 
-    n = "!f() { git log -$1; }; f"
-    t  = !git tag -ln1 | sort -rn
-    tt = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
-    ttt = log --all --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
-    tags = tag -l -n1
+  n = "!f() { git log -$1; }; f"
+  t  = !git tag -ln1 | sort -rn
+  tt = log --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+  ttt = log --all --date-order --graph --tags --simplify-by-decoration --pretty=format:'%ai %h %d'
+  tags = tag -l -n1
 
-    l  = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph
-    ll = log --pretty=oneline --abbrev-commit --graph --decorate HEAD...master
-    la = log --pretty=oneline --abbrev-commit --graph --decorate --all
-    lstat = log --graph --decorate --date-order --stat
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-    lol = log --graph --decorate --pretty=oneline --abbrev-commit
-    lf = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --decorate --follow
-    lll = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph HEAD...master
-    lw =  log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph --decorate
-    last = log -1 HEAD
+  l  = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph
+  ll = log --pretty=oneline --abbrev-commit --graph --decorate HEAD...master
+  la = log --pretty=oneline --abbrev-commit --graph --decorate --all
+  lstat = log --graph --decorate --date-order --stat
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
+  lol = log --graph --decorate --pretty=oneline --abbrev-commit
+  lf = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --decorate --follow
+  lll = log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph HEAD...master
+  lw =  log --pretty='%C(yellow)%h%d %Creset%an %Cgreen%ar:%Creset %s' --graph --decorate
+  last = log -1 HEAD
 
     # show the most recent commit
-    wut = log --pretty=oneline --abbrev-commit --graph --decorate -p -n 1
+  wut = log --pretty=oneline --abbrev-commit --graph --decorate -p -n 1
 
-    unstage = reset
-    autofixup = !git log --oneline --grep='fixup' | awk '{print $1}' | xargs git rev-list --parents -n 1 | awk '{print $2}' | xargs git rebase -i --autosquash
-    undo = reset HEAD~1
-    staged = diff --cached --find-renames --find-copies --format=fuller --color-words
+  unstage = reset
+  autofixup = !git log --oneline --grep='fixup' | awk '{print $1}' | xargs git rev-list --parents -n 1 | awk '{print $2}' | xargs git rebase -i --autosquash
+  undo = reset HEAD~1
+  staged = diff --cached --find-renames --find-copies --format=fuller --color-words
       # see http://stackoverflow.com/questions/12055198/find-out-git-branch-creator
-    branches = !git for-each-ref --format='%(committerdate)%09%(authorname)%09%(objectname:short)%09%(refname)' \
-             | sort -k5n -k2M -k3n -k4n \
-             | grep --color=never remotes \
-             | perl -lwpe 's{refs/remotes/origin/}{}' \
-             | awk -F '\t' '{ printf \"%-32s %-22s %-12s %s\\n\", $1, $2, $3, $4 }'
+  branches = !git for-each-ref --format='%(committerdate)%09%(authorname)%09%(objectname:short)%09%(refname)' \
+    | sort -k5n -k2M -k3n -k4n \
+    | grep --color=never remotes \
+    | perl -lwpe 's{refs/remotes/origin/}{}' \
+    | awk -F '\t' '{ printf \"%-32s %-22s %-12s %s\\n\", $1, $2, $3, $4 }'
 
     # see http://stackoverflow.com/questions/2514172/listing-each-branch-and-its-last-revisions-date-in-git
-    b = !git for-each-ref --sort='-authordate' \
-                 --format='%(authordate:short)%09%(objectname:short)%09%(refname)' refs/heads | \
-             sed -e 's-refs/heads/--'
+  b = !git for-each-ref --sort='-authordate' \
+    --format='%(authordate:short)%09%(objectname:short)%09%(refname)' refs/heads | \
+    sed -e 's-refs/heads/--'
 
-    log-json = log --pretty=format:'{%n  \"commit\": \"%H\",%n  \"author\": \"%an <%ae>\",%n  \"date\": \"%amessage\": \"%f\"%n},'
+  log-json = log --pretty=format:'{%n  \"commit\": \"%H\",%n  \"author\": \"%an <%ae>\",%n  \"date\": \"%amessage\": \"%f\"%n},'
 
-    m = merge
-    a = add
-    ls = branch -a
-    on-a-leach = push --force-with-lease
-    clean-how-i-mean = !git status -s | grep --color=never '??' | cut -c4- | xargs -I@ rm -rv @
+  m = merge
+  a = add
+  ls = branch -a
+  on-a-leach = push --force-with-lease
+  clean-how-i-mean = !git status -s | grep --color=never '??' | cut -c4- | xargs -I@ rm -rv @
 
-    whatever = commit -a --fixup HEAD
-    fuck = !git whatever
-    jemoeder = !git add . && git amend && git on-a-leach
-    yolo = !git add . && git amend
-    wtf = !git jemoeder
+  whatever = commit -a --fixup HEAD
+  fuck = !git whatever
+  jemoeder = !git add . && git amend && git on-a-leach
+  yolo = !git add . && git amend
+  wtf = !git jemoeder
 
-    sync = pull --rebase origin
-    same-same = !git reset --hard && git pull
-    level = !git same-same
+  sync = pull --rebase origin
+  same-same = !git reset --hard && git pull
+  level = !git same-same
 
     # visuals
-    tree = !tig --all
-    visual = !git tree
-    master = checkout master
+  tree = !tig --all
+  visual = !git tree
+  master = checkout master
 
     # Update git commit author date when amending.
     #
     # cf http://stackoverflow.com/questions/9110310
-    amend = !git commit --amend --date=\"$(date -R)\" --no-edit
-    fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash $1~1; }; f"
-    fixup = commit --fixup
-    permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
-    filemode = config core.fileMode
-    delete = branch -d
-    delete-remote = "!f() { git push origin :$1; }; f"
-    moar = "!f() { [ ! -d \"$GIT_PREFIX\" ] || cd $GIT_PREFIX && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
-    delete-submodule = "!f() { rm -rf $1; git submodule deinit $1; git rm -r $1; git rm --cached $1; }; f"
-    ignored = ls-files . --ignored --exclude-standard --others --directory
-    untracked = ls-files . --exclude-standard --others --directory
+  amend = !git commit --amend --date=\"$(date -R)\" --no-edit
+  fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash $1~1; }; f"
+  fixup = commit --fixup
+  permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
+  filemode = config core.fileMode
+  delete = branch -d
+  delete-remote = "!f() { git push origin :$1; }; f"
+  moar = "!f() { [ ! -d \"$GIT_PREFIX\" ] || cd $GIT_PREFIX && git diff --color \"$@\" | diff-so-fancy  | less --tabs=4 -RFX; }; f"
+  delete-submodule = "!f() { rm -rf $1; git submodule deinit $1; git rm -r $1; git rm --cached $1; }; f"
+  ignored = ls-files . --ignored --exclude-standard --others --directory
+  untracked = ls-files . --exclude-standard --others --directory
