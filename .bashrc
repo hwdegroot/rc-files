@@ -95,14 +95,6 @@ if [ -n "$DISPLAY" ]; then
   xset b off
 fi
 
-
-POWERLINE_ROOT="$(pip show powerline-status | grep -oP "(?<=Location: ).*")/powerline"
-if [[ -d "$POWERLINE_ROOT" ]]; then
-  export POWERLINE_ROOT
-else
-  unset POWERLINE_ROOT
-fi
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
@@ -123,21 +115,4 @@ if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
 fi
 
 su -c "/bin/chmod 0666 /sys/class/backlight/intel_backlight/brightness"
-
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
-# Minikube
-#which minikube >/dev/null && eval $(minikube docker-env)
-
-# RVM stuff
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-export GEM_HOME=$HOME/.rvm/rubies/default/gems
-export GEM_PATH=$GEM_HOME
-export PATH=$PATH:$HOME/.rvm/bin
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin
-export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
-export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
-
 

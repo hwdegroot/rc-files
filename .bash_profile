@@ -43,5 +43,25 @@ fi
 #   INFOPATH="${HOME}/info:${INFOPATH}"
 # fi
 
-
+# Rust Cargo dir
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# NVM Home dir
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Minikube
+#which minikube >/dev/null && eval $(minikube docker-env)
+
+# Default docker run options
+export DOCKER_RUN_OPTS="-it -v `pwd`:`pwd` -w `pwd` -u `id -u`:`id -g`"
+
+# RVM stuff
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+export GEM_HOME=$HOME/.rvm/rubies/default/gems
+export GEM_PATH=$GEM_HOME
+export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
+
