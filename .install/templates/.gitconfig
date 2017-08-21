@@ -146,6 +146,7 @@
     # cf http://stackoverflow.com/questions/9110310
   amend = !git commit --amend --date=\"$(date -R)\" --no-edit
   fixup-now = "!f() { git commit --fixup $1 && git rebase -i --autosquash $1~1; }; f"
+  remove-from-history = "!f() { git filter-branch --force --index-filter 'git rm --cached --ignore-unmatch \"$1\"' --prune-empty --tag-name-filter cat -- --all; }; f"
   fixup = commit --fixup
   permission-reset = !git diff -p -R | grep -E \"^(diff|(old|new) mode)\" | git apply
   filemode = config core.fileMode
