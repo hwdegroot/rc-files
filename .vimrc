@@ -6,21 +6,6 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 
 " set the runtime path to include Vundle and initialize
 call plug#begin('~/.vim/plugged')
-" Colorschemes \o/
-Plug 'flazz/vim-colorschemes'
-
-" Typescript
-Plug 'leafgarland/typescript-vim'
-" Javascript development
-Plug 'pangloss/vim-javascript'
-Plug 'crusoexia/vim-javascript-lib'
-
-" Plugin vim puppet
-"Plug 'rodjek/vim-puppet'
-
-" Puppet syntax highlighting
-"Plug 'puppetlabs/puppet-syntax-vim'
-
 " Python autocompletion
 Plug 'davidhalter/jedi-vim'
 
@@ -36,33 +21,15 @@ Plug 'tpope/vim-rails'
 
 " Git plugin
 Plug 'tpope/vim-fugitive'
-" Clojure plugins inc fireplace
-"Plug 'tpope/vim-fireplace'
-"Plug 'guns/vim-clojure-static'
-"Plug 'guns/vim-clojure-highlight'
-
-" Erlang autocompletion
-"Plug 'vim-erlang/vim-erlang-omnicomplete'
 "
 " Powershell highlight
 Plug 'PProvost/vim-ps1'
-
-" undo vim
-"Plug 'sjl/gundo.vim'
-
-" Haskell
-"Plug 'eagletmt/ghcmod-vim'
-"Plug 'neovimhaskell/haskell-vim'
 
 " Ansible plugin
 Plug 'chase/vim-ansible-yaml'
 
 " docker
 Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
-
-" rust
-Plug 'rust-lang/rust.vim'
-Plug 'vim-syntastic/syntastic'
 
 " sbt & scala syntax
 Plug 'derekwyatt/vim-sbt'
@@ -81,6 +48,8 @@ Plug 'Shougo/unite.vim'
 Plug 'm2mdas/phpcomplete-extended'
 Plug 'm2mdas/phpcomplete-extended-laravel'
 Plug 'joonty/vdebug'
+Plug 'StanAngeloff/php.vim'
+Plug 'morhetz/gruvbox'
 call plug#end()            " required
 filetype plugin indent on    " required
 
@@ -99,13 +68,17 @@ autocmd BufWritePre * :%s/\s\+$//e
 set cursorline
 " Colorscheme
 colorscheme monokai
-colorscheme molokai
-"colorscheme badwolf
-"let g:badwolf_darkgutter = 1
-"let g:badwolf_tabline = 2
+"colorscheme molokai
+set background=dark
+colorscheme gruvbox
+let g:gruvbox_contrast_dark = 'hard'
+let g:gruvbox_bold = 1
+let g:gruvbox_italic = 1
+let g:gruvbox_underline = 1
+let g:gruvbox_undercurl = 1
 
 " redraw only when we need to.
-"set lazyredraw
+" set lazyredraw
 " visual autocomplete for command menu
 set wildmenu
 " Enable syntax highlighting
@@ -290,3 +263,19 @@ if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 let g:airline_symbols.space = "\ua0"
+
+
+" Put at the very end of your .vimrc file.
+"let g:php_syntax_extensions_enabled = 1
+"let b:php_syntax_extensions_enabled = 1
+autocmd  FileType  php setlocal omnifunc=phpcomplete_extended_laravel#CompletePHP
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+function! PhpSyntaxOverride()
+  hi! def link phpDocTags  phpDefine
+  hi! def link phpDocParam phpType
+endfunction
+
+augroup phpSyntaxOverride
+  autocmd!
+  autocmd FileType php call PhpSyntaxOverride()
+augroup END
