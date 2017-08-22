@@ -75,7 +75,10 @@ Plug 'docunext/closetag.vim'
 Plug 'vim-scripts/LustyJuggler'
 Plug 'vim-scripts/LustyExplorer'
 
-" PHP stuff
+" PHP stuf
+Plug 'Shougo/vimproc.vim'
+Plug 'Shougo/unite.vim'
+Plug 'm2mdas/phpcomplete-extended'
 Plug 'm2mdas/phpcomplete-extended-laravel'
 Plug 'joonty/vdebug'
 call plug#end()            " required
