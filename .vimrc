@@ -74,6 +74,10 @@ Plug 'docunext/closetag.vim'
 " Fancy file browser
 Plug 'vim-scripts/LustyJuggler'
 Plug 'vim-scripts/LustyExplorer'
+
+" PHP stuff
+Plug 'm2mdas/phpcomplete-extended-laravel'
+Plug 'joonty/vdebug'
 call plug#end()            " required
 filetype plugin indent on    " required
 
