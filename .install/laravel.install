@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo apt-get -qqy install php php-xdebug
+
 wget https://getcomposer.org/installer -O composer-setup.php
 echo 669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410  composer-setup.php | sha384sum -c -
 echo "Install composer"
@@ -43,10 +43,13 @@ cd ~/.vim/plugged/vimproc.vim
 make
 
 echo "Add stuff to xdebug"
-cat /etc/php/7.0/mods-available/xdebug.ini
-sudo mv /etc/php/7.0/mods-available/xdebug.ini /etc/php/7.0/mods-available/xdebug.ini.bak
-cat <<-XDEBUG > /etc/php/7.0/mods-available/xdebug.ini
-zend_extension=xdebug.so
+PHP_VERSION=`php --version | grep -Po  "[0-9]+.[0-9]+" | head -1`
+php --version
+echo "Using PHP version $PHP_VERSION"
+cat /etc/php/i$PHP_VERSION/mods-available/xdebug.ini
+sudo mv /etc/php/$PHP_VERSION/mods-available/xdebug.ini /etc/php/$PHP_VERSION/mods-available/xdebug.ini.bak
+sudo tee /etc/php/$PHP_VERSION/mods-available/xdebug.ini <<XDEBUG
+zend_extension=`find /usr/lib/php -name xdebug.so`
 xdebug.remote_autostart=1
 xdebug.remote_enable=1
 xdebug.remote_handler=dbgp
