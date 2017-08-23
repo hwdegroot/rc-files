@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-sudo apt-get -qqy install php php-xdebug php-xml
+sudo apt-get -qqy install php php-xdebug php-xml php-zip
 echo "Add stuff to xdebug"
 PHP_VERSION=`php --version | grep -Po  "[0-9]+.[0-9]+" | head -1`
 php --version
