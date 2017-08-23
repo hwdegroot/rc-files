@@ -80,13 +80,6 @@ if [[ -f $HOME/.config/sensible.bash/sensible.bash ]]; then
   source $HOME/.config/sensible.bash/sensible.bash
 fi
 
-if [[ -d /usr/local/go/bin ]]; then
-  export GOPATH=$HOME/Go
-  export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
-  mkdir -p $GOPATH
-fi
-
-
 [[ -f ~/.config/bash-git-prompt/config ]] && source ~/.config/bash-git-prompt/config
 [[ -f ~/bash-git-prompt/gitprompt.sh ]] && source ~/bash-git-prompt/gitprompt.sh
 [[ -f ~/.gitrc ]] && source ~/.gitrc
@@ -115,4 +108,43 @@ if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
 fi
 
 su -c "/bin/chmod 0666 /sys/class/backlight/intel_backlight/brightness"
+
+
+############################################################################
+###                                                                      ###
+##                            PATH VARIABLES                              ##
+###                                                                      ###
+############################################################################
+# Rust Cargo dir
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# NVM Home dir
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# Minikube
+#which minikube >/dev/null && eval $(minikube docker-env)
+
+# Default docker run options
+export DOCKER_RUN_OPTS="-it -v `pwd`:`pwd` -w `pwd` -u `id -u`:`id -g`"
+
+# RVM stuff
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+export GEM_HOME=$HOME/.rvm/rubies/default/gems
+export GEM_PATH=$GEM_HOME
+export PATH=$PATH:$HOME/.rvm/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin
+export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
+export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
+
+# laravel
+export PATH=$PATH:/home/rik/.composer/vendor/bin
+
+if [[ -d /usr/local/go/bin ]]; then
+  export GOPATH=$HOME/Go
+  export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
+  mkdir -p $GOPATH
+fi
+
+
 
