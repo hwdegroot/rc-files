@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+git clone git@github.com:Shougo/neocomplete.vim.git neocomplete
+cd neocomplete
+mkdir -p ~/.vim/{autoload,plugin,test,doc}
+rsync -av autoload/ ~/.vim/autoload/
+rsync -av plugin/ ~/.vim/plugin/
+rsync -av doc/ ~/.vim/doc/
+rsync -av test/ ~/.vim/test/
+

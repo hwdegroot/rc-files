@@ -8,40 +8,27 @@ set encoding=utf-8 " Necessary to show Unicode glyphs
 call plug#begin('~/.vim/plugged')
 " Python autocompletion
 Plug 'davidhalter/jedi-vim'
-
 " Vim airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-
-" Coffee script
-"Plug 'kchmck/vim-coffee-script'
-
 " Vim rails
 Plug 'tpope/vim-rails'
-
 " Git plugin
 Plug 'tpope/vim-fugitive'
-"
 " Powershell highlight
 Plug 'PProvost/vim-ps1'
-
 " Ansible plugin
 Plug 'chase/vim-ansible-yaml'
-
 " docker
 Plug 'docker/docker', {'rtp': '/contrib/syntax/vim/'}
-
 " sbt & scala syntax
 Plug 'derekwyatt/vim-sbt'
 Plug 'derekwyatt/vim-scala'
-
 " html
 Plug 'docunext/closetag.vim'
-
 " Fancy file browser
 Plug 'vim-scripts/LustyJuggler'
 Plug 'vim-scripts/LustyExplorer'
-
 " PHP stuf
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim'
@@ -49,7 +36,11 @@ Plug 'm2mdas/phpcomplete-extended'
 Plug 'm2mdas/phpcomplete-extended-laravel'
 Plug 'joonty/vdebug'
 Plug 'StanAngeloff/php.vim'
+" Theming
 Plug 'morhetz/gruvbox'
+" Completion
+Plug 'ervandew/supertab'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 call plug#end()            " required
 filetype plugin indent on    " required
 
@@ -266,8 +257,6 @@ let g:airline_symbols.space = "\ua0"
 
 
 " Put at the very end of your .vimrc file.
-"let g:php_syntax_extensions_enabled = 1
-"let b:php_syntax_extensions_enabled = 1
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended_laravel#CompletePHP
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
@@ -280,3 +269,6 @@ augroup phpSyntaxOverride
   autocmd!
   autocmd FileType php call PhpSyntaxOverride()
 augroup END
+
+" Completion
+let g:neocomplete#enable_at_startup = 1
