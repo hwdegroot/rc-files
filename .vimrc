@@ -270,6 +270,7 @@ let g:airline_symbols.space = "\ua0"
 "let b:php_syntax_extensions_enabled = 1
 autocmd  FileType  php setlocal omnifunc=phpcomplete_extended_laravel#CompletePHP
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
 function! PhpSyntaxOverride()
   hi! def link phpDocTags  phpDefine
   hi! def link phpDocParam phpType
