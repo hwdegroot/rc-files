@@ -146,5 +146,3 @@ if [[ -d /usr/local/go/bin ]]; then
   mkdir -p $GOPATH
 fi
 
-
-
