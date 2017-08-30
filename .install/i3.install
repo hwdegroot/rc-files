@@ -19,3 +19,19 @@ sudo make install
 cd -
 
 sudo apt-get insatll -y fonts-font-awesome
+
+
+sudo mkdir -p /usr/share/$USER
+rm -f /usr/share/$USER/gmail
+touch /usr/share/$USER/gmail
+sudo chown `id -u`:`id -g` /usr/share/$USER/gmail
+
+echo "MAIL_SERVER='imap.gmail.com:993'" >> /usr/share/$USER/gmail
+echo "Please insert gmail address (user@gmail.com)"
+read MAIL_USER
+echo "MAIL_USER='$MAIL_USER'" >> /usr/share/$USER/gmail
+echo "Please insert gmail password"
+read -s MAIL_PASSWORD
+echo "MAIL_PASSWORD='$MAIL_PASSWORD'" >> /usr/share/$USER/gmail
+echo "MAIL_FOLDER='INBOX'" >> /usr/share/$USER/gmail
+
