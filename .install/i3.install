@@ -18,3 +18,4 @@ make clean debug
 sudo make install
 cd -
 
+sudo apt-get insatll -y fonts-font-awesome
