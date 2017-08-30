@@ -16,3 +16,7 @@ read GIT_USER_EMAIL
 curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
 sudo apt-get install git-lfs
 
+echo "Install git tooling"
+sudo pip install diff-highlight
+sudo npm install -g diff-so-fancy
+

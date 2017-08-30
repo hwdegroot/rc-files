@@ -38,4 +38,3 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose | sudo tee /etc/bash_completion.d/compose
-curl -L https://raw.githubusercontent.com/moby/moby/master/contrib/completion/bash/docker | sudo tee /etc/bash_completion.d/docker
