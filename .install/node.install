@@ -6,5 +6,6 @@ sudo apt-get -y install nodejs
 sudo apt-get -y install build-essential
 
 echo "Install git tooling"
+sudo pip install diff-highlight
 sudo npm install -g diff-so-fancy
 

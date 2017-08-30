@@ -50,6 +50,6 @@ fi
 
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
 
+source /usr/local/lib/azure-cli/az.completion
 source <(minikube completion bash)
 source <(kubectl completion bash)
-source /usr/local/lib/azure-cli/az.completion

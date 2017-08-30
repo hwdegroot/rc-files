@@ -12,7 +12,7 @@ fi
 alias my-ip="wget http://ipinfo.io/ip -qO -"
 
 if [[ "$(which thefuck &>/dev/null || echo $?)" -ne 1 ]]; then
-  eval $(thefuck --alias)
+  eval $(thefuck --alias 2>/dev/null)
 fi
 
 alias logoff='pkill -KILL -u $USER'
@@ -34,7 +34,6 @@ if [[ $? -eq 0 ]];then
   alias v.cd='cdvirtualenv'
   alias v.lssitepackages='lssitepackages'
 fi
-
 # docker aliases
 alias docker-remove-images='docker images -qa | xargs -i docker rmi -f {}'
 alias docker-remove-containers='docker ps -qa | xargs -i docker rm -f {}'

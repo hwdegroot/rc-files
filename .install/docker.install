@@ -4,14 +4,12 @@ echo "Installing docker"
 sudo apt-get update
 sudo apt-get purge "lxc-docker*"
 sudo apt-get purge "docker.io"
-sudo apt-get -y install apt-transport-https ca-certificates
-sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+sudo apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
 
-sudo mkdir -p /etc/apt/sources.list.d
-echo "deb https://apt.dockerproject.org/repo debian-jessie main" | tee docker.list
-sudo mv docker.list /etc/apt/sources.list.d/docker.list
+ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 sudo apt-get update
-sudo apt-get install -y docker docker-engine
+sudo apt-get install -y docker-ce
 sudo pip install docker-compose
 
 echo "Tweak service"
@@ -40,4 +38,4 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose | sudo tee /etc/bash_completion.d/compose
-curl -L https://raw.githubusercontent.com/docker/docker/master/contrib/completion/bash/docker | sudo tee /etc/bash_completion.d/docker
+curl -L https://raw.githubusercontent.com/moby/moby/master/contrib/completion/bash/docker | sudo tee /etc/bash_completion.d/docker

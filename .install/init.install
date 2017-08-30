@@ -4,5 +4,5 @@ after="# su without a password"
 
 sudo sed -i "s/$after/$after\nauth      sufficient pam_succeed_if.so use_uid user = $username/g" /etc/pam.d/su
 
-sudo cp root/* ~root/
+sudo rsync -av ./root/ ~root/
 
