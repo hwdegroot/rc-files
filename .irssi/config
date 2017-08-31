@@ -384,19 +384,6 @@ statusbar = {
       };
     };
 
-    prompt = {
-
-      type = "root";
-      placement = "bottom";
-      position = "100";
-      visible = "always";
-
-      items = {
-        prompt = { priority = "-1"; };
-        prompt_empty = { priority = "-1"; };
-        input = { priority = "10"; };
-      };
-    };
 
     topic = {
 
@@ -411,6 +398,13 @@ statusbar = {
         topic_empty = { };
         topicbarend = { priority = "100"; alignment = "right"; };
       };
+    };
+    prompt = {
+      items = {
+        uberprompt = { priority = "-1"; };
+        input = { priority = "10"; };
+      };
+      position = "100";
     };
   };
 };
