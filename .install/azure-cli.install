@@ -6,7 +6,6 @@ sudo apt-key adv --keyserver packages.microsoft.com --recv-keys 417A0893
 sudo apt-get install apt-transport-https
 sudo apt-get update && sudo apt-get install azure-cli
 
-
 wget https://raw.githubusercontent.com/Azure/azure-cli/master/src/azure-cli/az.completion.sh
-mkdir -p /usr/local/bin/azure-cli/
+sudo mkdir -p /usr/local/lib/azure-cli/
 sudo mv az.completion.sh /usr/local/lib/azure-cli/az.completion

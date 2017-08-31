@@ -2,7 +2,7 @@
 echo "deb http://ppa.launchpad.net/ansible/ansible/ubuntu trusty main" | sudo tee /etc/apt/sources.list.d/ansible.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 93C4A3FD7BB9C367
 sudo apt-get update
-sudo apt-get install -y ansible
+sudo apt-get install -y --allow-unauthenticated ansible
 
 # Do not display ansible cowsay
 if [[ -z "$(grep '^export ANSIBLE_NOCOWS=1' /etc/environment)" ]]; then
