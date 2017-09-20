@@ -1,6 +1,32 @@
 #!/usr/bin/env bash
+echo "Install vim"
+sudo apt-get -y install \
+  curl \
+  vim-gnome \
+  python
+
+echo "Installing Ubuntu fonts"
+wget http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
+sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
+
+echo "Vim colors"
+mkdir -p ~/.vim/colors
+wget -O ~/.vim/colors/badwolf.vim https://raw.githubusercontent.com/sjl/badwolf/master/colors/badwolf.vim
+wget -O ~/.vim/colors/goodwolf.vim https://raw.githubusercontent.com/sjl/badwolf/master/colors/goodwolf.vim
+wget -O ~/.vim/colors/monokai.vim https://raw.githubusercontent.com/sickill/vim-monokai/master/colors/monokai.vim
+wget -O ~/.vim/colors/molokai.vim https://raw.githubusercontent.com/tomasr/molokai/master/colors/molokai.vim
+
+echo "Vim syntax"
+mkdir -p ~/.vim/syntax
+wget -O ~/.vim/syntax/nginx.vim https://raw.githubusercontent.com/vim-scripts/nginx.vim/master/syntax/nginx.vim
+
+echo "Vim plugin manager"
+mkdir -p ~/.vim/autoload/
+cd ~/.vim/autoload/
+curl -o ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 git clone git@github.com:Shougo/neocomplete.vim.git neocomplete
 cd neocomplete
+
 mkdir -p ~/.vim/{autoload,plugin,test,doc}
 rsync -av autoload/ ~/.vim/autoload/
 rsync -av plugin/ ~/.vim/plugin/
