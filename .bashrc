@@ -120,6 +120,9 @@ sudo chmod 0666 /sys/class/backlight/intel_backlight/brightness
 # Rust Cargo dir
 export PATH="$HOME/.cargo/bin:$PATH"
 
+# Docker Hub
+export DOCKER_HUB_USERNAME="hwdegroot"
+
 # NVM Home dir
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
