@@ -167,6 +167,9 @@ bindsym XF86AudioPause exec playerctl pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 
+# Simulate middle mouse with Ctrl+Shift+V
+bindsym Ctrl+Shift+v exec xdotool click 2
+
 # HDPI scaling
 exec xrandr --dpi 90
 # reset resolution to 1920x1080
