@@ -10,7 +10,7 @@ if [[ "${PACKAGE_COUNT}" -gt 0 ]]; then
   if [[ "${PACKAGE_COUNT}" -gt "${URGENT_VALUE}" ]]; then
     exit 33
   fi
-elif [[ -z "$APT_LIST" ]]; then
+elif [[ -z "${PACKAGE_COUNT}" ]]; then
   echo "!"
   echo "error updating packages"
   echo ""
