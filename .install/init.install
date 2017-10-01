@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+sudo apt-get update -qqy
+sudo apt-get install -yqq gpg dirmngr apt-transport-https
 username=$USER
 after="# su without a password"
 
