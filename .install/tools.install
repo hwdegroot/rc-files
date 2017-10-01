@@ -4,10 +4,8 @@ echo "Install remoting tools"
 sudo apt-get -y install \
   cowsay \
   curl \
-  dirmngr \
   lolcat \
   mtr-tiny \
-  xdotool \
   vifm \
   wget
 
