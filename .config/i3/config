@@ -171,10 +171,10 @@ bindsym XF86TouchpadToggle exec ~/.config/i3/toggletouchpad.sh # toggle touchpad
 bindsym Ctrl+Shift+v exec xdotool click 2
 
 # HDPI scaling
-#exec xrandr --dpi 90
+exec xrandr --dpi 90
 # reset resolution to 1920x1080
-#exec ~/.local/bin/output eDP-1 1920 1080 60.00
-exec ~/.local/bin/output eDP-1 3840 2160 60.00
+exec ~/.local/bin/output eDP-1 1920 1080 60.00
+#exec ~/.local/bin/output eDP-1 3840 2160 60.00
 
 # fix backlight file
 exec su -c "/bin/chmod 666 /sys/class/backlight/intel_backlight/brightness"

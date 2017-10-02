@@ -2,6 +2,7 @@
 
 echo "Install remoting tools"
 sudo apt-get -y install \
+  bc \
   cowsay \
   curl \
   lolcat \
