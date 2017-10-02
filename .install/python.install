@@ -10,12 +10,12 @@ sudo apt-get -y install \
   python-setuptools \
   python-psutil
 sudo easy_install pip
-sudo pip install \
+sudo -H pip install \
   virtualenv \
   virtualenvwrapper \
   aws \
   awscli
 
 echo "FUCK!!"
-sudo pip install thefuck
+sudo -H pip install thefuck
 

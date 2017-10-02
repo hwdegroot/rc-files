@@ -8,6 +8,6 @@ sudo wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo
 sudo wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
 
 sudo apt-get update
-sudo apt-get -y install dkms virtualbox-5.0
+sudo apt-get -y install dkms virtualbox-5.1
 
 wget -q https://raw.githubusercontent.com/Bash-it/bash-it/master/completion/available/virtualbox.completion.bash -O- | sudo tee /etc/bash_completion.d/vboxmanage
