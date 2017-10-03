@@ -20,3 +20,5 @@
 !.vim/bundle/Vundle.vim/*
 *.sw[a-z]
 
+.config/dconf/user
+

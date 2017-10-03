@@ -44,3 +44,5 @@ sudo systemctl poweroff
 SHUTDOWN
 sudo chmod +x /usr/bin/shutdown
 
+cp `dirname $0`/dconf/user ~/.config/dconf/user
+
