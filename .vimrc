@@ -272,3 +272,6 @@ augroup END
 
 " Completion
 let g:neocomplete#enable_at_startup = 1
+
+" File browser
+let g:netrw_liststyle = 3
