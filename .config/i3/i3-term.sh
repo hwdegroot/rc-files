@@ -1,9 +1,6 @@
 #!/bin/bash
 # i3 thread: https://faq.i3wm.org/question/150/how-to-launch-a-terminal-from-here/?answer=152#post-id-152
 
-#CMD='st -f "Inconsolata-g for Powerline:pixelsize=13:antialias=true:autohint=true"'
-#CMD=xterm
-CMD=gnome-terminal
 CWD=''
 
 # Get window ID
@@ -23,8 +20,7 @@ if [ -n "$PID" ]; then
   fi
 fi
 if [ -n "$CWD" ]; then
-  cd $CWD && eval $CMD
+  gnome-terminal --working-directory="$CWD"
 else
-  eval $CMD
+  gnome-terminal
 fi
-

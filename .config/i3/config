@@ -34,6 +34,7 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec ~/.config/i3/i3-term.sh
 
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
