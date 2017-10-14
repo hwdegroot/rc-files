@@ -1,0 +1,2 @@
+[[ -r $rvm_~/.rvm/scripts/completion ]] && . ~/.rvm/scripts/completion
+

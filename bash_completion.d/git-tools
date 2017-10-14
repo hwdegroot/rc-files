@@ -1,0 +1,4 @@
+if [[ -f ~/gittools/gittools.completion ]]; then
+  source ~/gittools/gittools.completion;
+fi
+

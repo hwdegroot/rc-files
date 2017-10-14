@@ -1,0 +1,2 @@
+complete -C cf_completion cf
+

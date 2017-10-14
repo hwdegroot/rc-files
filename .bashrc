@@ -151,4 +151,5 @@ if [[ -d /usr/local/go/bin ]]; then
   mkdir -p $GOPATH
 fi
 
+export PATH="$HOME/.cargo/bin:$PATH"
 export PLATFORMDIR=~/source
