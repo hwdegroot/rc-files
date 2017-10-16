@@ -33,7 +33,7 @@ Plug 'vim-scripts/LustyExplorer'
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim'
 Plug 'shawncplus/phpcomplete.vim'
-Plug 'm2mdas/phpcomplete-extended'
+"Plug 'm2mdas/phpcomplete-extended'
 "Plug 'm2mdas/phpcomplete-extended-laravel'
 Plug 'joonty/vdebug'
 Plug 'StanAngeloff/php.vim'
@@ -232,12 +232,8 @@ let g:airline_left_sep = '»'
 let g:airline_left_sep = '▶'
 let g:airline_right_sep = '«'
 let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
 let g:airline_symbols.linenr = '¶'
 let g:airline_symbols.branch = '⎇'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
@@ -261,9 +257,9 @@ let g:airline_symbols.space = "\ua0"
 
 " Put at the very end of your .vimrc file.
 let $PATH=$PATH . ':' . expand('./vendor/bin') . ':' . expand('~/.composer/vendor/bin')
-autocmd  FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
+"autocmd  FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
+"let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+"let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
 "function! PhpSyntaxOverride()
 "  hi! def link phpDocTags  phpDefine
 "  hi! def link phpDocParam phpType
