@@ -153,3 +153,6 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PLATFORMDIR=~/source
+if [[ -d $PLATFORMDIR/visualphpunit/bin ]]; then
+  export PATH=$PATH:${PLATFORMDIR}/visualphpunit/bin
+fi

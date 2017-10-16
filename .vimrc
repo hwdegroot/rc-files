@@ -32,8 +32,9 @@ Plug 'vim-scripts/LustyExplorer'
 " PHP stuf
 Plug 'Shougo/vimproc.vim'
 Plug 'Shougo/unite.vim'
+Plug 'shawncplus/phpcomplete.vim'
 Plug 'm2mdas/phpcomplete-extended'
-Plug 'm2mdas/phpcomplete-extended-laravel'
+"Plug 'm2mdas/phpcomplete-extended-laravel'
 Plug 'joonty/vdebug'
 Plug 'StanAngeloff/php.vim'
 " Theming
@@ -259,18 +260,19 @@ let g:airline_symbols.space = "\ua0"
 
 
 " Put at the very end of your .vimrc file.
-autocmd  FileType  php setlocal omnifunc=phpcomplete_extended_laravel#CompletePHP
+let $PATH=$PATH . ':' . expand('./vendor/bin') . ':' . expand('~/.composer/vendor/bin')
+autocmd  FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
-function! PhpSyntaxOverride()
-  hi! def link phpDocTags  phpDefine
-  hi! def link phpDocParam phpType
-endfunction
-
-augroup phpSyntaxOverride
-  autocmd!
-  autocmd FileType php call PhpSyntaxOverride()
-augroup END
+"function! PhpSyntaxOverride()
+"  hi! def link phpDocTags  phpDefine
+"  hi! def link phpDocParam phpType
+"endfunction
+"
+"augroup phpSyntaxOverride
+"  autocmd!
+"  autocmd FileType php call PhpSyntaxOverride()
+"augroup END
 
 " Completion
 let g:neocomplete#enable_at_startup = 1
