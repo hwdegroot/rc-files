@@ -156,3 +156,5 @@ export PLATFORMDIR=~/source
 if [[ -d $PLATFORMDIR/visualphpunit/bin ]]; then
   export PATH=$PATH:${PLATFORMDIR}/visualphpunit/bin
 fi
+
+export IPADDR=`ip addr show wlp2s0 | grep -Po "(?<=inet )[0-9]+(\.[0-9]+){3}"`
