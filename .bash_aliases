@@ -120,3 +120,4 @@ ssh_proxy() {
 }
 alias ssh-proxy='ssh_proxy'
 
+alias dc='./docker-compose.sh'
