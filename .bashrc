@@ -109,7 +109,6 @@ if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
   source $HOME/.bash_completion
 fi
 
-sudo chmod 0666 /sys/class/backlight/intel_backlight/brightness
 
 
 ############################################################################
@@ -153,8 +152,5 @@ fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PLATFORMDIR=~/source
-if [[ -d $PLATFORMDIR/visualphpunit/bin ]]; then
-  export PATH=$PATH:${PLATFORMDIR}/visualphpunit/bin
-fi
 
 export IPADDR=`ip addr show enp3s0 | grep -Po "(?<=inet )[0-9]+(\.[0-9]+){3}"`
