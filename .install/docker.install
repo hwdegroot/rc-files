@@ -16,19 +16,11 @@ echo "Tweak service"
 cat <<-OPTS | tee daemon.json
 {
   "insecure-registries": [
-    "docker-virtual.artifactory.srv.hq.mendix.net",
-    "docker-local.artifactory.srv.hq.mendix.net"
   ],
   "dns": [
-    "10.140.10.246",
-    "10.140.10.247",
     "8.8.8.8"
   ],
   "dns-search": [
-    "MENDIXDOMAIN.local",
-    "mendixdomain.local",
-    "srv.hq.mendix.net",
-    "rnd.hq.mendix.net"
   ]
 }
 OPTS
