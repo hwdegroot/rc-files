@@ -46,7 +46,7 @@ echo "Add stuff to xdebug"
 PHP_VERSION=`php --version | grep -Po  "[0-9]+.[0-9]+" | head -1`
 php --version
 echo "Using PHP version $PHP_VERSION"
-cat /etc/php/i$PHP_VERSION/mods-available/xdebug.ini
+cat /etc/php/$PHP_VERSION/mods-available/xdebug.ini
 sudo mv /etc/php/$PHP_VERSION/mods-available/xdebug.ini /etc/php/$PHP_VERSION/mods-available/xdebug.ini.bak
 sudo tee /etc/php/$PHP_VERSION/mods-available/xdebug.ini <<XDEBUG
 zend_extension=`find /usr/lib/php -name xdebug.so`

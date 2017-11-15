@@ -2,6 +2,3 @@
 for completion in ~/bash_completion.d/* ; do
   source $completion
 done
-
-source <(minikube completion bash)
-source <(kubectl completion bash)
