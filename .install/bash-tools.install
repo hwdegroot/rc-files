@@ -1,0 +1,9 @@
+#!/usr/bin.env bash
+
+cd ~
+git clone https://github.com/hkbakke/bash-insulter.git bash-insulte://github.com/hkbakke/bash-insulter.git bash-insulter
+. $HOME/bash-insulter/src/bash.command-not-found
+cd -
+
+sudo apt-get install -yqq sl
+

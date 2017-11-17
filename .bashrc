@@ -112,6 +112,10 @@ fi
 sudo chmod 0666 /sys/class/backlight/intel_backlight/brightness
 
 
+if [[ -f $HOME/bash-insulter/src/bash.command-not-found ]]; then
+  source $HOME/bash-insulter/src/bash.command-not-found
+fi
+
 ############################################################################
 ###                                                                      ###
 ##                            PATH VARIABLES                              ##
