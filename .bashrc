@@ -110,6 +110,10 @@ fi
 
 
 
+if [[ -f $HOME/bash-insulter/src/bash.command-not-found ]]; then
+  source $HOME/bash-insulter/src/bash.command-not-found
+fi
+
 ############################################################################
 ###                                                                      ###
 ##                            PATH VARIABLES                              ##
