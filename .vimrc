@@ -44,7 +44,9 @@ Plug 'ervandew/supertab'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'scrooloose/nerdtree'
+Plug 'pangloss/vim-javascript'
 call plug#end()            " required
+
 filetype plugin indent on    " required
 
 " Change end-of-line, space and tab characters.
@@ -100,8 +102,8 @@ set hlsearch
 " Start searching as soon as characters are entered
 set incsearch
 " turn off search highlight
-let hlstate=0
-nnoremap <F3> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
+"let hlstate=0
+"nnoremap <F3> :if (hlstate%2 == 0) \| nohlsearch \| else \| set hlsearch \| endif \| let hlstate=hlstate+1<cr>
 " show the matching part of the pair for [] {} and ()
 set showmatch
 
@@ -123,7 +125,7 @@ nnoremap <C-u> :GundoToggle<CR>
 " Insert date
 nnoremap <C-t> "=strftime("%Y/%m/%d")<CR>p
 nnoremap <C-T> "=strftime("%Y/%m/%d %H:%M:%S")<CR>p
-nnoremap <F12> :exe ':silent !chromium-browser %'<CR
+"nnoremap <F12> :exe ':silent !chromium-browser %'<CR
 
 "================================================================="
 "                    MAPPING CONFIGURATION
@@ -256,10 +258,10 @@ let g:airline_symbols.space = "\ua0"
 
 
 " Put at the very end of your .vimrc file.
-let $PATH=$PATH . ':' . expand('./vendor/bin') . ':' . expand('~/.composer/vendor/bin')
+"let $PATH=$PATH . ':' . expand('./vendor/bin') . ':' . expand('~/.composer/vendor/bin')
 "autocmd  FileType php setlocal omnifunc=phpcomplete_extended#CompletePHP
 "let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-"let g:phpcomplete_index_composer_command = "/usr/local/bin/composer"
+"let g:phpcomplete_index_composer_command = "composer"
 "function! PhpSyntaxOverride()
 "  hi! def link phpDocTags  phpDefine
 "  hi! def link phpDocParam phpType
@@ -271,7 +273,7 @@ let $PATH=$PATH . ':' . expand('./vendor/bin') . ':' . expand('~/.composer/vendo
 "augroup END
 
 " Completion
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 
 " File browser
 let g:netrw_liststyle = 3
@@ -287,3 +289,13 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 autocmd VimEnter * if &filetype !=# 'gitcommit' | NERDTree | endif
 let NERDTreeShowHidden=1
 set modifiable
+
+" Allows Vdebug to bind to all interfaces.
+"let g:vdebug_options = {}
+"
+"" Stops execution at the first line.
+"let g:vdebug_options['break_on_open'] = 1
+"let g:vdebug_options['max_children'] = 128
+"
+"" Use the compact window layout.
+"let g:vdebug_options['watch_window_style'] = 'compact'
