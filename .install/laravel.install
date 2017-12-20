@@ -27,6 +27,18 @@ wget http://download.redis.io/redis-stable.tar.gz
 tar xvzf redis-stable.tar.gz
 cd redis-stable
 make
+sudo make install
+
+sudo mkdir -p /var/redis/6379 /etc/redis
+sudo cp utils/redis_init_script /etc/init.d/redis_6379
+sed -i 's|daemonize no|daemonize yes|g' redis.conf
+sed -i 's|logfile ""|logfile /var/log/redis_6379.log|g' redis.conf
+sed -i 's|dir ./|dir /var/redis/6379|g' redis.conf
+sudo cp redis.conf /etc/redis/6379.conf
+sudo update-rc.d redis_6379 defaults
+sudo /etc/init.d/redis_6379 start
+cd ..
+rm -rf redis-server*
 
 echo "Install MySQL"
 sudo apt-get install -qqy mysql-server
