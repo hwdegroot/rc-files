@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+cd `dirname $0`
 sudo apt-get -qqy install php php-xdebug php-xml php-zip php-curl php-mbstring
 echo "Add stuff to xdebug"
 PHP_VERSION=`php --version | grep -Po  "[0-9]+.[0-9]+" | head -1`
@@ -32,4 +33,10 @@ xdebug.remote_handler=dbgp
 xdebug.remote_host=localhost
 xdebug.remote_port=9000
 XDEBUG
+
+sudo apt-get install -yyq nginx
+sudo rsync -av nginx/ /etc/nginx/
+sudo systemctl restart nginx
+curl -I http://localhost/nginx_status
+sudo apt-get install phpmyadmin
 
