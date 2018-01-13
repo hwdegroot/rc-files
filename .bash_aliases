@@ -73,6 +73,7 @@ fi
 alias ll='exa -alhF'
 alias la='exa -a'
 alias l='exa -hlF'
+alias vi='vim'
 
 gam() {
   git add ${@:1:$#-1} && git commit -m "${@:$#-1:1}"
