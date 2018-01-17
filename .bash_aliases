@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cd() {
+  builtin cd "$@"
+  pwd > /tmp/whereami
+}
+
 if [[ -f ~/gittools/.gittoolsrc ]]; then
   export PRE_FETCH=1
   export POST_PULL=1
