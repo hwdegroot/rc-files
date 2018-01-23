@@ -16,6 +16,11 @@
 #    below to your .bashrc after bash completion features are loaded
 #    . ~/.docker-compose-completion.sh
 
+command -v docker-compose
+
+if [[ $(($?)) -gt 0 ]]; then
+  exit 0
+fi
 
 __docker_compose_q() {
 	docker-compose 2>/dev/null "${top_level_options[@]}" "$@"

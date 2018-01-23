@@ -1,3 +1,9 @@
+#/bin/bash
+
+if [[ ! -d "$PLATFORMDIR" ]]; then
+  exit 0
+fi
+
 _pd() {
   pdir="$PLATFORMDIR"
   [[ -z "$pdir" ]] && pdir=$HOME/source/platform

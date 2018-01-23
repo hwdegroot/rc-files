@@ -1,2 +1,2 @@
-complete -C cf_completion cf
+command -v cf >/dev/null && complete -C cf_completion cf
 

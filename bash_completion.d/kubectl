@@ -1,2 +1,2 @@
-source <(kubectl completion bash)
+command -v kubectl >/dev/null && source <(kubectl completion bash)
 

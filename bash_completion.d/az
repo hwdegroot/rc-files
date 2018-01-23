@@ -1,2 +1,4 @@
-source /usr/local/lib/azure-cli/az.completion
+if [[ -f /usr/local/lib/share/azure-cli/az.completion ]]; then
+  source /usr/local/lib/azure-cli/az.completion
+fi
 

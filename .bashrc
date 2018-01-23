@@ -109,8 +109,9 @@ if [[ -f $HOME/.bash_completion ]] && ! shopt -oq posix; then
   source $HOME/.bash_completion
 fi
 
-sudo chmod 0666 /sys/class/backlight/intel_backlight/brightness
-
+if [[ -f /sys/class/backlight/intel_backlight/brightness ]]; then
+  sudo chmod 0666 /sys/class/backlight/intel_backlight/brightness
+fi
 
 if [[ -f $HOME/bash-insulter/src/bash.command-not-found ]]; then
   source $HOME/bash-insulter/src/bash.command-not-found
@@ -139,26 +140,26 @@ export DOCKER_RUN_OPTS="-it -v `pwd`:`pwd` -w `pwd` -u `id -u`:`id -g`"
 
 # RVM stuff
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
-export GEM_HOME=$HOME/.rvm/rubies/default/gems
-export GEM_PATH=$GEM_HOME
-export PATH=$PATH:$HOME/.rvm/bin
+if [[ -d $HOME/.rvm/rubies/default/gems ]]; then
+  export GEM_HOME=$HOME/.rvm/rubies/default/gems
+  export GEM_PATH=$GEM_HOME
+  export PATH=$PATH:$HOME/.rvm/bin
+  export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
+fi
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin
 export PATH=$PATH:/sbin:/usr/sbin:/usr/local/sbin:/bin:/usr/bin:/usr/local/bin
-export PATH=$GEM_HOME/bin:$HOME/.rvm/rubies/default/bin:$PATH
 
 # laravel
-export PATH=$PATH:/home/rik/.composer/vendor/bin
+[[ -d $HOME/.composer/vendor/bin ]] && export PATH=$PATH:$HOME/.composer/vendor/bin
 
 if [[ -d /usr/local/go/bin ]]; then
   export GOPATH=$HOME/Go
   export PATH=$PATH:$GOPATH/bin:/usr/local/go/bin
   mkdir -p $GOPATH
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
+[[ -d $HOME/.cargo/bin ]] && export PATH="$HOME/.cargo/bin:$PATH"
 export PLATFORMDIR=~/source
 if [[ -d $PLATFORMDIR/visualphpunit/bin ]]; then
   export PATH=$PATH:${PLATFORMDIR}/visualphpunit/bin
 fi
 
-export IPADDR=`ip addr show wlp2s0 | grep -Po "(?<=inet )[0-9]+(\.[0-9]+){3}"`

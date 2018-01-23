@@ -1,2 +1,2 @@
-source <(npm completion)
+comand -v npm >/dev/null && source <(npm completion)
 
