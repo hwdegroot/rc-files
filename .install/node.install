@@ -2,7 +2,7 @@
 set +x
 
 echo "Installing node/npm"
-curl -sL https://deb.nodesource.com/setup_8.x | sudo bash -
+curl -sL https://deb.nodesource.com/setup_9.x | sudo bash -
 sudo apt-get -y install nodejs
 sudo apt-get -y install build-essential
 

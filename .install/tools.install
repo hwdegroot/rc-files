@@ -7,7 +7,7 @@ sudo apt-get -y install \
   curl \
   lolcat \
   mtr-tiny \
-  vifm \
+  #vifm \
   wget
 
 echo "Installing Ubuntu fonts"
@@ -17,26 +17,21 @@ sudo dpkg -i ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
 echo "Effectiveness tools"
 sudo apt-get -y install strace mc htop
 
-echo "Installing slack"
-wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
-sudo dpkg -i slack-desktop-2.1.0-amd64.deb
-
-echo "Install openvpn"
-sudo apt-get -y install openvpn
+#echo "Installing slack"
+#wget https://downloads.slack-edge.com/linux_releases/slack-desktop-2.1.0-amd64.deb
+#sudo dpkg -i slack-desktop-2.1.0-amd64.deb
 
 echo "installing temp shizzle"
 sudo apt-get -y install lm-sensors
 sensors-detect
-
-sudo update-alternatives --set x-terminal-emulator /usr/bin/xterm
 
 echo "Applying Xresources"
 xrdb -merge ~/.Xresources
 
 sudo ln -fs $HOME/.local/share/logoff /usr/bin/logoff
 
-echo "Gnome pomodoro"
-sudo apt-get install gnome-shell-pomodoro
+#echo "Gnome pomodoro"
+#sudo apt-get install gnome-shell-pomodoro
 
 cat <<-SHUTDOWN | sudo tee /usr/bin/shutdown
 #!/usr/bin/env bash
@@ -45,4 +40,3 @@ SHUTDOWN
 sudo chmod +x /usr/bin/shutdown
 
 cp `dirname $0`/dconf/user ~/.config/dconf/user
-

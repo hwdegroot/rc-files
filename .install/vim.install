@@ -1,4 +1,4 @@
-#!/user/bin/env bash
+#!/usr/bin/env bash
 cd `dirname $0`
 
 rm -rf vim
@@ -55,6 +55,17 @@ cd ..
   --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
   --with-ruby-command=/usr/bin/ruby \
   --with-x
+
+sudo apt install checkinstall
+cd ~/vim
+sudo checkinstall
+sudo make install
+sudo ln -s /usr/local/bin/vim /usr/bin/vim
+
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/vim 1
+sudo update-alternatives --set editor /usr/bin/vim
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/vim 1
+sudo update-alternatives --set vi /usr/bin/vim
 
 echo "Installing Ubuntu fonts"
 wget http://nl.archive.ubuntu.com/ubuntu/pool/main/u/ubuntu-font-family-sources/ttf-ubuntu-font-family_0.80-0ubuntu2_all.deb
