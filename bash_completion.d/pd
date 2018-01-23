@@ -1,9 +1,5 @@
 #/bin/bash
 
-if [[ ! -d "$PLATFORMDIR" ]]; then
-  exit 0
-fi
-
 _pd() {
   pdir="$PLATFORMDIR"
   [[ -z "$pdir" ]] && pdir=$HOME/source/platform
@@ -44,5 +40,5 @@ __pd() {
   done
   COMPREPLY=( "${COMP_REPLY[@]}" )
 }
-complete -o nospace -F __pd pd
+[[ ! -d "$PLATFORMDIR" ]] && complete -o nospace -F __pd pd
 

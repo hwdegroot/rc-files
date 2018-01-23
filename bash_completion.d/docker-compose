@@ -16,11 +16,6 @@
 #    below to your .bashrc after bash completion features are loaded
 #    . ~/.docker-compose-completion.sh
 
-command -v docker-compose
-
-if [[ $(($?)) -gt 0 ]]; then
-  exit 0
-fi
 
 __docker_compose_q() {
 	docker-compose 2>/dev/null "${top_level_options[@]}" "$@"
@@ -630,5 +625,4 @@ _docker_compose() {
 	eval "$previous_extglob_setting"
 	return 0
 }
-
-complete -F _docker_compose docker-compose docker-compose.exe ./docker-compose.sh docker-compose.sh dc
+command -v docker-compose >/dev/null && complete -F _docker_compose docker-compose docker-compose.exe ./docker-compose.sh docker-compose.sh dc
