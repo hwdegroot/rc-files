@@ -145,6 +145,12 @@ bar {
   position top
 }
 
+# scrot & gimp - root
+bindsym Print exec scrot -e 'mv $f ~/Pictures/ && gimp ~/Pictures/$f'
+# scrot & gimp - select window or rectangle
+bindsym $mod+Print exec scrot -s -e 'mv $f ~/Pictures/ && gimp ~/Pictures/$f'
+
+
 # lock screen after 3 minutes
 bindsym $mod+l exec ~/.config/i3/lock.sh
 exec --no-startup-id xautolock -time 5 -locker /home/rik/.config/i3/lock.sh -detectsleep
