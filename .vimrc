@@ -45,6 +45,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'scrooloose/nerdtree'
 Plug 'pangloss/vim-javascript'
+"BAMBAMBAM SQL support
+Plug 'tpope/vim-dadbod'
 call plug#end()            " required
 
 filetype plugin indent on    " required
