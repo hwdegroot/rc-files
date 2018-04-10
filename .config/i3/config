@@ -188,7 +188,7 @@ exec su -c "/bin/chmod 666 /sys/class/backlight/intel_backlight/brightness"
 # startup applets
 exec --no-startup-id nm-applet
 #exec --no-startup-id blueman-applet
-exec --no-startup-id mail-notification
+#exec --no-startup-id mail-notification
 
 # Gnome pomodoro timert
 #exec --no-startup-id gnome-pomodoro
