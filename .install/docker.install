@@ -30,3 +30,38 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 
 curl -L https://raw.githubusercontent.com/docker/compose/master/contrib/completion/bash/docker-compose | sudo tee /etc/bash_completion.d/compose
+
+cat <<-'WIPE_DOCKER_CACHE' | sudo tee /usr/sbin/wipe-docker-cache
+#!/bin/bash
+set -e
+
+function onexit {
+  echo "Restarting docker..."
+  systemctl start docker
+  echo "Docker active: `systemctl is-active docker`"
+
+  echo "Restarting gitlab-runner..."
+  gitlab-runner start
+  gitlab-runner status
+}
+
+trap onexit ERR
+
+echo "Stopping gitlab-runner..."
+gitlab-runner stop
+
+echo "Stopping docker via systemd..."
+systemctl stop docker
+
+echo "Clearing any virtual networks..."
+ip addr | grep -Po "veth.*(?=@)" | xargs -i -r ip link delete {}
+
+echo "Initial docker wipe"
+rm -rf /var/lib/docker 2>&1 | grep -Po "(?<=')/var/lib/docker/.*(?=')" | xargs -r -i umount {}
+rm -rf /var/lib/docker
+
+onexit
+
+WIPE_DOCKER_CACHE
+
+sudo chmod +x /usr/sbin/wipe-docker-cache
